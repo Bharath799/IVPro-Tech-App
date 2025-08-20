@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IV Pro Tech Solution</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        color: #fff;
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      header img {
+        width: 220px;
+        max-width: 90%;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        background-color: #1a1a1a;
+        padding: 15px 0;
+      }
+
+      nav a {
+        color: #00e0ff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        padding: 60px 20px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.3em;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 50px 20px;
+        text-align: center;
+      }
+
+      .section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+
+      .section p {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .dashboard {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 30px;
+        width: 280px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .card h3 {
+        margin-bottom: 15px;
+      }
+
+      footer {
+        background-color: #111;
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 1em;
+      }
+
+      footer a {
+        color: #00e0ff;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img src="images/Logo_PNG.png" alt="IV Pro Tech Solution Logo" />
+    </header>
+
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#dashboard">Dashboards</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero">
+      <h1>IV Pro Tech Solution</h1>
+      <p>
+        We provide innovative software solutions tailored to your business needs
+        — from mobile and web development to enterprise applications and custom
+        tools.
+      </p>
+    </section>
+
+    <section class="section" id="services">
+      <h2>Our Services</h2>
+      <p>
+        Web Applications | Mobile Apps | Custom Software | Cloud Solutions |
+        Tech Consulting | Maintenance & Support
+      </p>
+    </section>
+
+    <section class="section" id="about">
+      <h2>About Us</h2>
+      <p>
+        IV Pro Tech Solution is a dedicated team of tech experts driven by a
+        passion for building impactful digital products. We believe in quality,
+        transparency, and timely delivery.
+      </p>
+    </section>
+
+    <section class="section" id="dashboard">
+      <h2>Project Dashboards</h2>
+      <div class="dashboard">
+        <div class="card">
+          <h3>Admin Panel</h3>
+          <p>
+            Manage users, analytics, access control, and content seamlessly from
+            a single dashboard.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Client Portal</h3>
+          <p>
+            Secure platform for your clients to view progress, milestones,
+            reports, and collaborate easily.
+          </p>
+        </div>
+        <div class="card">
+          <h3>HR Dashboard</h3>
+          <p>
+            Track employee data, leave, payroll, recruitment status, and
+            performance metrics.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Finance Dashboard</h3>
+          <p>
+            Monitor expenses, revenue, invoices, and get visual insights for
+            strategic decisions.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Sales Tracker</h3>
+          <p>
+            Pipeline management, lead conversion tracking, and forecasting in
+            one place.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact Us</h2>
+      <p>Reach out today to discuss your next project.</p>
+      <p>
+        Email: <a href="mailto:bharathgbd1@gmail.com">bharathgbd1@gmail.com</a>
+      </p>
+      <p>Phone: <a href="tel:+917996640098">+91 79966 40098</a></p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 IV Pro Tech Solution. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
