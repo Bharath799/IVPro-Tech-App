@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IV Pro Tech Solution</title>
-    <meta name="description" content="IV Pro Tech Solution — Enterprise-grade web & mobile development, custom software, cloud, dashboards, and consulting." />
+    <title>IVPRO TECH SOLUTIONS</title>
+    <meta name="description" content="IVPRO TECH SOLUTIONS — Enterprise-grade web & mobile development, custom software, cloud, dashboards, and consulting." />
     <meta name="theme-color" content="#0f172a" />
     <!-- Favicon: place at /images/favicon.ico -->
     <style>
@@ -44,7 +44,6 @@
         -moz-osx-font-smoothing: grayscale;
       }
 
-      /* Layout helpers */
       .container{max-width:var(--container); margin-inline:auto; padding:0 20px}
       .section{padding:72px 0}
       .section-sm{padding:42px 0}
@@ -59,14 +58,11 @@
       a.link{color:var(--primary); text-decoration:none}
       a.link:hover{text-decoration:underline}
 
-      /* Header */
       header.site{
         position:sticky; top:0; z-index:50; backdrop-filter: saturate(140%) blur(10px);
         background:rgba(11,18,32,.65); border-bottom:1px solid rgba(255,255,255,.06)
       }
-      .nav{
-        display:flex; align-items:center; justify-content:space-between; height:68px
-      }
+      .nav{display:flex; align-items:center; justify-content:space-between; height:68px}
       .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
       .brand img{height:34px; width:auto; display:block}
       .brand span{font-weight:800; letter-spacing:.02em}
@@ -77,47 +73,24 @@
       .nav-cta{display:flex; gap:12px; align-items:center}
       .nav.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.35)}
 
-      /* Hero */
       .hero{padding:86px 0 42px; position:relative; overflow:hidden}
-      .hero::after{
-        content:""; position:absolute; inset:0;
-        background:var(--grad); pointer-events:none; opacity:.7
-      }
+      .hero::after{content:""; position:absolute; inset:0; background:var(--grad); pointer-events:none; opacity:.7}
       .hero-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:36px; align-items:center}
       .hero h1{font-size: clamp(2rem, 4vw, 3rem); line-height:1.15; margin:14px 0 14px}
       .hero p{color:var(--muted); font-size: clamp(1rem, 1.2vw, 1.15rem)}
       .hero-cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-      .mock{
-        position:relative; aspect-ratio: 4/3; border-radius:18px; overflow:hidden;
-        background:
-          radial-gradient(600px 300px at 80% 20%, rgba(124,92,255,.25), transparent 60%),
-          radial-gradient(600px 300px at 10% 90%, rgba(0,224,255,.22), transparent 60%),
-          linear-gradient(135deg, #0b1830, #0b1426);
-        border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow)
-      }
-      .mock::before{
-        content:""; position:absolute; inset:8px; border-radius:14px;
-        background:
-          linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
-          repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 80px);
-        border:1px solid rgba(255,255,255,.06)
-      }
-      .mock-badge{
-        position:absolute; right:14px; top:14px; background:rgba(124,92,255,.18);
-        border:1px solid rgba(124,92,255,.35); color:#dcd7ff; padding:8px 12px; border-radius:999px; font-weight:700
-      }
+      .mock{position:relative; aspect-ratio:4/3; border-radius:18px; overflow:hidden; background:
+        radial-gradient(600px 300px at 80% 20%, rgba(124,92,255,.25), transparent 60%),
+        radial-gradient(600px 300px at 10% 90%, rgba(0,224,255,.22), transparent 60%),
+        linear-gradient(135deg, #0b1830, #0b1426);
+        border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow)}
+      .mock::before{content:""; position:absolute; inset:8px; border-radius:14px; background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 80px);
+        border:1px solid rgba(255,255,255,.06)}
+      .mock-badge{position:absolute; right:14px; top:14px; background:rgba(124,92,255,.18);
+        border:1px solid rgba(124,92,255,.35); color:#dcd7ff; padding:8px 12px; border-radius:999px; font-weight:700}
 
-      /* Logos strip */
-      .logos{opacity:.9}
-      .logo-row{
-        display:flex; gap:28px; flex-wrap:wrap; align-items:center; justify-content:center;
-        padding:18px; border-radius:12px; border:1px dashed rgba(255,255,255,.1);
-        background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01))
-      }
-      .logo-row img{height:28px; opacity:.8; filter: grayscale(100%) contrast(130%); transition:opacity .2s}
-      .logo-row img:hover{opacity:1}
-
-      /* Sections */
       .grid-3{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px}
       .grid-4{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:18px}
       .grid-2{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:18px}
@@ -127,43 +100,32 @@
             box-shadow: var(--shadow)}
       .card h3{margin:10px 0 8px; font-size:1.05rem}
       .card p{color:var(--muted)}
-      .icon{
-        width:38px; height:38px; border-radius:10px; display:grid; place-items:center;
+      .icon{width:38px; height:38px; border-radius:10px; display:grid; place-items:center;
         background:linear-gradient(135deg, rgba(0,224,255,.25), rgba(124,92,255,.25));
-        border:1px solid rgba(255,255,255,.08)
-      }
+        border:1px solid rgba(255,255,255,.08)}
 
-      /* Stats band */
       .stats{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px}
       .stat{padding:18px; border:1px solid rgba(255,255,255,.08); border-radius:12px; background:rgba(255,255,255,.03); text-align:center}
       .stat strong{font-size:1.6rem}
       .stat span{display:block; color:var(--muted)}
 
-      /* Case studies / Testimonials */
       .cards-row{display:grid; grid-template-columns: repeat(3, 1fr); gap:18px}
       .quote{font-style:italic; color:#d6dbeb}
       .avatar{display:flex; align-items:center; gap:10px; margin-top:12px}
       .avatar img{width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,.15)}
       .avatar div{line-height:1.2}
 
-      /* FAQ */
       .faq{display:grid; grid-template-columns: 1.1fr .9fr; gap:24px}
-      details.faq-item{
-        border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:16px 18px; background:rgba(255,255,255,.03)
-      }
+      details.faq-item{border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:16px 18px; background:rgba(255,255,255,.03)}
       details.faq-item summary{cursor:pointer; font-weight:700}
       details.faq-item p{color:var(--muted); margin-top:10px}
 
-      /* Contact */
       .contact-wrap{display:grid; grid-template-columns: 1fr 1fr; gap:24px}
       .form{display:grid; gap:12px}
-      .input{
-        background:rgba(255,255,255,.04); color:var(--text); border:1px solid rgba(255,255,255,.12);
-        border-radius:12px; padding:12px 14px; outline:none
-      }
+      .input{background:rgba(255,255,255,.04); color:var(--text); border:1px solid rgba(255,255,255,.12);
+        border-radius:12px; padding:12px 14px; outline:none}
       .input:focus{box-shadow: var(--ring); border-color:var(--primary)}
 
-      /* Footer */
       footer{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border-top:1px solid rgba(255,255,255,.06)}
       .foot{display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:24px; padding:32px 0}
       .foot h4{margin:0 0 12px; font-size:1rem}
@@ -171,7 +133,6 @@
       .foot a:hover{color:var(--text)}
       .sub{border-top:1px solid rgba(255,255,255,.06); padding:18px 0; color:var(--muted); font-size:.95rem}
 
-      /* Responsive */
       @media (max-width: 1024px){
         .hero-grid{grid-template-columns: 1fr}
         .faq{grid-template-columns: 1fr}
@@ -185,7 +146,6 @@
         .nav-links{display:none}
         .menu-btn{display:block}
         .grid-3, .grid-4, .grid-2, .cards-row, .stats{grid-template-columns: 1fr}
-        .logo-row img{height:22px}
         .foot{grid-template-columns: 1fr}
       }
     </style>
@@ -197,8 +157,8 @@
     <header class="site">
       <div class="container nav" id="top">
         <a class="brand" href="#">
-          <img src="images/Logo_PNG.png" alt="IV Pro Tech Solution logo" />
-          <span>IV Pro Tech Solution</span>
+          <img src="images/Logo_PNG.png" alt="IVPRO TECH SOLUTIONS logo" />
+          <span>IVPRO TECH SOLUTIONS</span>
         </a>
 
         <nav class="nav-links" aria-label="Primary">
@@ -210,7 +170,7 @@
         </nav>
 
         <div class="nav-cta">
-          <a class="btn btn-ghost" href="mailto:bharathgbd1@gmail.com">Email</a>
+          <a class="btn btn-ghost" href="mailto:info@ivprotech.com">Email</a>
           <a class="btn btn-primary" href="#contact">Get free consult</a>
           <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰</button>
         </div>
@@ -242,24 +202,10 @@
               <a class="btn btn-primary" href="#contact">Start a project →</a>
               <a class="btn btn-ghost" href="#services">Explore services</a>
             </div>
-            <div style="margin-top:16px; color:var(--muted)">Email: <a class="link" href="mailto:bharathgbd1@gmail.com">bharathgbd1@gmail.com</a> • Phone: <a class="link" href="tel:+917996640098">+91 79966 40098</a></div>
+            <div style="margin-top:16px; color:var(--muted)">Email: <a class="link" href="mailto:info@ivprotech.com">info@ivprotech.com</a> • Phone: <a class="link" href="tel:+917996640098">+91 79966 40098</a></div>
           </div>
           <div class="mock">
             <div class="mock-badge">Live dashboards</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Logos -->
-      <section class="section logos">
-        <div class="container">
-          <div class="logo-row">
-            <!-- Replace with actual partner/client logos -->
-            <img src="images/partner1.png" alt="Partner 1" />
-            <img src="images/partner2.png" alt="Partner 2" />
-            <img src="images/partner3.png" alt="Partner 3" />
-            <img src="images/partner4.png" alt="Partner 4" />
-            <img src="images/partner5.png" alt="Partner 5" />
           </div>
         </div>
       </section>
@@ -358,10 +304,29 @@
           <span class="eyebrow">About us</span>
           <h2 style="margin:8px 0 12px">Quality, transparency, and on‑time delivery</h2>
           <p style="color:var(--muted); margin-bottom:18px">
-            IV Pro Tech Solution is a dedicated team of tech experts driven by a passion for building impactful digital products across web, mobile, and cloud.
-            We believe in craftsmanship, clear communication, and shipping reliably with measurable outcomes.
+            IVPRO TECH SOLUTIONS is a dedicated team of tech experts driven by a passion for building impactful digital products across web, mobile, and cloud. We believe in craftsmanship, clear communication, and shipping reliably with measurable outcomes.
           </p>
-          <div class="grid-3">
+
+          <!-- Developers -->
+          <div class="grid-3" style="margin-top:8px">
+            <div class="card">
+              <div class="icon">💻</div>
+              <h3>Developer</h3>
+              <p>Bharath</p>
+            </div>
+            <div class="card">
+              <div class="icon">💻</div>
+              <h3>Developer</h3>
+              <p>Naveen</p>
+            </div>
+            <div class="card">
+              <div class="icon">💻</div>
+              <h3>Developer</h3>
+              <p>Chandrashekara</p>
+            </div>
+          </div>
+
+          <div class="grid-3" style="margin-top:18px">
             <div class="card">
               <div class="icon">🧭</div>
               <h3>Outcome‑first</h3>
@@ -412,28 +377,28 @@
       <section class="section">
         <div class="container">
           <span class="eyebrow">Testimonials</span>
-          <h2 style="margin:8px 0 12px">What partners say</h2>
-          <div class="cards-row">
-            <div class="card">
-              <p class="quote">“Excellent execution under tight timelines. The dashboards gave leadership real‑time visibility.”</p>
-              <div class="avatar">
-                <img src="images/avatar1.jpg" alt="Client avatar"/>
-                <div><strong>Program Manager</strong><br/><span style="color:var(--muted)">SaaS Company</span></div>
-              </div>
+          <h2 style="margin:8px 0 12px">What clients say</h2>
+        </div>
+        <div class="container cards-row">
+          <div class="card">
+            <p class="quote">“Excellent execution under tight timelines. The dashboards gave leadership real‑time visibility.”</p>
+            <div class="avatar">
+              <img src="images/avatar1.jpg" alt="Client avatar"/>
+              <div><strong>Program Manager</strong><br/><span style="color:var(--muted)">SaaS Company</span></div>
             </div>
-            <div class="card">
-              <p class="quote">“The team ships reliably and communicates risks early. Highly recommend for complex builds.”</p>
-              <div class="avatar">
-                <img src="images/avatar2.jpg" alt="Client avatar"/>
-                <div><strong>CTO</strong><br/><span style="color:var(--muted)">Fintech</span></div>
-              </div>
+          </div>
+          <div class="card">
+            <p class="quote">“The team ships reliably and communicates risks early. Highly recommend for complex builds.”</p>
+            <div class="avatar">
+              <img src="images/avatar2.jpg" alt="Client avatar"/>
+              <div><strong>CTO</strong><br/><span style="color:var(--muted)">Fintech</span></div>
             </div>
-            <div class="card">
-              <p class="quote">“A thoughtful partner who balances velocity with engineering quality and security.”</p>
-              <div class="avatar">
-                <img src="images/avatar3.jpg" alt="Client avatar"/>
-                <div><strong>Head of Product</strong><br/><span style="color:var(--muted)">Retail</span></div>
-              </div>
+          </div>
+          <div class="card">
+            <p class="quote">“A thoughtful partner who balances velocity with engineering quality and security.”</p>
+            <div class="avatar">
+              <img src="images/avatar3.jpg" alt="Client avatar"/>
+              <div><strong>Head of Product</strong><br/><span style="color:var(--muted)">Retail</span></div>
             </div>
           </div>
         </div>
@@ -473,13 +438,19 @@
             <p style="color:var(--muted)">Reach out to discuss the next project, timelines, and milestones.</p>
 
             <div class="card" style="margin-top:14px">
-              <p><strong>Email:</strong> <a class="link" href="mailto:bharathgbd1@gmail.com">bharathgbd1@gmail.com</a></p>
+              <p><strong>Email:</strong> <a class="link" href="mailto:info@ivprotech.com">info@ivprotech.com</a></p>
               <p><strong>Phone:</strong> <a class="link" href="tel:+917996640098">+91 79966 40098</a></p>
+              <p><strong>Address:</strong><br/>
+                IVPRO TECH SOLUTIONS<br/>
+                No.26, 3rd Floor, 4th Main Road, Duo Marvel Layout,<br/>
+                Ananthapura, Yelahanka,<br/>
+                BENGALURU – 560064
+              </p>
               <p><strong>Hours:</strong> Mon–Sat, 10am–7pm IST</p>
             </div>
           </div>
 
-          <form class="form shadow-card" onsubmit="event.preventDefault(); window.location.href='mailto:bharathgbd1@gmail.com?subject=Project%20enquiry%20from%20website';">
+          <form class="form shadow-card" onsubmit="event.preventDefault(); window.location.href='mailto:info@ivprotech.com?subject=Project%20enquiry%20from%20website';">
             <label>
               <span>Name</span>
               <input class="input" type="text" name="name" placeholder="Full name" required />
@@ -502,10 +473,17 @@
       <div class="container foot">
         <div>
           <a class="brand" href="#">
-            <img src="images/Logo_PNG.png" alt="IV Pro Tech Solution logo" />
-            <span>IV Pro Tech Solution</span>
+            <img src="images/Logo_PNG.png" alt="IVPRO TECH SOLUTIONS logo" />
+            <span>IVPRO TECH SOLUTIONS</span>
           </a>
           <p style="color:var(--muted); margin-top:10px">Innovative software solutions tailored to business needs — web, mobile, dashboards, and cloud.</p>
+          <p style="color:var(--muted); margin-top:10px">
+            <strong>Registered address</strong><br/>
+            IVPRO TECH SOLUTIONS<br/>
+            No.26, 3rd Floor, 4th Main Road, Duo Marvel Layout,<br/>
+            Ananthapura, Yelahanka,<br/>
+            BENGALURU – 560064
+          </p>
         </div>
         <div>
           <h4>Company</h4>
@@ -534,22 +512,20 @@
       </div>
       <div class="container sub">
         <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
-          <span>© 2025 IV Pro Tech Solution. All rights reserved.</span>
+          <span>© 2025 IVPRO TECH SOLUTIONS. All rights reserved.</span>
           <span><a class="link" href="#top">Back to top ↑</a></span>
         </div>
       </div>
     </footer>
 
     <script>
-      // Mobile drawer
       const menuBtn = document.getElementById('menuBtn');
       const drawer = document.getElementById('drawer');
       let open = false;
       function toggleDrawer(){ open = !open; drawer.style.display = open ? 'block' : 'none'; }
-      menuBtn.addEventListener('click', toggleDrawer);
-      drawer.addEventListener('click', (e)=>{ if(e.target.tagName === 'A') toggleDrawer(); });
+      if(menuBtn){ menuBtn.addEventListener('click', toggleDrawer); }
+      if(drawer){ drawer.addEventListener('click', (e)=>{ if(e.target.tagName === 'A') toggleDrawer(); }); }
 
-      // Sticky shadow after scroll
       const header = document.querySelector('.nav');
       const onScroll = () => {
         if (window.scrollY > 10) header.classList.add('scrolled');
@@ -557,7 +533,6 @@
       };
       document.addEventListener('scroll', onScroll, { passive: true });
 
-      // Smooth scroll for internal links with header offset
       function smoothTo(id){
         const el = document.querySelector(id);
         if(!el) return;
