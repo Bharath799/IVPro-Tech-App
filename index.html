@@ -2,550 +2,568 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IVPRO TECH SOLUTIONS</title>
-    <meta name="description" content="IVPRO TECH SOLUTIONS — Enterprise-grade web & mobile development, custom software, cloud, dashboards, and consulting." />
-    <meta name="theme-color" content="#0f172a" />
-    <!-- Favicon: place at /images/favicon.ico -->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>IVPRO Tech Solutions - AI for OEMs & Beyond</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
-      :root{
-        --bg:#0b1220;
-        --bg-soft:#0f172a;
-        --elev:#0f1b33;
-        --card:#0f1a2b;
-        --text:#e7ecf5;
-        --muted:#a9b2c3;
-        --primary:#00e0ff;
-        --accent:#7c5cff;
-        --success:#22c55e;
-        --warning:#f59e0b;
-        --danger:#ef4444;
-        --ring: 0 0 0 3px rgba(0,224,255,.25);
-        --radius:14px;
-        --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03);
-        --container:1200px;
-        --grad: radial-gradient(1200px 600px at 80% -10%, rgba(124,92,255,.2), transparent 60%),
-                radial-gradient(800px 400px at 10% 10%, rgba(0,224,255,.18), transparent 60%),
-                linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+      :root {
+        --footer-height: 72px; /* adjust if you change footer padding */
       }
-      *{box-sizing:border-box}
-      html,body{height:100%}
-      body{
-        margin:0;
-        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-        color:var(--text);
-        background:
-          radial-gradient(900px 600px at 100% 0%, rgba(124,92,255,.25), transparent 60%),
-          radial-gradient(900px 600px at 0% 0%, rgba(0,224,255,.20), transparent 60%),
-          linear-gradient(180deg, #0b1220, #0c1526 40%, #0b1220 100%);
-        background-color:var(--bg);
-        line-height:1.6;
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        background: #f8fafc;
+      }
+      main {
+        flex: 1 0 auto; /* grow */
+        padding-bottom: calc(var(--footer-height) + 40px);
+        box-sizing: border-box;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2563eb;
+        border-radius: 4px;
       }
 
-      .container{max-width:var(--container); margin-inline:auto; padding:0 20px}
-      .section{padding:72px 0}
-      .section-sm{padding:42px 0}
-      .eyebrow{letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:600; font-size:.78rem}
-      .shadow-card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); box-shadow:var(--shadow)}
-      .pill{display:inline-flex; gap:8px; align-items:center; border-radius:999px; padding:8px 12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08)}
-      .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; font-weight:700; letter-spacing:.02em; text-decoration:none; transition:all .2s ease; border:1px solid transparent}
-      .btn-primary{background:linear-gradient(135deg, var(--primary), #6bf3ff); color:#051018; box-shadow:0 10px 30px rgba(0,224,255,.25)}
-      .btn-primary:hover{transform:translateY(-1px)}
-      .btn-ghost{background:transparent; color:var(--text); border-color:rgba(255,255,255,.18)}
-      .btn-ghost:hover{background:rgba(255,255,255,.06)}
-      a.link{color:var(--primary); text-decoration:none}
-      a.link:hover{text-decoration:underline}
-
-      header.site{
-        position:sticky; top:0; z-index:50; backdrop-filter: saturate(140%) blur(10px);
-        background:rgba(11,18,32,.65); border-bottom:1px solid rgba(255,255,255,.06)
+      .floating-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
       }
-      .nav{display:flex; align-items:center; justify-content:space-between; height:68px}
-      .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
-      .brand img{height:34px; width:auto; display:block}
-      .brand span{font-weight:800; letter-spacing:.02em}
-      .nav-links{display:flex; gap:26px; align-items:center}
-      .nav-links a{color:var(--text); text-decoration:none; font-weight:600; opacity:.9}
-      .nav-links a:hover{opacity:1}
-      .menu-btn{display:none; background:none; border:none; color:var(--text); font-size:24px}
-      .nav-cta{display:flex; gap:12px; align-items:center}
-      .nav.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.35)}
-
-      .hero{padding:86px 0 42px; position:relative; overflow:hidden}
-      .hero::after{content:""; position:absolute; inset:0; background:var(--grad); pointer-events:none; opacity:.7}
-      .hero-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:36px; align-items:center}
-      .hero h1{font-size: clamp(2rem, 4vw, 3rem); line-height:1.15; margin:14px 0 14px}
-      .hero p{color:var(--muted); font-size: clamp(1rem, 1.2vw, 1.15rem)}
-      .hero-cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-      .mock{position:relative; aspect-ratio:4/3; border-radius:18px; overflow:hidden; background:
-        radial-gradient(600px 300px at 80% 20%, rgba(124,92,255,.25), transparent 60%),
-        radial-gradient(600px 300px at 10% 90%, rgba(0,224,255,.22), transparent 60%),
-        linear-gradient(135deg, #0b1830, #0b1426);
-        border:1px solid rgba(255,255,255,.08); box-shadow: var(--shadow)}
-      .mock::before{content:""; position:absolute; inset:8px; border-radius:14px; background:
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
-        repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 80px);
-        border:1px solid rgba(255,255,255,.06)}
-      .mock-badge{position:absolute; right:14px; top:14px; background:rgba(124,92,255,.18);
-        border:1px solid rgba(124,92,255,.35); color:#dcd7ff; padding:8px 12px; border-radius:999px; font-weight:700}
-
-      .grid-3{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px}
-      .grid-4{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:18px}
-      .grid-2{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:18px}
-
-      .card{padding:22px; border-radius:14px; border:1px solid rgba(255,255,255,.08);
-            background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-            box-shadow: var(--shadow)}
-      .card h3{margin:10px 0 8px; font-size:1.05rem}
-      .card p{color:var(--muted)}
-      .icon{width:38px; height:38px; border-radius:10px; display:grid; place-items:center;
-        background:linear-gradient(135deg, rgba(0,224,255,.25), rgba(124,92,255,.25));
-        border:1px solid rgba(255,255,255,.08)}
-
-      .stats{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px}
-      .stat{padding:18px; border:1px solid rgba(255,255,255,.08); border-radius:12px; background:rgba(255,255,255,.03); text-align:center}
-      .stat strong{font-size:1.6rem}
-      .stat span{display:block; color:var(--muted)}
-
-      .cards-row{display:grid; grid-template-columns: repeat(3, 1fr); gap:18px}
-      .quote{font-style:italic; color:#d6dbeb}
-      .avatar{display:flex; align-items:center; gap:10px; margin-top:12px}
-      .avatar img{width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,.15)}
-      .avatar div{line-height:1.2}
-
-      .faq{display:grid; grid-template-columns: 1.1fr .9fr; gap:24px}
-      details.faq-item{border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:16px 18px; background:rgba(255,255,255,.03)}
-      details.faq-item summary{cursor:pointer; font-weight:700}
-      details.faq-item p{color:var(--muted); margin-top:10px}
-
-      .contact-wrap{display:grid; grid-template-columns: 1fr 1fr; gap:24px}
-      .form{display:grid; gap:12px}
-      .input{background:rgba(255,255,255,.04); color:var(--text); border:1px solid rgba(255,255,255,.12);
-        border-radius:12px; padding:12px 14px; outline:none}
-      .input:focus{box-shadow: var(--ring); border-color:var(--primary)}
-
-      footer{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border-top:1px solid rgba(255,255,255,.06)}
-      .foot{display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:24px; padding:32px 0}
-      .foot h4{margin:0 0 12px; font-size:1rem}
-      .foot a{color:var(--muted); text-decoration:none}
-      .foot a:hover{color:var(--text)}
-      .sub{border-top:1px solid rgba(255,255,255,.06); padding:18px 0; color:var(--muted); font-size:.95rem}
-
-      @media (max-width: 1024px){
-        .hero-grid{grid-template-columns: 1fr}
-        .faq{grid-template-columns: 1fr}
-        .grid-4{grid-template-columns: repeat(2, 1fr)}
-        .stats{grid-template-columns: repeat(2, 1fr)}
-        .cards-row{grid-template-columns: repeat(2, 1fr)}
-        .contact-wrap{grid-template-columns: 1fr}
-        .foot{grid-template-columns: 1fr 1fr}
+      .glass-card {
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
       }
-      @media (max-width: 720px){
-        .nav-links{display:none}
-        .menu-btn{display:block}
-        .grid-3, .grid-4, .grid-2, .cards-row, .stats{grid-template-columns: 1fr}
-        .foot{grid-template-columns: 1fr}
+
+      /* Hero Background Animation */
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.28),
+          transparent
+        );
+        animation: float 20s infinite;
+      }
+      .circle:nth-child(1) {
+        width: 300px;
+        height: 300px;
+        top: 8%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .circle:nth-child(2) {
+        width: 420px;
+        height: 420px;
+        bottom: 18%;
+        right: 6%;
+        animation-delay: 5s;
+      }
+      .circle:nth-child(3) {
+        width: 220px;
+        height: 220px;
+        top: 28%;
+        right: 18%;
+        animation-delay: 10s;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0.55;
+        }
+        50% {
+          transform: translateY(-40px) scale(1.05);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(0) scale(1);
+          opacity: 0.55;
+        }
+      }
+
+      /* Parallax effect helper */
+      .parallax {
+        position: relative;
+        z-index: 10;
+        transform: translateY(0px);
+        transition: transform 0.2s ease-out;
+      }
+
+      /* Ensure footer has fixed known height for padding calc */
+      footer {
+        height: var(--footer-height);
+      }
+      @media (min-width: 1024px) {
+        main {
+          padding-bottom: calc(var(--footer-height) + 24px);
+        }
+      }
+      /* Mobile tweaks */
+      @media (max-width: 640px) {
+        .hero-bg .circle:nth-child(1) {
+          left: -10%;
+          width: 200px;
+          height: 200px;
+          top: 5%;
+        }
+        .hero-bg .circle:nth-child(2) {
+          right: -10%;
+          width: 300px;
+          height: 300px;
+          bottom: 0;
+        }
+        main {
+          padding-bottom: calc(var(--footer-height) + 56px);
+        } /* extra space on small screens */
       }
     </style>
   </head>
-  <body>
-    <a href="#main" class="pill" style="position:absolute; left:-9999px">Skip to content</a>
+  <body class="text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16"
+      >
+        <!-- Logo -->
+        <a href="#home"
+          ><img src="Logo_png_best_fit.png" class="h-10" alt="IVPRO Logo"
+        /></a>
 
-    <!-- Header -->
-    <header class="site">
-      <div class="container nav" id="top">
-        <a class="brand" href="#">
-          <img src="images/Logo_PNG.png" alt="IVPRO TECH SOLUTIONS logo" />
-          <span>IVPRO TECH SOLUTIONS</span>
-        </a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 font-medium">
+          <a href="#intro" class="hover:text-blue-600 transition"
+            >Introduction</a
+          >
+          <a href="#services" class="hover:text-blue-600 transition"
+            >Services</a
+          >
+          <a href="#solutions" class="hover:text-blue-600 transition"
+            >OEM Solutions</a
+          >
+          <a href="#portfolio" class="hover:text-blue-600 transition"
+            >Case Studies</a
+          >
+          <a href="#whyus" class="hover:text-blue-600 transition"
+            >Why Choose Us</a
+          >
+          <a href="#about" class="hover:text-blue-600 transition">About</a>
+          <a href="#vision" class="hover:text-blue-600 transition">Vision</a>
+          <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+        </div>
 
-        <nav class="nav-links" aria-label="Primary">
-          <a href="#services">Services</a>
-          <a href="#solutions">Dashboards</a>
-          <a href="#about">About</a>
-          <a href="#case-studies">Case Studies</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <!-- Mobile Hamburger -->
+        <button id="menu-btn" class="md:hidden focus:outline-none">
+          <svg
+            class="w-7 h-7 text-gray-800"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
 
-        <div class="nav-cta">
-          <a class="btn btn-ghost" href="mailto:info@ivprotech.com">Email</a>
-          <a class="btn btn-primary" href="#contact">Get free consult</a>
-          <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰</button>
+      <!-- Mobile Dropdown -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t shadow-md"
+      >
+        <div class="flex flex-col space-y-3 px-6 py-4 font-medium">
+          <a href="#intro" class="mobile-link hover:text-blue-600 transition"
+            >Introduction</a
+          >
+          <a href="#services" class="mobile-link hover:text-blue-600 transition"
+            >Services</a
+          >
+          <a
+            href="#solutions"
+            class="mobile-link hover:text-blue-600 transition"
+            >OEM Solutions</a
+          >
+          <a
+            href="#portfolio"
+            class="mobile-link hover:text-blue-600 transition"
+            >Case Studies</a
+          >
+          <a href="#whyus" class="mobile-link hover:text-blue-600 transition"
+            >Why Choose Us</a
+          >
+          <a href="#about" class="mobile-link hover:text-blue-600 transition"
+            >About</a
+          >
+          <a href="#vision" class="mobile-link hover:text-blue-600 transition"
+            >Vision</a
+          >
+          <a href="#contact" class="mobile-link hover:text-blue-600 transition"
+            >Contact</a
+          >
         </div>
       </div>
-    </header>
+    </nav>
 
-    <!-- Mobile drawer -->
-    <div id="drawer" class="shadow-card" style="display:none; position:fixed; inset:68px 0 auto 0; background:rgba(11,18,32,.98); border-top-left-radius:18px; border-top-right-radius:18px; z-index:40">
-      <div class="container" style="padding:14px 20px 24px">
-        <nav style="display:grid; gap:10px" aria-label="Mobile">
-          <a href="#services" class="btn btn-ghost">Services</a>
-          <a href="#solutions" class="btn btn-ghost">Dashboards</a>
-          <a href="#about" class="btn btn-ghost">About</a>
-          <a href="#case-studies" class="btn btn-ghost">Case Studies</a>
-          <a href="#contact" class="btn btn-primary">Contact</a>
-        </nav>
-      </div>
-    </div>
-
-    <main id="main">
+    <main class="flex-grow pt-16">
       <!-- Hero -->
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <span class="pill eyebrow">Web • Mobile • Cloud</span>
-            <h1>Build and launch modern products, faster — with enterprise-grade quality.</h1>
-            <p>Custom web and mobile apps, dashboards, and automation engineered for speed, reliability, and scale — from concept to production and beyond.</p>
-            <div class="hero-cta">
-              <a class="btn btn-primary" href="#contact">Start a project →</a>
-              <a class="btn btn-ghost" href="#services">Explore services</a>
-            </div>
-            <div style="margin-top:16px; color:var(--muted)">Email: <a class="link" href="mailto:info@ivprotech.com">info@ivprotech.com</a> • Phone: <a class="link" href="tel:+917996640098">+91 79966 40098</a></div>
-          </div>
-          <div class="mock">
-            <div class="mock-badge">Live dashboards</div>
-          </div>
+      <section
+        id="home"
+        class="relative bg-gradient-to-r from-blue-100 via-white to-indigo-100 min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        <div class="hero-bg" aria-hidden="true">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="text-center px-6 parallax" data-aos="fade-up">
+          <h1
+            class="text-5xl sm:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent"
+          >
+            AI-Powered Software for OEM Industries
+          </h1>
+          <p class="text-xl sm:text-2xl text-gray-700 opacity-90 mb-8">
+            Transforming manufacturing with AI-driven solutions, data
+            intelligence, and IT innovation.
+          </p>
+          <a
+            href="#contact"
+            class="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transform transition"
+            >Get Started</a
+          >
+        </div>
+      </section>
+
+      <!-- Introduction -->
+      <section id="intro" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6 text-center" data-aos="fade-up">
+          <h2 class="text-4xl font-bold mb-6">
+            Welcome to IVPRO Tech Solutions
+          </h2>
+          <p class="text-lg text-gray-700 max-w-4xl mx-auto">
+            We specialize in
+            <span class="font-semibold"
+              >AI-powered OEM software applications</span
+            >, helping manufacturers achieve operational excellence. We also
+            provide
+            <span class="font-semibold"
+              >web development, data analytics, and IT services</span
+            >. Our strengths include deep OEM expertise, advanced AI/ML
+            capabilities, and a client-first approach.
+          </p>
         </div>
       </section>
 
       <!-- Services -->
-      <section class="section" id="services">
-        <div class="container">
-          <span class="eyebrow">Our Services</span>
-          <h2 style="margin:8px 0 12px">End‑to‑end engineering for web, mobile, and cloud</h2>
-          <p style="color:var(--muted); margin-bottom:18px">From discovery to delivery, services cover product strategy, design, development, QA, and reliable post‑launch support for ongoing growth.</p>
-
-          <div class="grid-3">
-            <div class="card">
-              <div class="icon">💻</div>
-              <h3>Web Applications</h3>
-              <p>Modern SPAs and PWAs with React and TypeScript, backed by robust APIs and secure auth.</p>
+      <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
+          <div class="grid md:grid-cols-3 gap-10">
+            <div class="glass-card p-8 rounded-xl shadow-lg" data-aos="fade-up">
+              <h3 class="text-2xl font-semibold mb-4">Web Solutions</h3>
+              <p>
+                Responsive web and mobile applications designed to scale with
+                your business.
+              </p>
             </div>
-            <div class="card">
-              <div class="icon">📱</div>
-              <h3>Mobile Apps</h3>
-              <p>Cross‑platform mobile apps with native experiences, performance, and analytics built‑in.</p>
+            <div
+              class="glass-card p-8 rounded-xl shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <h3 class="text-2xl font-semibold mb-4">Data Analytics</h3>
+              <p>
+                Turning raw data into actionable insights using modern BI and AI
+                tools.
+              </p>
             </div>
-            <div class="card">
-              <div class="icon">🧩</div>
-              <h3>Custom Software</h3>
-              <p>Tailored platforms and tools aligned to specific business workflows and KPIs.</p>
-            </div>
-            <div class="card">
-              <div class="icon">☁️</div>
-              <h3>Cloud Solutions</h3>
-              <p>Scalable deployments, CI/CD, monitoring, and cost‑optimized infrastructure.</p>
-            </div>
-            <div class="card">
-              <div class="icon">🧪</div>
-              <h3>Quality Engineering</h3>
-              <p>Automated testing, accessibility, performance budgets, and release hardening.</p>
-            </div>
-            <div class="card">
-              <div class="icon">🤝</div>
-              <h3>Consulting & Support</h3>
-              <p>Architecture reviews, audit, maintenance, SLAs, and training for internal teams.</p>
+            <div
+              class="glass-card p-8 rounded-xl shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <h3 class="text-2xl font-semibold mb-4">IT Services</h3>
+              <p>
+                Cloud, DevOps, cybersecurity, and enterprise IT support for
+                businesses of all sizes.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Solutions (Dashboards) -->
-      <section class="section" id="solutions">
-        <div class="container">
-          <span class="eyebrow">Dashboards</span>
-          <h2 style="margin:8px 0 12px">Project dashboards that drive decisions</h2>
-          <p style="color:var(--muted); margin-bottom:18px">Pre‑built, customizable dashboards for admin, client, HR, finance, and sales to keep teams aligned and accountable.</p>
-
-          <div class="grid-3">
-            <div class="card">
-              <h3>Admin Panel</h3>
-              <p>User management, access control, content, and analytics from one secure console.</p>
+      <!-- OEM Solutions -->
+      <section id="solutions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center mb-12">
+            OEM Industry Solutions
+          </h2>
+          <div class="grid md:grid-cols-3 gap-10">
+            <div class="glass-card p-8 rounded-xl shadow-lg" data-aos="fade-up">
+              <h3 class="text-2xl font-semibold mb-4">AI Defect Detection</h3>
+              <p>
+                Detect cracks, dents, and defects in real time using
+                vision-based AI systems.
+              </p>
             </div>
-            <div class="card">
-              <h3>Client Portal</h3>
-              <p>Milestones, reports, and collaborative updates with role‑based access.</p>
+            <div
+              class="glass-card p-8 rounded-xl shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <h3 class="text-2xl font-semibold mb-4">
+                Predictive Maintenance
+              </h3>
+              <p>
+                AI-powered predictive systems to forecast equipment failures and
+                reduce downtime.
+              </p>
             </div>
-            <div class="card">
-              <h3>HR Dashboard</h3>
-              <p>Employee data, leave, payroll, recruitment status, and performance metrics.</p>
-            </div>
-            <div class="card">
-              <h3>Finance Dashboard</h3>
-              <p>Revenue, expenses, invoices, and visual insights for strategic planning.</p>
-            </div>
-            <div class="card">
-              <h3>Sales Tracker</h3>
-              <p>Pipeline, conversion tracking, forecasting, and team targets in one place.</p>
-            </div>
-            <div class="card">
-              <h3>Executive View</h3>
-              <p>Company KPIs, risks, trends, and goals with drill‑down explorations.</p>
+            <div
+              class="glass-card p-8 rounded-xl shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <h3 class="text-2xl font-semibold mb-4">
+                Smart Workforce Solutions
+              </h3>
+              <p>
+                AI-enabled workforce management software for efficient factory
+                operations.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Stats -->
-      <section class="section-sm">
-        <div class="container stats">
-          <div class="stat"><strong>30+ Projects</strong><span>Delivered across web & mobile</span></div>
-          <div class="stat"><strong>99.9% Uptime</strong><span>Cloud‑native deployments</span></div>
-          <div class="stat"><strong>95%+ CSAT</strong><span>Repeat partnerships</span></div>
-          <div class="stat"><strong>2–8 Weeks</strong><span>From idea to MVP</span></div>
+      <!-- Case Studies -->
+      <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center mb-12">Case Studies</h2>
+          <div class="grid md:grid-cols-3 gap-10">
+            <div class="glass-card p-8 rounded-xl shadow-lg" data-aos="fade-up">
+              <h3 class="text-2xl font-semibold mb-4">
+                Automobile Defect Detection
+              </h3>
+              <p>
+                Reduced defect rate by 30% with AI inspection for an automotive
+                OEM.
+              </p>
+            </div>
+            <div
+              class="glass-card p-8 rounded-xl shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <h3 class="text-2xl font-semibold mb-4">
+                Predictive Maintenance
+              </h3>
+              <p>
+                Cut downtime costs by 25% using ML-based predictive maintenance.
+              </p>
+            </div>
+            <div
+              class="glass-card p-8 rounded-xl shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <h3 class="text-2xl font-semibold mb-4">
+                Smart Workforce Planner
+              </h3>
+              <p>
+                Boosted productivity with a custom workforce management tool.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section id="whyus" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+          <h2 class="text-4xl font-bold mb-12">Why Choose IVPRO?</h2>
+          <ul class="space-y-4 text-lg text-gray-700">
+            <li>
+              <span class="font-semibold text-blue-600">✔ OEM Expertise:</span>
+              Specialized AI-powered solutions for OEM industries in India.
+            </li>
+            <li>
+              <span class="font-semibold text-blue-600"
+                >✔ Faster Delivery:</span
+              >
+              Agile methodology ensures faster time-to-market.
+            </li>
+            <li>
+              <span class="font-semibold text-blue-600"
+                >✔ AI-First Approach:</span
+              >
+              Leveraging AI, ML, and IoT for future-ready solutions.
+            </li>
+            <li>
+              <span class="font-semibold text-blue-600">✔ Cost-Effective:</span>
+              Enterprise-grade solutions at affordable costs.
+            </li>
+          </ul>
         </div>
       </section>
 
       <!-- About -->
-      <section class="section" id="about">
-        <div class="container">
-          <span class="eyebrow">About us</span>
-          <h2 style="margin:8px 0 12px">Quality, transparency, and on‑time delivery</h2>
-          <p style="color:var(--muted); margin-bottom:18px">
-            IVPRO TECH SOLUTIONS is a dedicated team of tech experts driven by a passion for building impactful digital products across web, mobile, and cloud. We believe in craftsmanship, clear communication, and shipping reliably with measurable outcomes.
+      <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+          <h2 class="text-4xl font-bold mb-6">About Us</h2>
+          <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+            We are passionate about shaping the future of manufacturing with
+            <span class="font-semibold text-blue-700"
+              >AI-powered OEM software</span
+            >. Our team combines deep industry knowledge with cutting-edge
+            technologies to deliver innovative solutions for quality,
+            efficiency, and scalability.
           </p>
-
-          <!-- Developers -->
-          <div class="grid-3" style="margin-top:8px">
-            <div class="card">
-              <div class="icon">💻</div>
-              <h3>Developer</h3>
-              <p>Bharath</p>
-            </div>
-            <div class="card">
-              <div class="icon">💻</div>
-              <h3>Developer</h3>
-              <p>Naveen</p>
-            </div>
-            <div class="card">
-              <div class="icon">💻</div>
-              <h3>Developer</h3>
-              <p>Chandrashekara</p>
-            </div>
-          </div>
-
-          <div class="grid-3" style="margin-top:18px">
-            <div class="card">
-              <div class="icon">🧭</div>
-              <h3>Outcome‑first</h3>
-              <p>Aligning features to business value and KPIs keeps work focused and lean.</p>
-            </div>
-            <div class="card">
-              <div class="icon">🛡️</div>
-              <h3>Secure by default</h3>
-              <p>Auth, access, data protection, and observability wired into deliveries.</p>
-            </div>
-            <div class="card">
-              <div class="icon">🚀</div>
-              <h3>Iterate fast</h3>
-              <p>Short feedback loops with CI/CD and staged releases reduce risk.</p>
-            </div>
-          </div>
         </div>
       </section>
 
-      <!-- Case studies -->
-      <section class="section" id="case-studies">
-        <div class="container">
-          <span class="eyebrow">Case studies</span>
-          <h2 style="margin:8px 0 12px">Selected outcomes</h2>
-          <p style="color:var(--muted); margin-bottom:18px">A snapshot of recent engagements demonstrating speed to value, reliability, and measurable impact.</p>
-
-          <div class="cards-row">
-            <article class="card">
-              <h3>Operations dashboard revamp</h3>
-              <p>Rebuilt analytics UX with role‑based access, cutting time‑to‑insight by 60% and improving adoption.</p>
-              <a class="link" href="#contact">Discuss similar work →</a>
-            </article>
-            <article class="card">
-              <h3>E‑commerce mobile app</h3>
-              <p>Launched cross‑platform app with offline cart and real‑time inventory; improved conversion by 18%.</p>
-              <a class="link" href="#contact">Discuss similar work →</a>
-            </article>
-            <article class="card">
-              <h3>Cloud cost optimization</h3>
-              <p>Reduced infra spend by 32% with autoscaling, right‑sizing, and improved cache strategy.</p>
-              <a class="link" href="#contact">Discuss similar work →</a>
-            </article>
-          </div>
+      <!-- Vision -->
+      <section id="vision" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+          <h2 class="text-4xl font-bold mb-6">Our Vision</h2>
+          <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+            Our vision is to be the
+            <span class="font-semibold text-blue-700"
+              >most trusted partner for OEM industries</span
+            >. We aim to deliver intelligent, sustainable AI-driven solutions
+            that transform operations and drive growth.
+          </p>
         </div>
       </section>
 
-      <!-- Testimonials -->
-      <section class="section">
-        <div class="container">
-          <span class="eyebrow">Testimonials</span>
-          <h2 style="margin:8px 0 12px">What clients say</h2>
-        </div>
-        <div class="container cards-row">
-          <div class="card">
-            <p class="quote">“Excellent execution under tight timelines. The dashboards gave leadership real‑time visibility.”</p>
-            <div class="avatar">
-              <img src="images/avatar1.jpg" alt="Client avatar"/>
-              <div><strong>Program Manager</strong><br/><span style="color:var(--muted)">SaaS Company</span></div>
-            </div>
+      <!-- Counters -->
+      <section
+        class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center"
+      >
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10">
+          <div class="text-4xl font-bold">
+            50+
+            <p class="text-lg mt-2">Projects Delivered</p>
           </div>
-          <div class="card">
-            <p class="quote">“The team ships reliably and communicates risks early. Highly recommend for complex builds.”</p>
-            <div class="avatar">
-              <img src="images/avatar2.jpg" alt="Client avatar"/>
-              <div><strong>CTO</strong><br/><span style="color:var(--muted)">Fintech</span></div>
-            </div>
+          <div class="text-4xl font-bold">
+            20+
+            <p class="text-lg mt-2">OEM Clients</p>
           </div>
-          <div class="card">
-            <p class="quote">“A thoughtful partner who balances velocity with engineering quality and security.”</p>
-            <div class="avatar">
-              <img src="images/avatar3.jpg" alt="Client avatar"/>
-              <div><strong>Head of Product</strong><br/><span style="color:var(--muted)">Retail</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="section">
-        <div class="container faq">
-          <div>
-            <span class="eyebrow">FAQ</span>
-            <h2 style="margin:8px 0 12px">Common questions</h2>
-            <p style="color:var(--muted)">If there are unique requirements or compliance needs, solutions are tailored to meet them.</p>
-          </div>
-          <div style="display:grid; gap:12px">
-            <details class="faq-item">
-              <summary>How long does an MVP take?</summary>
-              <p>Most MVPs take 2–8 weeks depending on scope, integrations, and complexity.</p>
-            </details>
-            <details class="faq-item">
-              <summary>What’s the typical stack?</summary>
-              <p>React + TypeScript on the front end, Node/Express or serverless APIs, Postgres, and a cloud provider with CI/CD.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Do you support after launch?</summary>
-              <p>Yes, support and maintenance plans with SLAs, observability, and security updates are provided.</p>
-            </details>
+          <div class="text-4xl font-bold">
+            5+
+            <p class="text-lg mt-2">Years of Expertise</p>
           </div>
         </div>
       </section>
 
       <!-- Contact -->
-      <section class="section" id="contact">
-        <div class="container contact-wrap">
-          <div>
-            <span class="eyebrow">Contact</span>
-            <h2 style="margin:8px 0 12px">Let’s build something great</h2>
-            <p style="color:var(--muted)">Reach out to discuss the next project, timelines, and milestones.</p>
+      <section id="contact" class="bg-gray-50 text-gray-900 text-center py-8">
+        <div class="max-w-4xl mx-auto px-6">
+          <h2 class="text-4xl font-bold mb-2">Get in Touch</h2>
+          <p class="text-gray-600 mb-3">
+            Partner with us to build next-gen OEM solutions and AI-driven IT
+            services.
+          </p>
 
-            <div class="card" style="margin-top:14px">
-              <p><strong>Email:</strong> <a class="link" href="mailto:info@ivprotech.com">info@ivprotech.com</a></p>
-              <p><strong>Phone:</strong> <a class="link" href="tel:+917996640098">+91 79966 40098</a></p>
-              <p><strong>Address:</strong><br/>
-                IVPRO TECH SOLUTIONS<br/>
-                No.26, 3rd Floor, 4th Main Road, Duo Marvel Layout,<br/>
-                Ananthapura, Yelahanka,<br/>
-                BENGALURU – 560064
-              </p>
-              <p><strong>Hours:</strong> Mon–Sat, 10am–7pm IST</p>
-            </div>
-          </div>
-
-          <form class="form shadow-card" onsubmit="event.preventDefault(); window.location.href='mailto:info@ivprotech.com?subject=Project%20enquiry%20from%20website';">
-            <label>
-              <span>Name</span>
-              <input class="input" type="text" name="name" placeholder="Full name" required />
-            </label>
-            <label>
-              <span>Email</span>
-              <input class="input" type="email" name="email" placeholder="name@example.com" required />
-            </label>
-            <label>
-              <span>Project brief</span>
-              <textarea class="input" rows="5" name="message" placeholder="Goals, timeline, budget range…" required></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Send enquiry</button>
+          <!-- tightened spacing & no extra bottom margin; footer spacing is handled by main padding -->
+          <form class="glass-card p-6 rounded-xl shadow-lg mt-2">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full p-3 mb-3 rounded-md border focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="w-full p-3 mb-3 rounded-md border focus:ring-2 focus:ring-blue-500"
+            />
+            <textarea
+              placeholder="Your Message"
+              rows="5"
+              class="w-full p-3 mb-3 rounded-md border focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+            <button
+              type="submit"
+              class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-5 py-2.5 rounded-full hover:scale-105 transform transition"
+            >
+              Send Message
+            </button>
           </form>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="container foot">
-        <div>
-          <a class="brand" href="#">
-            <img src="images/Logo_PNG.png" alt="IVPRO TECH SOLUTIONS logo" />
-            <span>IVPRO TECH SOLUTIONS</span>
-          </a>
-          <p style="color:var(--muted); margin-top:10px">Innovative software solutions tailored to business needs — web, mobile, dashboards, and cloud.</p>
-          <p style="color:var(--muted); margin-top:10px">
-            <strong>Registered address</strong><br/>
-            IVPRO TECH SOLUTIONS<br/>
-            No.26, 3rd Floor, 4th Main Road, Duo Marvel Layout,<br/>
-            Ananthapura, Yelahanka,<br/>
-            BENGALURU – 560064
-          </p>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <div style="display:grid; gap:6px">
-            <a href="#about">About</a>
-            <a href="#case-studies">Case Studies</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </div>
-        <div>
-          <h4>Services</h4>
-          <div style="display:grid; gap:6px">
-            <a href="#services">Web & Mobile</a>
-            <a href="#services">Cloud & DevOps</a>
-            <a href="#services">QA & Support</a>
-          </div>
-        </div>
-        <div>
-          <h4>Dashboards</h4>
-          <div style="display:grid; gap:6px">
-            <a href="#solutions">Admin</a>
-            <a href="#solutions">Client</a>
-            <a href="#solutions">Finance & Sales</a>
-          </div>
-        </div>
-      </div>
-      <div class="container sub">
-        <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
-          <span>© 2025 IVPRO TECH SOLUTIONS. All rights reserved.</span>
-          <span><a class="link" href="#top">Back to top ↑</a></span>
-        </div>
-      </div>
+    <!-- Floating CTA -->
+    <a
+      href="#contact"
+      class="floating-btn bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-5 py-3 rounded-full shadow-lg hover:scale-110 transform transition"
+      >Request Demo</a
+    >
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-4 text-center">
+      <p>&copy; 2024 IVPRO Tech Solutions. All rights reserved.</p>
     </footer>
-
     <script>
-      const menuBtn = document.getElementById('menuBtn');
-      const drawer = document.getElementById('drawer');
-      let open = false;
-      function toggleDrawer(){ open = !open; drawer.style.display = open ? 'block' : 'none'; }
-      if(menuBtn){ menuBtn.addEventListener('click', toggleDrawer); }
-      if(drawer){ drawer.addEventListener('click', (e)=>{ if(e.target.tagName === 'A') toggleDrawer(); }); }
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-      const header = document.querySelector('.nav');
-      const onScroll = () => {
-        if (window.scrollY > 10) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      };
-      document.addEventListener('scroll', onScroll, { passive: true });
+      // Toggle mobile nav
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
 
-      function smoothTo(id){
-        const el = document.querySelector(id);
-        if(!el) return;
-        const y = el.getBoundingClientRect().top + window.scrollY - 70;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-      document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click', (e)=>{
-          const href = a.getAttribute('href');
-          if(href.length>1){
-            e.preventDefault();
-            smoothTo(href);
-          }
+      // Close mobile nav when clicking a link
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+    <script>
+      AOS.init({ duration: 900, once: true });
+      // Parallax
+      window.addEventListener("scroll", function () {
+        const scrollPos = window.pageYOffset;
+        document.querySelectorAll(".parallax").forEach((el) => {
+          el.style.transform = `translateY(${scrollPos * 0.18}px)`;
+        });
+        document.querySelectorAll(".glass-card").forEach((el) => {
+          el.style.transform = `translateY(${scrollPos * 0.02}px)`;
         });
       });
     </script>
