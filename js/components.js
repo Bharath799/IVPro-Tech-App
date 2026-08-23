@@ -67,7 +67,7 @@ function renderNavigation(activePage = 'home') {
   nav.innerHTML = `
     <div class="container container--wide">
       <a href="${base}index.html" class="logo">
-        <img src="${base}assets/Logo_png_best_fit.png" alt="IVPRO Technologies" class="logo__full">
+        <img src="${base}assets/Logo_png_best_fit.png" alt="IVPRO Tech Solutions logo" class="logo__full">
       </a>
 
       <nav class="nav" id="mainNav">
@@ -165,7 +165,7 @@ function renderFooter() {
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="${base}index.html" class="logo">
-            <img src="${base}assets/Logo_png_best_fit.png" alt="IVPRO Technologies" class="logo__full">
+            <img src="${base}assets/Logo_png_best_fit.png" alt="IVPRO Tech Solutions logo" class="logo__full">
           </a>
           <p class="footer__brand-text">Transforming industries with intelligent AI, IoT, and automation solutions. Building the smart industries of tomorrow.</p>
           <div class="footer__social">
@@ -202,7 +202,7 @@ function renderFooter() {
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 IVPRO Technologies. All rights reserved.</p>
+        <p>&copy; 2026 IVPRO Tech Solutions. All rights reserved.</p>
       </div>
     </div>
   `;
