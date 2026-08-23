@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-Based Vision Inspection System by IVPRO Technologies - Defect detection, object counting, OCR and quality assurance.">
+  <title>Vision Inspection System | IVPRO Technologies</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/vision-pipeline.css">
+  <link rel="stylesheet" href="../css/pipeline-responsive.css">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="page-hero" style="min-height:auto;padding-bottom:var(--space-6);">
+    <div class="page-hero__bg">
+      <div class="page-hero__bg-grid"></div>
+      <div class="page-hero__bg-glow" style="background:#F7941D;"></div>
+    </div>
+    <div class="container">
+      <div class="solution-hero__content">
+        <div style="position:relative;z-index:1;">
+          <div class="page-hero__breadcrumb" style="justify-content:flex-start;">
+            <a href="../index.html">Home</a><span>/</span>
+            <a href="solutions.html">Solutions</a><span>/</span>
+            <span>Vision Inspection</span>
+          </div>
+          <span class="section-label" style="color:#F7941D;">AI-Powered Solution</span>
+          <h1 class="page-hero__title" style="text-align:left;font-size:var(--fs-h1);">AI-Based Vision Inspection System</h1>
+          <p class="page-hero__subtitle" style="text-align:left;margin:0;margin-top:var(--space-4);">Detect defects, count objects, and ensure quality with computer vision and deep learning - all in real time.</p>
+          <div style="margin-top:var(--space-6);display:flex;gap:var(--space-4);">
+            <a href="contact.html" class="btn btn--primary">Request Demo <span class="btn-arrow">&rarr;</span></a>
+            <a href="contact.html" class="btn btn--secondary">Get Quote</a>
+          </div>
+        </div>
+        <div class="solution-image solution-image--hero">
+          <img src="../assets/vision_inspection_system.png" alt="AI vision inspection camera scanning automotive parts on a production line">
+        </div>
+      </div>
+      <div class="hero__pipeline" id="visionPipeline">
+        <p class="hero__pipeline-label" style="color:#F7941D;">From Camera to Prediction</p>
+        <div class="vp__stages">
+          <div class="vp__card" data-stage="1">
+            <div class="vp__viewfinder">
+              <div class="vp__scan-line"></div>
+              <div class="vp__viewfinder-crosshair"></div>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <span class="vp__capture-label">LIVE CAPTURE</span>
+          </div>
+          <div class="vp__card" data-stage="2">
+            <div class="vp__defect-grid">
+              <div class="vp__defect-marker vp__defect-marker--fail" style="top:12px;left:14px;">✕</div>
+              <div class="vp__defect-marker vp__defect-marker--pass" style="top:10px;right:16px;">✓</div>
+              <div class="vp__defect-marker vp__defect-marker--fail" style="bottom:14px;left:40px;">✕</div>
+              <div class="vp__defect-marker vp__defect-marker--pass" style="bottom:12px;right:14px;">✓</div>
+            </div>
+            <span class="vp__capture-label">DEFECTS IDENTIFIED</span>
+          </div>
+          <div class="vp__card" data-stage="3">
+            <div class="vp__analysis-bars">
+              <div class="vp__analysis-row"><span class="vp__analysis-label">Scratch</span><div class="vp__analysis-track"><div class="vp__analysis-fill" style="--fill-w:85%;background:var(--color-error);"></div></div><span class="vp__analysis-pct">85%</span></div>
+              <div class="vp__analysis-row"><span class="vp__analysis-label">Dent</span><div class="vp__analysis-track"><div class="vp__analysis-fill" style="--fill-w:62%;background:var(--color-warning);"></div></div><span class="vp__analysis-pct">62%</span></div>
+              <div class="vp__analysis-row"><span class="vp__analysis-label">Crack</span><div class="vp__analysis-track"><div class="vp__analysis-fill" style="--fill-w:93%;background:var(--color-accent);"></div></div><span class="vp__analysis-pct">93%</span></div>
+              <div class="vp__analysis-row"><span class="vp__analysis-label">Stain</span><div class="vp__analysis-track"><div class="vp__analysis-fill" style="--fill-w:41%;background:var(--color-success);"></div></div><span class="vp__analysis-pct">41%</span></div>
+            </div>
+            <span class="vp__capture-label">CLASSIFIED</span>
+          </div>
+          <div class="vp__card" data-stage="4">
+            <div class="vp__dashboard">
+              <div class="vp__dash-header"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Live Dashboard</div>
+              <div class="vp__dash-stats">
+                <div class="vp__dash-stat"><div class="vp__dash-stat-num" style="color:var(--color-success);">99.2%</div><div class="vp__dash-stat-label">Pass Rate</div></div>
+                <div class="vp__dash-stat"><div class="vp__dash-stat-num" style="color:var(--color-error);">0.8%</div><div class="vp__dash-stat-label">Defect Rate</div></div>
+                <div class="vp__dash-stat"><div class="vp__dash-stat-num">1,247</div><div class="vp__dash-stat-label">Inspected</div></div>
+                <div class="vp__dash-stat"><div class="vp__dash-stat-num" style="color:var(--color-accent);">12ms</div><div class="vp__dash-stat-label">Latency</div></div>
+              </div>
+              <svg class="vp__mini-chart" viewBox="0 0 150 32" fill="none">
+                <path d="M0 28 Q15 26 25 22 T50 18 T75 10 T100 14 T125 6 T150 8" stroke="var(--color-accent)" stroke-width="2" fill="none"/>
+                <path d="M0 28 Q15 26 25 22 T50 18 T75 10 T100 14 T125 6 T150 8 V32 H0 Z" fill="url(#vpChartGrad)" opacity="0.15"/>
+                <defs><linearGradient id="vpChartGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--color-accent)"/><stop offset="100%" stop-color="transparent"/></linearGradient></defs>
+              </svg>
+            </div>
+          </div>
+          <div class="vp__card" data-stage="5">
+            <div class="vp__predictions">
+              <div class="vp__pred-card">
+                <div class="vp__pred-icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div class="vp__pred-text"><strong>Trend Forecast</strong>Defect rate ↓ 12% next week</div>
+              </div>
+              <div class="vp__pred-card">
+                <div class="vp__pred-icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                <div class="vp__pred-text"><strong>Early Warning</strong>Mold wear detected — replace in 3 days</div>
+              </div>
+              <div class="vp__pred-card">
+                <div class="vp__pred-icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <div class="vp__pred-text"><strong>Quality Score</strong>98.7% — trending up</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vp__timeline">
+          <div class="vp__timeline-progress"></div>
+          <div class="vp__step" data-stage="1"><div class="vp__step-dot">1</div><div class="vp__step-title">Image Capture</div></div>
+          <div class="vp__step" data-stage="2"><div class="vp__step-dot">2</div><div class="vp__step-title">Defect Detection</div></div>
+          <div class="vp__step" data-stage="3"><div class="vp__step-dot">3</div><div class="vp__step-title">Analysis &amp; Classification</div></div>
+          <div class="vp__step" data-stage="4"><div class="vp__step-dot">4</div><div class="vp__step-title">Dashboard &amp; Reports</div></div>
+          <div class="vp__step" data-stage="5"><div class="vp__step-dot">5</div><div class="vp__step-title">Predictive Insights</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Statement -->
+  <section class="section">
+    <div class="container">
+      <div class="about-intro reveal">
+        <div>
+          <span class="section-label">The Problem</span>
+          <h2 class="about-intro__title">Manual Inspection Can't Keep Up</h2>
+          <p class="about-intro__text">Traditional visual inspection is slow, inconsistent, and error-prone. Human inspectors miss defects due to fatigue, and manual processes create bottlenecks in production lines.</p>
+          <p class="about-intro__text">Manufacturers lose millions annually from undetected defects, product recalls, and quality complaints. The need for a reliable, automated solution is critical.</p>
+        </div>
+        <div class="solution-image">
+          <img src="../assets/manual_inspection_challenges.png" alt="Manual inspection of automotive parts under a magnifier with inspection paperwork">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Solution -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Our Solution</span>
+        <h2 class="section-title">Intelligent Visual Inspection</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Our AI-powered vision system automates quality inspection with deep learning algorithms that achieve over 99% accuracy, processing thousands of parts per minute.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Features</span>
+        <h2 class="section-title">What It Can Do</h2>
+      </div>
+      <div class="solution-features stagger-children" style="margin-top: var(--space-8);">
+        <div class="card feature-card">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="feature-card__title">Defect Detection</h3>
+          <p class="feature-card__text">Detect scratches, dents, cracks, and custom defects with sub-millimeter precision.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3 class="feature-card__title">Object Counting</h3>
+          <p class="feature-card__text">Accurate counting of objects in assemblies, packaging, and production batches.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3 class="feature-card__title">Missing Object Detection</h3>
+          <p class="feature-card__text">Identify missing components or parts before products leave the assembly line.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background: rgba(247,148,29,0.1); color: var(--color-accent-orange);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          </div>
+          <h3 class="feature-card__title">OCR (Text Recognition)</h3>
+          <p class="feature-card__text">Read and verify text, serial numbers, and labels on products automatically.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background: rgba(16,185,129,0.1); color: var(--color-success);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Position & Orientation</h3>
+          <p class="feature-card__text">Verify correct placement, alignment, and orientation of parts in assemblies.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background: rgba(139,92,246,0.1); color: #8B5CF6;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3 class="feature-card__title">Real-time Analytics</h3>
+          <p class="feature-card__text">Live dashboards with defect rates, production metrics, and trend analysis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Use Cases</span>
+        <h2 class="section-title">Where It's Applied</h2>
+      </div>
+      <div class="use-cases__list" style="margin-top: var(--space-8);">
+        <div class="use-case-item reveal">
+          <div class="use-case-item__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 20h20"/><path d="M5 20V8l5 4V8l5 4V4h5v16"/></svg>
+          </div>
+          <div>
+            <h4 class="use-case-item__title">Manufacturing Quality Inspection</h4>
+            <p class="use-case-item__text">Automated end-of-line inspection for parts, assemblies, and finished goods in manufacturing plants.</p>
+          </div>
+        </div>
+        <div class="use-case-item reveal">
+          <div class="use-case-item__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          </div>
+          <div>
+            <h4 class="use-case-item__title">Packaging Validation</h4>
+            <p class="use-case-item__text">Verify correct packaging, labeling, and completeness before products are shipped to customers.</p>
+          </div>
+        </div>
+        <div class="use-case-item reveal">
+          <div class="use-case-item__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <h4 class="use-case-item__title">Automotive Parts Inspection</h4>
+            <p class="use-case-item__text">Surface inspection of metal parts, welding seam verification, and paint quality checks.</p>
+          </div>
+        </div>
+        <div class="use-case-item reveal">
+          <div class="use-case-item__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/></svg>
+          </div>
+          <div>
+            <h4 class="use-case-item__title">Electronics Assembly</h4>
+            <p class="use-case-item__text">PCB inspection, component placement verification, and solder quality checking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Benefits</span>
+        <h2 class="section-title text-white">Why Choose Our Vision System</h2>
+      </div>
+      <div class="benefits__grid stagger-children" style="margin-top: var(--space-8);">
+        <div class="benefit-item">
+          <div class="benefit-item__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="stat__number" data-count="99" data-suffix="%" style="font-size: var(--fs-h3);">0%</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Accuracy</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Near-perfect defect detection rate</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background: rgba(247,148,29,0.1); color: var(--color-accent-orange);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="stat__number" data-count="10" data-suffix="x" style="font-size: var(--fs-h3);">0x</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Faster</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Than manual inspection processes</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background: rgba(16,185,129,0.1); color: var(--color-success);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="stat__number" data-count="80" data-suffix="%" style="font-size: var(--fs-h3);">0%</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Cost Reduction</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">On quality-related expenses</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background: rgba(139,92,246,0.1); color: #8B5CF6;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="stat__number" style="font-size: var(--fs-h3); color: var(--color-accent);">24/7</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Non-stop</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Continuous inspection capability</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="cta-banner__content reveal" style="text-align:center;">
+        <h2 class="section-title">Ready to Automate Your Inspection?</h2>
+        <p class="section-subtitle" style="margin: 0 auto var(--space-6);">Get a personalized demo of our vision inspection system for your production line.</p>
+        <a href="contact.html" class="btn btn--primary btn--lg">Request a Demo <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/components.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => initApp('solutions'));</script>
+
+  <!-- Vision Pipeline Animation -->
+  <script>
+  (function() {
+    const pipeline = document.getElementById('visionPipeline');
+    if (!pipeline) return;
+
+    const cards = pipeline.querySelectorAll('.vp__card');
+    const steps = pipeline.querySelectorAll('.vp__step');
+    const progress = pipeline.querySelector('.vp__timeline-progress');
+    const totalStages = cards.length;
+    let currentStage = 0;
+    let animInterval = null;
+    let hasStarted = false;
+
+    function activateStage(index) {
+      cards.forEach((c, i) => {
+        if (i <= index) c.classList.add('active');
+        else c.classList.remove('active');
+      });
+      steps.forEach((s, i) => {
+        if (i <= index) s.classList.add('active');
+        else s.classList.remove('active');
+      });
+      if (progress) {
+        const pct = (index / (totalStages - 1)) * 100;
+        progress.style.width = pct + '%';
+      }
+      vpActiveIdx = index;
+    }
+
+    function runSequence() {
+      currentStage = 0;
+      cards.forEach(c => c.classList.remove('active'));
+      steps.forEach(s => s.classList.remove('active'));
+      if (progress) progress.style.width = '0%';
+      vpActiveIdx = -1;
+      pipeline.querySelectorAll('.pipeline-connectors').forEach(el => el.remove());
+
+      if (window.innerWidth <= 768) {
+        // Mobile: sequenced line → card → pulse
+        let i = 0;
+        function next() {
+          if (i >= totalStages) {
+            setTimeout(runSequence, 5000);
+            return;
+          }
+          if (i === 0) {
+            activateStage(0);
+            i++;
+            setTimeout(next, 500);
+          } else {
+            let idx = i;
+            vpGrowLine(idx, function() {
+              activateStage(idx);
+              setTimeout(function() {
+                vpSendPulse(idx, function() {
+                  i++;
+                  setTimeout(next, 80);
+                });
+              }, 380);
+            });
+          }
+        }
+        setTimeout(next, 300);
+      } else {
+        // Desktop: interval-based
+        let i = 0;
+        animInterval = setInterval(() => {
+          activateStage(i);
+          i++;
+          if (i >= totalStages) {
+            clearInterval(animInterval);
+            setTimeout(runSequence, 5000);
+          }
+        }, 1200);
+      }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasStarted) {
+          hasStarted = true;
+          setTimeout(() => { runSequence(); }, 300);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(pipeline);
+
+    // ---- Mobile connector helpers ----
+    var vpActiveIdx = -1;
+    var brightColor = '#F7941D';
+    var lineColor = 'rgba(247,148,29,0.32)';
+
+    function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+    function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+    function vpGetCoords(index) {
+      var cards2 = pipeline.querySelectorAll('.vp__card');
+      var from = cards2[index - 1], to = cards2[index];
+      var sameRow = Math.abs(from.offsetTop - to.offsetTop) < 30;
+      if (sameRow) {
+        return {
+          x1: from.offsetLeft + from.offsetWidth + 6,
+          y1: from.offsetTop + from.offsetHeight / 2,
+          x2: to.offsetLeft - 6,
+          y2: to.offsetTop + to.offsetHeight / 2
+        };
+      } else {
+        return {
+          x1: from.offsetLeft + from.offsetWidth / 2,
+          y1: from.offsetTop + from.offsetHeight + 6,
+          x2: to.offsetLeft + to.offsetWidth / 2,
+          y2: to.offsetTop - 6
+        };
+      }
+    }
+
+    function vpEnsureSvg() {
+      var cards2 = pipeline.querySelectorAll('.vp__card');
+      var container = cards2[0].parentElement;
+      container.style.position = 'relative';
+      var svg = container.querySelector('.pipeline-connectors');
+      if (!svg) {
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'pipeline-connectors');
+        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible;';
+        var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        var filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+        filter.setAttribute('id', 'vpGlow');
+        filter.setAttribute('x', '-100%'); filter.setAttribute('y', '-100%');
+        filter.setAttribute('width', '300%'); filter.setAttribute('height', '300%');
+        var blur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+        blur.setAttribute('stdDeviation', '4'); blur.setAttribute('result', 'b');
+        filter.appendChild(blur);
+        var merge = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
+        ['b', 'SourceGraphic'].forEach(function(inp) {
+          var mn = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
+          mn.setAttribute('in', inp); merge.appendChild(mn);
+        });
+        filter.appendChild(merge);
+        defs.appendChild(filter);
+        svg.appendChild(defs);
+        container.appendChild(svg);
+      }
+      return svg;
+    }
+
+    function vpGrowLine(index, cb) {
+      var c = vpGetCoords(index);
+      var svg = vpEnsureSvg();
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1);
+      line.setAttribute('x2', c.x1); line.setAttribute('y2', c.y1);
+      line.setAttribute('stroke', lineColor);
+      line.setAttribute('stroke-width', '2');
+      line.setAttribute('stroke-dasharray', '6,6');
+      svg.appendChild(line);
+      var dur = 280, start = performance.now();
+      function tick(now) {
+        var t = Math.min((now - start) / dur, 1);
+        t = easeOut(t);
+        line.setAttribute('x2', c.x1 + (c.x2 - c.x1) * t);
+        line.setAttribute('y2', c.y1 + (c.y2 - c.y1) * t);
+        if (t < 1) requestAnimationFrame(tick); else cb();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function vpSendPulse(index, cb) {
+      var c = vpGetCoords(index);
+      var svg = vpEnsureSvg();
+      var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      var outer = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      outer.setAttribute('r', '6'); outer.setAttribute('fill', brightColor);
+      outer.setAttribute('opacity', '0.45');
+      outer.setAttribute('filter', 'url(#vpGlow)');
+      g.appendChild(outer);
+      var inner = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      inner.setAttribute('r', '2.5'); inner.setAttribute('fill', '#fff');
+      inner.setAttribute('opacity', '0.95');
+      g.appendChild(inner);
+      g.setAttribute('transform', 'translate(' + c.x1 + ',' + c.y1 + ')');
+      svg.appendChild(g);
+      var dur = 550, start = performance.now();
+      function tick(now) {
+        var t = Math.min((now - start) / dur, 1);
+        t = easeInOut(t);
+        g.setAttribute('transform', 'translate(' + (c.x1 + (c.x2 - c.x1) * t) + ',' + (c.y1 + (c.y2 - c.y1) * t) + ')');
+        if (t < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          var fadeStart = performance.now();
+          function fadeOut(now2) {
+            var ft = Math.min((now2 - fadeStart) / 220, 1);
+            g.setAttribute('opacity', String(1 - ft));
+            if (ft < 1) requestAnimationFrame(fadeOut);
+            else { g.remove(); cb(); }
+          }
+          requestAnimationFrame(fadeOut);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function vpDrawStatic() {
+      pipeline.querySelectorAll('.pipeline-connectors').forEach(el => el.remove());
+      if (window.innerWidth > 768 || vpActiveIdx < 1) return;
+      var cards2 = pipeline.querySelectorAll('.vp__card');
+      if (cards2.length < 2) return;
+      var svg = vpEnsureSvg();
+      var limit = Math.min(vpActiveIdx, cards2.length - 1);
+      for (var j = 1; j <= limit; j++) {
+        var c = vpGetCoords(j);
+        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1);
+        line.setAttribute('x2', c.x2); line.setAttribute('y2', c.y2);
+        line.setAttribute('stroke', lineColor);
+        line.setAttribute('stroke-width', '2');
+        line.setAttribute('stroke-dasharray', '6,6');
+        svg.appendChild(line);
+      }
+    }
+
+    window.addEventListener('resize', function() {
+      clearTimeout(window._vpRT);
+      window._vpRT = setTimeout(vpDrawStatic, 250);
+    });
+  })();
+  </script>
+</body>
+</html>

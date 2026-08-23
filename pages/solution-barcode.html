@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Barcode Solution by IVPRO Technologies - Product tracking, inventory management, real-time scanning.">
+  <title>Barcode Solution | IVPRO Technologies</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/barcode-pipeline.css">
+  <link rel="stylesheet" href="../css/pipeline-responsive.css">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="page-hero" style="min-height:auto;padding-bottom:var(--space-6);">
+    <div class="page-hero__bg"><div class="page-hero__bg-grid"></div><div class="page-hero__bg-glow" style="background:#F59E0B;"></div></div>
+    <div class="container">
+      <div class="solution-hero__content">
+        <div style="position:relative;z-index:1;">
+          <div class="page-hero__breadcrumb" style="justify-content:flex-start;">
+            <a href="../index.html">Home</a><span>/</span><a href="solutions.html">Solutions</a><span>/</span><span>Barcode</span>
+          </div>
+          <span class="section-label" style="color:#F59E0B;">Tracking Solution</span>
+          <h1 class="page-hero__title" style="text-align:left;font-size:var(--fs-h1);">Barcode Solution</h1>
+          <p class="page-hero__subtitle" style="text-align:left;margin:0;margin-top:var(--space-4);">Complete barcode-based product tracking, inventory management, and real-time scanning for streamlined operations.</p>
+          <div style="margin-top:var(--space-6);display:flex;gap:var(--space-4);">
+            <a href="contact.html" class="btn btn--primary">Get Started <span class="btn-arrow">&rarr;</span></a>
+            <a href="contact.html" class="btn btn--secondary">Get Quote</a>
+          </div>
+        </div>
+        <div class="solution-image solution-image--hero">
+          <img src="../assets/barcode_tracking_system.png" alt="Barcode tracking system scanning labeled packages on a conveyor with inventory dashboard">
+        </div>
+      </div>
+      <div class="hero__pipeline" id="barcodePipeline">
+        <p class="hero__pipeline-label" style="color:#F59E0B;">How Barcode Tracking Works</p>
+        <div class="bc__stages">
+          <div class="bc__card" data-stage="1">
+            <div class="bc__tag-area">
+              <div class="bc__tag-item">
+                <div class="bc__tag-icon bc__tag-icon--barcode"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="4" y2="20"/><line x1="8" y1="4" x2="8" y2="20"/><line x1="12" y1="4" x2="12" y2="12"/><line x1="16" y1="4" x2="16" y2="20"/><line x1="20" y1="4" x2="20" y2="20"/></svg></div>
+                <div class="bc__tag-text"><strong>Barcode</strong><span>SKU-4721-A</span></div>
+                <span class="bc__tag-chip">1D</span>
+              </div>
+              <div class="bc__tag-item">
+                <div class="bc__tag-icon bc__tag-icon--rfid"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                <div class="bc__tag-text"><strong>RFID Tag</strong><span>EPC-00A3F2</span></div>
+                <span class="bc__tag-chip">UHF</span>
+              </div>
+              <div class="bc__tag-item">
+                <div class="bc__tag-icon bc__tag-icon--qr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/></svg></div>
+                <div class="bc__tag-text"><strong>QR Code</strong><span>LOT-2024-B7</span></div>
+                <span class="bc__tag-chip">2D</span>
+              </div>
+            </div>
+            <span class="bc__label">TAGGED</span>
+          </div>
+          <div class="bc__card" data-stage="2">
+            <div class="bc__scanner">
+              <div class="bc__scan-window">
+                <div class="bc__scan-barcode">
+                  <div class="bc__scan-bar" style="height:30px;"></div>
+                  <div class="bc__scan-bar" style="height:38px;"></div>
+                  <div class="bc__scan-bar" style="height:22px;"></div>
+                  <div class="bc__scan-bar" style="height:38px;"></div>
+                  <div class="bc__scan-bar" style="height:26px;"></div>
+                  <div class="bc__scan-bar" style="height:42px;"></div>
+                  <div class="bc__scan-bar" style="height:34px;"></div>
+                  <div class="bc__scan-bar" style="height:22px;"></div>
+                  <div class="bc__scan-bar" style="height:38px;"></div>
+                  <div class="bc__scan-bar" style="height:30px;"></div>
+                </div>
+                <div class="bc__scan-beam"></div>
+              </div>
+              <div class="bc__scan-result">
+                <div class="bc__scan-ok"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span>Match: SKU-4721-A</span>
+              </div>
+            </div>
+            <span class="bc__label">SCANNED</span>
+          </div>
+          <div class="bc__card" data-stage="3">
+            <div class="bc__decode">
+              <div class="bc__decode-input"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="7" x2="7" y2="17"/><line x1="10" y1="7" x2="10" y2="17"/><line x1="13" y1="7" x2="13" y2="11"/></svg> 01 00614141 07346 3</div>
+              <div class="bc__decode-arrow">&darr;</div>
+              <div class="bc__decode-output">
+                <div class="bc__decode-row"><span class="bc__decode-key">SKU</span><span class="bc__decode-val">4721-A</span></div>
+                <div class="bc__decode-row"><span class="bc__decode-key">Lot</span><span class="bc__decode-val">2024-B7</span></div>
+                <div class="bc__decode-row"><span class="bc__decode-key">Batch</span><span class="bc__decode-val">03/24</span></div>
+                <div class="bc__decode-row"><span class="bc__decode-key">Expiry</span><span class="bc__decode-val">12/25</span></div>
+              </div>
+              <div class="bc__decode-status"><div class="bc__decode-dot"></div> DB MATCHED</div>
+            </div>
+            <span class="bc__label">DECODED</span>
+          </div>
+          <div class="bc__card" data-stage="4">
+            <div class="bc__tracker">
+              <div class="bc__tracker-header"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Live Tracking</div>
+              <div class="bc__tracker-grid">
+                <div class="bc__tracker-cell bc__tracker-cell--active">A1</div>
+                <div class="bc__tracker-cell bc__tracker-cell--shipped">A2</div>
+                <div class="bc__tracker-cell">A3</div>
+                <div class="bc__tracker-cell bc__tracker-cell--active">A4</div>
+                <div class="bc__tracker-cell">B1</div>
+                <div class="bc__tracker-cell bc__tracker-cell--shipped">B2</div>
+                <div class="bc__tracker-cell bc__tracker-cell--active">B3</div>
+                <div class="bc__tracker-cell">B4</div>
+              </div>
+              <div class="bc__tracker-legend">
+                <span><span class="bc__tracker-legend-dot" style="background:#F59E0B;"></span>Active</span>
+                <span><span class="bc__tracker-legend-dot" style="background:#10B981;"></span>Shipped</span>
+                <span><span class="bc__tracker-legend-dot" style="background:rgba(255,255,255,0.1);"></span>Empty</span>
+              </div>
+            </div>
+            <span class="bc__label">TRACKING</span>
+          </div>
+          <div class="bc__card" data-stage="5">
+            <div class="bc__report">
+              <div class="bc__report-kpis">
+                <div class="bc__report-kpi"><div class="bc__report-kpi-num" style="color:#F59E0B;">2,847</div><div class="bc__report-kpi-label">SCANS TODAY</div></div>
+                <div class="bc__report-kpi"><div class="bc__report-kpi-num" style="color:#10B981;">99.97%</div><div class="bc__report-kpi-label">ACCURACY</div></div>
+                <div class="bc__report-kpi"><div class="bc__report-kpi-num" style="color:var(--color-accent);">0.3s</div><div class="bc__report-kpi-label">AVG SCAN</div></div>
+                <div class="bc__report-kpi"><div class="bc__report-kpi-num" style="color:#8B5CF6;">412</div><div class="bc__report-kpi-label">SHIPPED</div></div>
+              </div>
+              <div class="bc__report-bar">
+                <span class="bc__report-bar-label">Barcode</span>
+                <div class="bc__report-bar-track"><div class="bc__report-bar-fill" style="--fill-w:85%;background:#F59E0B;"></div></div>
+              </div>
+              <div class="bc__report-bar">
+                <span class="bc__report-bar-label">RFID</span>
+                <div class="bc__report-bar-track"><div class="bc__report-bar-fill" style="--fill-w:72%;background:#8B5CF6;"></div></div>
+              </div>
+              <div class="bc__report-export"><div class="bc__report-export-dot"></div> EXPORT REPORT &rarr;</div>
+            </div>
+          </div>
+        </div>
+        <div class="bc__timeline">
+          <div class="bc__timeline-progress"></div>
+          <div class="bc__step" data-stage="1"><div class="bc__step-dot">1</div><div class="bc__step-title">Tag &amp; Label</div></div>
+          <div class="bc__step" data-stage="2"><div class="bc__step-dot">2</div><div class="bc__step-title">Scan</div></div>
+          <div class="bc__step" data-stage="3"><div class="bc__step-dot">3</div><div class="bc__step-title">Decode &amp; Match</div></div>
+          <div class="bc__step" data-stage="4"><div class="bc__step-dot">4</div><div class="bc__step-title">Live Tracking</div></div>
+          <div class="bc__step" data-stage="5"><div class="bc__step-dot">5</div><div class="bc__step-title">Report</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section">
+    <div class="container">
+      <div class="about-intro reveal">
+        <div>
+          <span class="section-label">The Challenge</span>
+          <h2 class="about-intro__title">Tracking Without Visibility</h2>
+          <p class="about-intro__text">Without proper tracking, businesses face lost inventory, shipping errors, and lack of traceability. Manual tracking is time-consuming and prone to errors.</p>
+          <p class="about-intro__text">Every missed scan means lost data, delayed shipments, and unhappy customers. You need a system that tracks every product, every step of the way.</p>
+        </div>
+        <div class="solution-image">
+          <img src="../assets/barcode_inventory_challenges.png" alt="Manual inventory counting with paperwork and scanner before barcode tracking integration">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Features</span>
+        <h2 class="section-title">Complete Barcode Ecosystem</h2>
+      </div>
+      <div class="solution-features stagger-children" style="margin-top: var(--space-8);">
+        <div class="card feature-card">
+          <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="7" x2="7" y2="17"/><line x1="10" y1="7" x2="10" y2="17"/><line x1="13" y1="7" x2="13" y2="11"/><line x1="16" y1="7" x2="16" y2="17"/></svg></div>
+          <h3 class="feature-card__title">Product Tracking</h3>
+          <p class="feature-card__text">Track every product from production to delivery with unique barcode identifiers.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35z"/></svg></div>
+          <h3 class="feature-card__title">Inventory Management</h3>
+          <p class="feature-card__text">Real-time stock levels, automatic reorder alerts, and warehouse location tracking.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3 class="feature-card__title">Real-time Scanning</h3>
+          <p class="feature-card__text">Instant scan and process with industrial-grade barcode readers and mobile devices.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3 class="feature-card__title">Dashboard & Reports</h3>
+          <p class="feature-card__text">Comprehensive analytics with scan history, throughput metrics, and error reports.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <h3 class="feature-card__title">ERP Integration</h3>
+          <p class="feature-card__text">Seamless integration with your existing ERP, WMS, and business systems.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(245,158,11,0.1);color:var(--color-warning);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+          <h3 class="feature-card__title">Label Generation</h3>
+          <p class="feature-card__text">Design and print custom barcode labels with batch printing support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Benefits</span>
+        <h2 class="section-title text-white">Measurable Results</h2>
+      </div>
+      <div class="benefits__grid stagger-children" style="margin-top:var(--space-8);">
+        <div class="benefit-item">
+          <div class="benefit-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div class="stat__number" data-count="99" data-suffix="%" style="font-size:var(--fs-h3);">0%</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Inventory Accuracy</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Near-perfect stock tracking and counting</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="stat__number" data-count="5" data-suffix="x" style="font-size:var(--fs-h3);">0x</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Faster Processing</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Accelerated scanning and data capture</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="stat__number" style="font-size:var(--fs-h3);color:var(--color-accent);">Zero</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Shipping Errors</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Eliminate mislabeling and wrong shipments</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="stat__number" style="font-size:var(--fs-h3);color:var(--color-accent);">Real-time</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Visibility</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Live tracking across your entire supply chain</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-banner">
+    <div class="cta-banner__bg"></div>
+    <div class="container">
+      <div class="cta-banner__content reveal">
+        <h2 class="cta-banner__title">Ready to Track Everything?</h2>
+        <p class="cta-banner__text">Implement a barcode tracking solution that eliminates errors and improves efficiency.</p>
+        <a href="contact.html" class="btn btn--primary btn--lg">Get Started <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/components.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => initApp('solutions'));</script>
+  <script>
+  (function() {
+    var pipelineStates = {};
+    var pipelineCfg = {
+      barcodePipeline: { sel: '.bc__card', color: 'rgba(245,158,11,0.3)', bright: '#F59E0B' }
+    };
+    function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+    function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+    function getCoords(sectionId, index) {
+      var cfg = pipelineCfg[sectionId]; var section = document.getElementById(sectionId);
+      var cards = section.querySelectorAll(cfg.sel); var from = cards[index - 1]; var to = cards[index];
+      var sameRow = Math.abs(from.offsetTop - to.offsetTop) < 30; var x1, y1, x2, y2;
+      if (sameRow) { x1 = from.offsetLeft + from.offsetWidth + 6; y1 = from.offsetTop + from.offsetHeight / 2; x2 = to.offsetLeft - 6; y2 = to.offsetTop + to.offsetHeight / 2; }
+      else { x1 = from.offsetLeft + from.offsetWidth / 2; y1 = from.offsetTop + from.offsetHeight + 6; x2 = to.offsetLeft + to.offsetWidth / 2; y2 = to.offsetTop - 6; }
+      return { x1: x1, y1: y1, x2: x2, y2: y2, container: cards[0].parentElement };
+    }
+    function ensureSvg(sectionId) {
+      var cfg = pipelineCfg[sectionId]; var section = document.getElementById(sectionId);
+      var cards = section.querySelectorAll(cfg.sel); var container = cards[0].parentElement;
+      container.style.position = 'relative'; var svg = container.querySelector('.pipeline-connectors');
+      if (!svg) {
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'pipeline-connectors');
+        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible;';
+        var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        var filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+        filter.setAttribute('id', 'plGlow-' + sectionId); filter.setAttribute('x', '-100%'); filter.setAttribute('y', '-100%');
+        filter.setAttribute('width', '300%'); filter.setAttribute('height', '300%');
+        var blur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+        blur.setAttribute('stdDeviation', '4'); blur.setAttribute('result', 'b'); filter.appendChild(blur);
+        var merge = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
+        ['b', 'SourceGraphic'].forEach(function(inp) { var mn = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode'); mn.setAttribute('in', inp); merge.appendChild(mn); });
+        filter.appendChild(merge); defs.appendChild(filter); svg.appendChild(defs); container.appendChild(svg);
+      }
+      return svg;
+    }
+    function growLine(sectionId, index, cb) {
+      var cfg = pipelineCfg[sectionId]; var c = getCoords(sectionId, index); var svg = ensureSvg(sectionId);
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1); line.setAttribute('x2', c.x1); line.setAttribute('y2', c.y1);
+      line.setAttribute('stroke', cfg.color); line.setAttribute('stroke-width', '2'); line.setAttribute('stroke-dasharray', '6,6');
+      svg.appendChild(line); var dur = 280; var start = performance.now();
+      function tick(now) { var t = Math.min((now - start) / dur, 1); t = easeOut(t);
+        line.setAttribute('x2', c.x1 + (c.x2 - c.x1) * t); line.setAttribute('y2', c.y1 + (c.y2 - c.y1) * t);
+        if (t < 1) requestAnimationFrame(tick); else cb(); }
+      requestAnimationFrame(tick);
+    }
+    function sendPulse(sectionId, index, cb) {
+      var cfg = pipelineCfg[sectionId]; var c = getCoords(sectionId, index); var svg = ensureSvg(sectionId);
+      var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      var outer = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      outer.setAttribute('r', '6'); outer.setAttribute('fill', cfg.bright); outer.setAttribute('opacity', '0.45');
+      outer.setAttribute('filter', 'url(#plGlow-' + sectionId + ')'); g.appendChild(outer);
+      var inner = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      inner.setAttribute('r', '2.5'); inner.setAttribute('fill', '#fff'); inner.setAttribute('opacity', '0.95'); g.appendChild(inner);
+      g.setAttribute('transform', 'translate(' + c.x1 + ',' + c.y1 + ')'); svg.appendChild(g);
+      var dur = 550; var start = performance.now();
+      function tick(now) { var t = Math.min((now - start) / dur, 1); t = easeInOut(t);
+        var x = c.x1 + (c.x2 - c.x1) * t; var y = c.y1 + (c.y2 - c.y1) * t;
+        g.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+        if (t < 1) { requestAnimationFrame(tick); } else {
+          var fadeStart = performance.now();
+          function fadeOut(now2) { var ft = Math.min((now2 - fadeStart) / 220, 1); g.setAttribute('opacity', String(1 - ft));
+            if (ft < 1) requestAnimationFrame(fadeOut); else { g.remove(); cb(); } }
+          requestAnimationFrame(fadeOut); } }
+      requestAnimationFrame(tick);
+    }
+    function drawStatic(sectionId, activeIndex) {
+      var cfg = pipelineCfg[sectionId]; if (!cfg) return;
+      var section = document.getElementById(sectionId); if (!section) return;
+      section.querySelectorAll('.pipeline-connectors').forEach(function(el) { el.remove(); });
+      if (window.innerWidth > 768 || activeIndex < 1) return;
+      var cards = section.querySelectorAll(cfg.sel); if (cards.length < 2) return;
+      var svg = ensureSvg(sectionId); var limit = Math.min(activeIndex, cards.length - 1);
+      for (var i = 1; i <= limit; i++) { var c = getCoords(sectionId, i);
+        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1); line.setAttribute('x2', c.x2); line.setAttribute('y2', c.y2);
+        line.setAttribute('stroke', cfg.color); line.setAttribute('stroke-width', '2'); line.setAttribute('stroke-dasharray', '6,6');
+        svg.appendChild(line); }
+    }
+    function initPipeline(sectionId, cardSel, stepSel, progressSel) {
+      var section = document.getElementById(sectionId); if (!section) return;
+      var cards = section.querySelectorAll(cardSel); var steps = section.querySelectorAll(stepSel);
+      var progress = section.querySelector(progressSel); var total = cards.length; var started = false; var running = false;
+      function activateUpTo(index) {
+        cards.forEach(function(c, i) { c.classList.toggle('active', i <= index); });
+        steps.forEach(function(s, i) { s.classList.toggle('active', i <= index); });
+        if (progress) progress.style.width = (index / (total - 1)) * 100 + '%'; pipelineStates[sectionId] = index;
+      }
+      function runMobile() {
+        cards.forEach(function(c) { c.classList.remove('active'); }); steps.forEach(function(s) { s.classList.remove('active'); });
+        if (progress) progress.style.width = '0%'; pipelineStates[sectionId] = -1;
+        section.querySelectorAll('.pipeline-connectors').forEach(function(el) { el.remove(); });
+        var i = 0;
+        function next() { if (!running) return; if (i >= total) { setTimeout(function() { if (running) runMobile(); }, 5000); return; }
+          if (i === 0) { activateUpTo(0); i++; setTimeout(next, 500); }
+          else { var idx = i; growLine(sectionId, idx, function() { if (!running) return; activateUpTo(idx);
+            setTimeout(function() { if (!running) return; sendPulse(sectionId, idx, function() { i++; setTimeout(next, 80); }); }, 380); }); } }
+        setTimeout(next, 300);
+      }
+      function runDesktop() {
+        cards.forEach(function(c) { c.classList.remove('active'); }); steps.forEach(function(s) { s.classList.remove('active'); });
+        if (progress) progress.style.width = '0%'; pipelineStates[sectionId] = -1; var i = 0;
+        var iv = setInterval(function() { if (!running) { clearInterval(iv); return; } activateUpTo(i); i++;
+          if (i >= total) { clearInterval(iv); setTimeout(function() { if (running) runDesktop(); }, 5000); } }, 1200);
+      }
+      function run() { running = true; if (window.innerWidth <= 768) runMobile(); else runDesktop(); }
+      new IntersectionObserver(function(entries) { entries.forEach(function(entry) {
+        if (entry.isIntersecting && !started) { started = true; run(); } }); }, { threshold: 0.15 }).observe(section);
+    }
+    initPipeline('barcodePipeline', '.bc__card', '.bc__step', '.bc__timeline-progress');
+    var _pRT; window.addEventListener('resize', function() { clearTimeout(_pRT); _pRT = setTimeout(function() {
+      Object.keys(pipelineStates).forEach(function(id) { if (pipelineStates[id] >= 0) drawStatic(id, pipelineStates[id]); }); }, 250); });
+  })();
+  </script>
+</body>
+</html>
