@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Industrial Automation Solutions by IVPRO Technologies - Process automation, machine communication, efficiency improvement.">
+  <title>Industrial Automation | IVPRO Technologies</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/integration-pipeline.css">
+  <link rel="stylesheet" href="../css/pipeline-responsive.css">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body>
+
+  <section class="page-hero" style="min-height:auto;padding-bottom:var(--space-6);">
+    <div class="page-hero__bg"><div class="page-hero__bg-grid"></div><div class="page-hero__bg-glow" style="background:#0077B6;"></div></div>
+    <div class="container">
+      <div class="solution-hero__content">
+        <div style="position:relative;z-index:1;">
+          <div class="page-hero__breadcrumb" style="justify-content:flex-start;">
+            <a href="../index.html">Home</a><span>/</span><a href="solutions.html">Solutions</a><span>/</span><span>Automation</span>
+          </div>
+          <span class="section-label" style="color:#3B82F6;">Automation Solution</span>
+          <h1 class="page-hero__title" style="text-align:left;font-size:var(--fs-h1);">Industrial Automation</h1>
+          <p class="page-hero__subtitle" style="text-align:left;margin:0;margin-top:var(--space-4);">Process automation, machine communication, and efficiency improvement through intelligent control systems.</p>
+          <div style="margin-top:var(--space-6);display:flex;gap:var(--space-4);">
+            <a href="contact.html" class="btn btn--primary">Get Started <span class="btn-arrow">&rarr;</span></a>
+            <a href="contact.html" class="btn btn--secondary">Get Quote</a>
+          </div>
+        </div>
+        <div class="solution-image solution-image--hero">
+          <img src="../assets/automation_system.png" alt="Industrial automation line with robotic arm, PLC controls, and HMI dashboard">
+        </div>
+      </div>
+      <div class="hero__pipeline" id="integrationPipeline">
+        <p class="hero__pipeline-label" style="color:#3B82F6;">From Machine to Dashboard, Seamlessly</p>
+        <div class="intg__stages">
+          <div class="intg__card" data-stage="1">
+            <div class="intg__machines">
+              <div class="intg__machine-row">
+                <div class="intg__machine-icon" style="background:rgba(59,130,246,0.1);color:#3B82F6;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <span class="intg__machine-name">CNC-03</span>
+                <span class="intg__machine-proto intg__machine-proto--opcua">OPC-UA</span>
+                <div class="intg__machine-status"></div>
+              </div>
+              <div class="intg__machine-row">
+                <div class="intg__machine-icon" style="background:rgba(6,182,212,0.1);color:#06B6D4;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></div>
+                <span class="intg__machine-name">PRESS-07</span>
+                <span class="intg__machine-proto intg__machine-proto--profinet">PROFINET</span>
+                <div class="intg__machine-status"></div>
+              </div>
+              <div class="intg__machine-row">
+                <div class="intg__machine-icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 2v5"/><path d="M8 2v5"/></svg></div>
+                <span class="intg__machine-name">MOLD-12</span>
+                <span class="intg__machine-proto intg__machine-proto--modbus">MODBUS</span>
+                <div class="intg__machine-status"></div>
+              </div>
+              <div class="intg__machine-row">
+                <div class="intg__machine-icon" style="background:rgba(16,185,129,0.1);color:#10B981;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+                <span class="intg__machine-name">CONV-04</span>
+                <span class="intg__machine-proto intg__machine-proto--mqtt">MQTT</span>
+                <div class="intg__machine-status"></div>
+              </div>
+            </div>
+            <span class="intg__label">CONNECTED</span>
+          </div>
+          <div class="intg__card" data-stage="2">
+            <div class="intg__gateway">
+              <div class="intg__gw-box">
+                <div class="intg__gw-title"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> EDGE GATEWAY</div>
+                <div class="intg__gw-flow">
+                  <div class="intg__gw-row"><span class="intg__gw-tag intg__gw-tag--raw">RAW</span> <span class="intg__gw-arrow">&rarr;</span> <span class="intg__gw-tag intg__gw-tag--json">JSON</span></div>
+                  <div class="intg__gw-row"><span class="intg__gw-tag intg__gw-tag--raw">REG</span> <span class="intg__gw-arrow">&rarr;</span> <span class="intg__gw-tag intg__gw-tag--json">&deg;C</span></div>
+                </div>
+              </div>
+              <div class="intg__gw-output">{"machine":"CNC-03",<br>"metric":"spindle_temp",<br>"value":62.4, "unit":"&deg;C"}</div>
+            </div>
+            <span class="intg__label">NORMALIZED</span>
+          </div>
+          <div class="intg__card" data-stage="3">
+            <div class="intg__compute">
+              <div class="intg__compute-header"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/></svg> EDGE COMPUTE</div>
+              <div class="intg__compute-metrics">
+                <div class="intg__metric-row"><span class="intg__metric-label">OEE</span><div class="intg__metric-track"><div class="intg__metric-fill" style="--fill-w:78.6%;background:linear-gradient(90deg,#3B82F6,#10B981);"></div></div><span class="intg__metric-val" style="color:#10B981;">78.6%</span></div>
+                <div class="intg__metric-row"><span class="intg__metric-label">Cycle</span><div class="intg__metric-track"><div class="intg__metric-fill" style="--fill-w:84%;background:#3B82F6;"></div></div><span class="intg__metric-val" style="color:#3B82F6;">42.3s</span></div>
+                <div class="intg__metric-row"><span class="intg__metric-label">Yield</span><div class="intg__metric-track"><div class="intg__metric-fill" style="--fill-w:97%;background:#10B981;"></div></div><span class="intg__metric-val" style="color:#10B981;">97.1%</span></div>
+                <div class="intg__metric-row"><span class="intg__metric-label">Energy</span><div class="intg__metric-track"><div class="intg__metric-fill" style="--fill-w:62%;background:#8B5CF6;"></div></div><span class="intg__metric-val" style="color:#8B5CF6;">4.2kW</span></div>
+              </div>
+            </div>
+            <span class="intg__label">COMPUTED</span>
+          </div>
+          <div class="intg__card" data-stage="4">
+            <div class="intg__dashboard">
+              <div class="intg__dash-header"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> LIVE DASHBOARD</div>
+              <div class="intg__dash-kpis">
+                <div class="intg__dash-kpi"><div class="intg__dash-kpi-num" style="color:#10B981;">14<span style="font-size:9px;color:var(--color-text-light);">/18</span></div><div class="intg__dash-kpi-label">Running</div></div>
+                <div class="intg__dash-kpi"><div class="intg__dash-kpi-num" style="color:#8B5CF6;">3,842</div><div class="intg__dash-kpi-label">Units Today</div></div>
+              </div>
+              <div class="intg__machine-bar">
+                <div class="intg__machine-dot intg__machine-dot--run"></div>
+                <div class="intg__machine-dot intg__machine-dot--run"></div>
+                <div class="intg__machine-dot intg__machine-dot--idle"></div>
+                <div class="intg__machine-dot intg__machine-dot--run"></div>
+                <div class="intg__machine-dot intg__machine-dot--down"></div>
+              </div>
+              <div class="intg__machine-bar-legend">
+                <span><span class="intg__legend-dot intg__legend-dot--run"></span>Run</span>
+                <span><span class="intg__legend-dot intg__legend-dot--idle"></span>Idle</span>
+                <span><span class="intg__legend-dot intg__legend-dot--down"></span>Down</span>
+              </div>
+              <svg class="intg__dash-chart" viewBox="0 0 150 28" fill="none">
+                <path d="M0 24 Q10 22 20 20 T40 16 T60 14 T80 10 T100 12 T120 6 T140 8 T150 4" stroke="#8B5CF6" stroke-width="2" fill="none"/>
+                <path d="M0 24 Q10 22 20 20 T40 16 T60 14 T80 10 T100 12 T120 6 T140 8 T150 4 V28 H0 Z" fill="url(#intgChartGrad)" opacity="0.12"/>
+                <defs><linearGradient id="intgChartGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="transparent"/></linearGradient></defs>
+              </svg>
+            </div>
+          </div>
+          <div class="intg__card" data-stage="5">
+            <div class="intg__alerts">
+              <div class="intg__alert intg__alert--critical">
+                <div class="intg__alert-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></div>
+                <div class="intg__alert-content"><span class="intg__alert-title">PRESS-07 Critical</span><span class="intg__alert-desc">Hydraulic pressure &lt; 150 bar</span></div>
+              </div>
+              <div class="intg__alert intg__alert--warning">
+                <div class="intg__alert-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                <div class="intg__alert-content"><span class="intg__alert-title">CNC-03 Warning</span><span class="intg__alert-desc">Spindle vibration 4.2 mm/s</span></div>
+              </div>
+              <div class="intg__alert intg__alert--predictive">
+                <div class="intg__alert-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div class="intg__alert-content"><span class="intg__alert-title">Predictive</span><span class="intg__alert-desc">CONV-04 bearing &mdash; 72 hrs</span></div>
+              </div>
+              <div class="intg__action-bar">
+                <div class="intg__action-dot"></div>
+                AUTO-RESPONSE ACTIVE
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="intg__timeline">
+          <div class="intg__timeline-progress"></div>
+          <div class="intg__step" data-stage="1"><div class="intg__step-dot">1</div><div class="intg__step-title">Acquire</div></div>
+          <div class="intg__step" data-stage="2"><div class="intg__step-dot">2</div><div class="intg__step-title">Normalize</div></div>
+          <div class="intg__step" data-stage="3"><div class="intg__step-dot">3</div><div class="intg__step-title">Process</div></div>
+          <div class="intg__step" data-stage="4"><div class="intg__step-dot">4</div><div class="intg__step-title">Visualize</div></div>
+          <div class="intg__step" data-stage="5"><div class="intg__step-dot">5</div><div class="intg__step-title">Act</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-intro reveal">
+        <div>
+          <span class="section-label">The Challenge</span>
+          <h2 class="about-intro__title">Manual Processes Hold You Back</h2>
+          <p class="about-intro__text">Manual processes are slow, error-prone, and don't scale. As production demands grow, human-dependent workflows become the bottleneck.</p>
+          <p class="about-intro__text">Industrial automation eliminates these constraints, enabling consistent quality, higher throughput, and reduced operational costs.</p>
+        </div>
+        <div class="solution-image">
+          <img src="../assets/automation_manual_bottlenecks.png" alt="Manual manufacturing process with paperwork and parts waiting on a production line">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gray">
+    <div class="container">
+      <div class="text-center reveal"><span class="section-label">Features</span><h2 class="section-title">Automation Capabilities</h2></div>
+      <div class="solution-features stagger-children" style="margin-top:var(--space-8);">
+        <div class="card feature-card">
+          <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33"/></svg></div>
+          <h3 class="feature-card__title">Process Automation</h3>
+          <p class="feature-card__text">Automate repetitive tasks and workflows to increase throughput and reduce errors.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/></svg></div>
+          <h3 class="feature-card__title">Machine Communication</h3>
+          <p class="feature-card__text">Enable seamless data exchange between PLCs, SCADA systems, and enterprise software.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <h3 class="feature-card__title">Efficiency Improvement</h3>
+          <p class="feature-card__text">Optimize production cycles, reduce waste, and improve overall equipment effectiveness.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3 class="feature-card__title">SCADA Integration</h3>
+          <p class="feature-card__text">Connect with SCADA systems for supervisory control and real-time monitoring.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/></svg></div>
+          <h3 class="feature-card__title">PLC Programming</h3>
+          <p class="feature-card__text">Custom PLC programming and configuration for industrial control applications.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(245,158,11,0.1);color:var(--color-warning);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <h3 class="feature-card__title">Data Historization</h3>
+          <p class="feature-card__text">Collect and store historical production data for analysis and compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center reveal"><span class="section-label">Benefits</span><h2 class="section-title text-white">Why Automate</h2></div>
+      <div class="benefits__grid stagger-children" style="margin-top:var(--space-8);">
+        <div class="benefit-item">
+          <div class="benefit-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="stat__number" data-count="40" data-suffix="%" style="font-size:var(--fs-h3);">0%</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Higher Throughput</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Significant increase in production output</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div class="stat__number" data-count="95" data-suffix="%" style="font-size:var(--fs-h3);">0%</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Consistency</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Repeatable quality in every production cycle</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="stat__number" data-count="60" data-suffix="%" style="font-size:var(--fs-h3);">0%</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Less Downtime</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Reduced unplanned stoppages and maintenance</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="stat__number" style="font-size:var(--fs-h3);color:var(--color-accent);">ROI</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Quick Payback</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Fast return on automation investment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark cta-banner">
+    <div class="cta-banner__bg"></div>
+    <div class="container">
+      <div class="cta-banner__content reveal">
+        <h2 class="cta-banner__title">Automate Your Operations</h2>
+        <p class="cta-banner__text">Let us design an automation solution that transforms your production efficiency.</p>
+        <a href="contact.html" class="btn btn--primary btn--lg">Get Started <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/components.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => initApp('solutions'));</script>
+  <script>
+  (function() {
+    var pipelineStates = {};
+    var pipelineCfg = {
+      integrationPipeline: { sel: '.intg__card', color: 'rgba(59,130,246,0.3)', bright: '#3B82F6' }
+    };
+    function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+    function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+    function getCoords(sectionId, index) {
+      var cfg = pipelineCfg[sectionId]; var section = document.getElementById(sectionId);
+      var cards = section.querySelectorAll(cfg.sel); var from = cards[index - 1]; var to = cards[index];
+      var sameRow = Math.abs(from.offsetTop - to.offsetTop) < 30; var x1, y1, x2, y2;
+      if (sameRow) { x1 = from.offsetLeft + from.offsetWidth + 6; y1 = from.offsetTop + from.offsetHeight / 2; x2 = to.offsetLeft - 6; y2 = to.offsetTop + to.offsetHeight / 2; }
+      else { x1 = from.offsetLeft + from.offsetWidth / 2; y1 = from.offsetTop + from.offsetHeight + 6; x2 = to.offsetLeft + to.offsetWidth / 2; y2 = to.offsetTop - 6; }
+      return { x1: x1, y1: y1, x2: x2, y2: y2, container: cards[0].parentElement };
+    }
+    function ensureSvg(sectionId) {
+      var cfg = pipelineCfg[sectionId]; var section = document.getElementById(sectionId);
+      var cards = section.querySelectorAll(cfg.sel); var container = cards[0].parentElement;
+      container.style.position = 'relative'; var svg = container.querySelector('.pipeline-connectors');
+      if (!svg) {
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'pipeline-connectors');
+        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible;';
+        var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        var filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+        filter.setAttribute('id', 'plGlow-' + sectionId); filter.setAttribute('x', '-100%'); filter.setAttribute('y', '-100%');
+        filter.setAttribute('width', '300%'); filter.setAttribute('height', '300%');
+        var blur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+        blur.setAttribute('stdDeviation', '4'); blur.setAttribute('result', 'b'); filter.appendChild(blur);
+        var merge = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
+        ['b', 'SourceGraphic'].forEach(function(inp) { var mn = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode'); mn.setAttribute('in', inp); merge.appendChild(mn); });
+        filter.appendChild(merge); defs.appendChild(filter); svg.appendChild(defs); container.appendChild(svg);
+      }
+      return svg;
+    }
+    function growLine(sectionId, index, cb) {
+      var cfg = pipelineCfg[sectionId]; var c = getCoords(sectionId, index); var svg = ensureSvg(sectionId);
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1); line.setAttribute('x2', c.x1); line.setAttribute('y2', c.y1);
+      line.setAttribute('stroke', cfg.color); line.setAttribute('stroke-width', '2'); line.setAttribute('stroke-dasharray', '6,6');
+      svg.appendChild(line); var dur = 280; var start = performance.now();
+      function tick(now) { var t = Math.min((now - start) / dur, 1); t = easeOut(t);
+        line.setAttribute('x2', c.x1 + (c.x2 - c.x1) * t); line.setAttribute('y2', c.y1 + (c.y2 - c.y1) * t);
+        if (t < 1) requestAnimationFrame(tick); else cb(); }
+      requestAnimationFrame(tick);
+    }
+    function sendPulse(sectionId, index, cb) {
+      var cfg = pipelineCfg[sectionId]; var c = getCoords(sectionId, index); var svg = ensureSvg(sectionId);
+      var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      var outer = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      outer.setAttribute('r', '6'); outer.setAttribute('fill', cfg.bright); outer.setAttribute('opacity', '0.45');
+      outer.setAttribute('filter', 'url(#plGlow-' + sectionId + ')'); g.appendChild(outer);
+      var inner = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      inner.setAttribute('r', '2.5'); inner.setAttribute('fill', '#fff'); inner.setAttribute('opacity', '0.95'); g.appendChild(inner);
+      g.setAttribute('transform', 'translate(' + c.x1 + ',' + c.y1 + ')'); svg.appendChild(g);
+      var dur = 550; var start = performance.now();
+      function tick(now) { var t = Math.min((now - start) / dur, 1); t = easeInOut(t);
+        var x = c.x1 + (c.x2 - c.x1) * t; var y = c.y1 + (c.y2 - c.y1) * t;
+        g.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+        if (t < 1) { requestAnimationFrame(tick); } else {
+          var fadeStart = performance.now();
+          function fadeOut(now2) { var ft = Math.min((now2 - fadeStart) / 220, 1); g.setAttribute('opacity', String(1 - ft));
+            if (ft < 1) requestAnimationFrame(fadeOut); else { g.remove(); cb(); } }
+          requestAnimationFrame(fadeOut); } }
+      requestAnimationFrame(tick);
+    }
+    function drawStatic(sectionId, activeIndex) {
+      var cfg = pipelineCfg[sectionId]; if (!cfg) return;
+      var section = document.getElementById(sectionId); if (!section) return;
+      section.querySelectorAll('.pipeline-connectors').forEach(function(el) { el.remove(); });
+      if (window.innerWidth > 768 || activeIndex < 1) return;
+      var cards = section.querySelectorAll(cfg.sel); if (cards.length < 2) return;
+      var svg = ensureSvg(sectionId); var limit = Math.min(activeIndex, cards.length - 1);
+      for (var i = 1; i <= limit; i++) { var c = getCoords(sectionId, i);
+        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1); line.setAttribute('x2', c.x2); line.setAttribute('y2', c.y2);
+        line.setAttribute('stroke', cfg.color); line.setAttribute('stroke-width', '2'); line.setAttribute('stroke-dasharray', '6,6');
+        svg.appendChild(line); }
+    }
+    function initPipeline(sectionId, cardSel, stepSel, progressSel) {
+      var section = document.getElementById(sectionId); if (!section) return;
+      var cards = section.querySelectorAll(cardSel); var steps = section.querySelectorAll(stepSel);
+      var progress = section.querySelector(progressSel); var total = cards.length; var started = false; var running = false;
+      function activateUpTo(index) {
+        cards.forEach(function(c, i) { c.classList.toggle('active', i <= index); });
+        steps.forEach(function(s, i) { s.classList.toggle('active', i <= index); });
+        if (progress) progress.style.width = (index / (total - 1)) * 100 + '%'; pipelineStates[sectionId] = index;
+      }
+      function runMobile() {
+        cards.forEach(function(c) { c.classList.remove('active'); }); steps.forEach(function(s) { s.classList.remove('active'); });
+        if (progress) progress.style.width = '0%'; pipelineStates[sectionId] = -1;
+        section.querySelectorAll('.pipeline-connectors').forEach(function(el) { el.remove(); });
+        var i = 0;
+        function next() { if (!running) return; if (i >= total) { setTimeout(function() { if (running) runMobile(); }, 5000); return; }
+          if (i === 0) { activateUpTo(0); i++; setTimeout(next, 500); }
+          else { var idx = i; growLine(sectionId, idx, function() { if (!running) return; activateUpTo(idx);
+            setTimeout(function() { if (!running) return; sendPulse(sectionId, idx, function() { i++; setTimeout(next, 80); }); }, 380); }); } }
+        setTimeout(next, 300);
+      }
+      function runDesktop() {
+        cards.forEach(function(c) { c.classList.remove('active'); }); steps.forEach(function(s) { s.classList.remove('active'); });
+        if (progress) progress.style.width = '0%'; pipelineStates[sectionId] = -1; var i = 0;
+        var iv = setInterval(function() { if (!running) { clearInterval(iv); return; } activateUpTo(i); i++;
+          if (i >= total) { clearInterval(iv); setTimeout(function() { if (running) runDesktop(); }, 5000); } }, 1200);
+      }
+      function run() { running = true; if (window.innerWidth <= 768) runMobile(); else runDesktop(); }
+      new IntersectionObserver(function(entries) { entries.forEach(function(entry) {
+        if (entry.isIntersecting && !started) { started = true; run(); } }); }, { threshold: 0.15 }).observe(section);
+    }
+    initPipeline('integrationPipeline', '.intg__card', '.intg__step', '.intg__timeline-progress');
+    var _pRT; window.addEventListener('resize', function() { clearTimeout(_pRT); _pRT = setTimeout(function() {
+      Object.keys(pipelineStates).forEach(function(id) { if (pipelineStates[id] >= 0) drawStatic(id, pipelineStates[id]); }); }, 250); });
+  })();
+  </script>
+</body>
+</html>

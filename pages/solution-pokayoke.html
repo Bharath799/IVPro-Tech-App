@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Poka-Yoke Error Proofing by IVPRO Technologies - Error prevention, assembly validation, mistake-proof workflows.">
+  <title>Poka-Yoke | IVPRO Technologies</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/pokayoke-pipeline.css">
+  <link rel="stylesheet" href="../css/pipeline-responsive.css">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body>
+
+  <section class="page-hero" style="min-height:auto;padding-bottom:var(--space-6);">
+    <div class="page-hero__bg"><div class="page-hero__bg-grid"></div><div class="page-hero__bg-glow" style="background:#F7941D;"></div></div>
+    <div class="container">
+      <div class="solution-hero__content">
+        <div style="position:relative;z-index:1;">
+          <div class="page-hero__breadcrumb" style="justify-content:flex-start;">
+            <a href="../index.html">Home</a><span>/</span><a href="solutions.html">Solutions</a><span>/</span><span>Poka-Yoke</span>
+          </div>
+          <span class="section-label" style="color:#F7941D;">Quality Solution</span>
+          <h1 class="page-hero__title" style="text-align:left;font-size:var(--fs-h1);">Poka-Yoke</h1>
+          <p class="page-hero__subtitle" style="text-align:left;margin:0;margin-top:var(--space-4);">Error prevention systems, assembly validation, and mistake-proof workflows for zero-defect manufacturing.</p>
+          <div style="margin-top:var(--space-6);display:flex;gap:var(--space-4);">
+            <a href="contact.html" class="btn btn--primary">Get Started <span class="btn-arrow">&rarr;</span></a>
+            <a href="contact.html" class="btn btn--secondary">Get Quote</a>
+          </div>
+        </div>
+        <div class="solution-image solution-image--hero">
+          <img src="../assets/pokayoke_error_proofing_system.png" alt="Poka-Yoke assembly station with pick-to-light bins, torque tool, and validation screen">
+        </div>
+      </div>
+      <div class="hero__pipeline" id="pokayokePipeline">
+        <p class="hero__pipeline-label" style="color:#F7941D;">Error-Proof Assembly in Action</p>
+        <div class="pk__stages">
+          <div class="pk__card" data-stage="1">
+            <div class="pk__bom">
+              <div class="pk__bom-header"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> WORK ORDER #4721</div>
+              <div class="pk__bom-rows">
+                <div class="pk__bom-row"><span class="pk__bom-part">Bolt M6x20</span><span class="pk__bom-qty">x4</span></div>
+                <div class="pk__bom-row"><span class="pk__bom-part">Washer M6</span><span class="pk__bom-qty">x4</span></div>
+                <div class="pk__bom-row"><span class="pk__bom-part">Bracket-L</span><span class="pk__bom-qty">x2</span></div>
+                <div class="pk__bom-row"><span class="pk__bom-part">Spring Pin</span><span class="pk__bom-qty">x1</span></div>
+              </div>
+            </div>
+            <span class="pk__label">BOM LOADED</span>
+          </div>
+          <div class="pk__card" data-stage="2">
+            <div class="pk__scanner">
+              <div class="pk__scanner-beam"></div>
+              <div class="pk__barcode-lines">
+                <div class="pk__barcode-line" style="height:28px;"></div>
+                <div class="pk__barcode-line" style="height:36px;"></div>
+                <div class="pk__barcode-line" style="height:20px;"></div>
+                <div class="pk__barcode-line" style="height:36px;"></div>
+                <div class="pk__barcode-line" style="height:24px;"></div>
+                <div class="pk__barcode-line" style="height:40px;"></div>
+                <div class="pk__barcode-line" style="height:32px;"></div>
+                <div class="pk__barcode-line" style="height:20px;"></div>
+                <div class="pk__barcode-line" style="height:36px;"></div>
+                <div class="pk__barcode-line" style="height:28px;"></div>
+                <div class="pk__barcode-line" style="height:24px;"></div>
+                <div class="pk__barcode-line" style="height:36px;"></div>
+              </div>
+            </div>
+            <div class="pk__scan-result"><div class="pk__scan-result-dot"></div><span class="pk__scan-result-text">Part Identified</span></div>
+            <span class="pk__label">SCANNED</span>
+          </div>
+          <div class="pk__card" data-stage="3">
+            <div class="pk__bins">
+              <div class="pk__bin"><div class="pk__bin-light"></div><span class="pk__bin-label">A1</span></div>
+              <div class="pk__bin pk__bin--active" style="position:relative;"><div class="pk__bin-light"></div><span class="pk__bin-label">A2</span><span class="pk__pick-arrow">&#9650;</span></div>
+              <div class="pk__bin"><div class="pk__bin-light"></div><span class="pk__bin-label">A3</span></div>
+              <div class="pk__bin"><div class="pk__bin-light"></div><span class="pk__bin-label">B1</span></div>
+              <div class="pk__bin"><div class="pk__bin-light"></div><span class="pk__bin-label">B2</span></div>
+              <div class="pk__bin"><div class="pk__bin-light"></div><span class="pk__bin-label">B3</span></div>
+            </div>
+            <span class="pk__label">BIN A2 &rarr; PICK</span>
+          </div>
+          <div class="pk__card" data-stage="4">
+            <div class="pk__confirm">
+              <div class="pk__hand-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V5a2 2 0 0 0-4 0v9"/><path d="M18 11a2 2 0 0 1 4 0v3a8 8 0 0 1-8 8h-2c-2.49 0-4.09-1.17-5.38-2.63A24 24 0 0 1 4 15"/></svg>
+              </div>
+              <div class="pk__sensor-wave"><div class="pk__sensor-wave-line"></div></div>
+              <div class="pk__confirm-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                PICK CONFIRMED
+              </div>
+            </div>
+          </div>
+          <div class="pk__card" data-stage="5">
+            <div class="pk__record">
+              <div class="pk__record-row">
+                <div class="pk__record-icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div class="pk__record-text"><strong>Logged</strong>Pick #4721-03 recorded</div>
+              </div>
+              <div class="pk__record-row">
+                <div class="pk__record-icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div class="pk__record-text"><strong>Timestamp</strong>14:23:07.413</div>
+              </div>
+              <div class="pk__record-row">
+                <div class="pk__record-icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <div class="pk__record-text"><strong>Validated</strong>BOM match &#10003;</div>
+              </div>
+              <div class="pk__validate-bar">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                ALL STEPS VALIDATED
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pk__timeline">
+          <div class="pk__timeline-progress"></div>
+          <div class="pk__step" data-stage="1"><div class="pk__step-dot">1</div><div class="pk__step-title">Order Received</div></div>
+          <div class="pk__step" data-stage="2"><div class="pk__step-dot">2</div><div class="pk__step-title">Scan &amp; Identify</div></div>
+          <div class="pk__step" data-stage="3"><div class="pk__step-dot">3</div><div class="pk__step-title">Pick-to-Light</div></div>
+          <div class="pk__step" data-stage="4"><div class="pk__step-dot">4</div><div class="pk__step-title">Pick &amp; Confirm</div></div>
+          <div class="pk__step" data-stage="5"><div class="pk__step-dot">5</div><div class="pk__step-title">Record &amp; Validate</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-intro reveal">
+        <div>
+          <span class="section-label">The Challenge</span>
+          <h2 class="about-intro__title">Human Errors Are Inevitable — Unless Prevented</h2>
+          <p class="about-intro__text">In complex assembly operations, even well-trained operators make mistakes. Wrong parts, missing steps, incorrect sequences — each error leads to rework, waste, and customer complaints.</p>
+          <p class="about-intro__text">Poka-Yoke systems make errors impossible at the source, ensuring every product is built right the first time.</p>
+        </div>
+        <div class="solution-image">
+          <img src="../assets/pokayoke_assembly_errors.png" alt="Manual assembly bench showing similar parts and wrong-part risk before error proofing">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gray">
+    <div class="container">
+      <div class="text-center reveal"><span class="section-label">Features</span><h2 class="section-title">Error Proofing Capabilities</h2></div>
+      <div class="solution-features stagger-children" style="margin-top:var(--space-8);">
+        <div class="card feature-card">
+          <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+          <h3 class="feature-card__title">Error Prevention</h3>
+          <p class="feature-card__text">Physical and digital mechanisms that prevent incorrect assembly steps.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3 class="feature-card__title">Assembly Validation</h3>
+          <p class="feature-card__text">Step-by-step verification ensures each Assembly stage is completed correctly.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <h3 class="feature-card__title">Mistake-Proof Workflows</h3>
+          <p class="feature-card__text">Guided workflows that enforce correct sequences and prevent step skipping.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3 class="feature-card__title">Vision-Based Verification</h3>
+          <p class="feature-card__text">Camera systems that verify correct part placement and assembly completeness.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="7" x2="7" y2="17"/><line x1="10" y1="7" x2="10" y2="17"/><line x1="13" y1="7" x2="13" y2="11"/><line x1="16" y1="7" x2="16" y2="17"/></svg></div>
+          <h3 class="feature-card__title">Barcode Verification</h3>
+          <p class="feature-card__text">Scan and verify parts against BOM to ensure correct components are used.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-card__icon" style="background:rgba(245,158,11,0.1);color:var(--color-warning);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3 class="feature-card__title">Operator Guidance</h3>
+          <p class="feature-card__text">Screen-based work instructions with visual guides for each assembly step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal"><span class="section-label">Use Cases</span><h2 class="section-title">Where Poka-Yoke Works</h2></div>
+      <div class="use-cases__list" style="margin-top:var(--space-8);">
+        <div class="use-case-item reveal">
+          <div class="use-case-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+          <div><h4 class="use-case-item__title">Automotive Assembly</h4><p class="use-case-item__text">Ensure correct torque, part placement, and wiring in vehicle assembly lines.</p></div>
+        </div>
+        <div class="use-case-item reveal">
+          <div class="use-case-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
+          <div><h4 class="use-case-item__title">Electronics Manufacturing</h4><p class="use-case-item__text">Verify component placement, orientation, and solder quality on PCBs.</p></div>
+        </div>
+        <div class="use-case-item reveal">
+          <div class="use-case-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg></div>
+          <div><h4 class="use-case-item__title">Packaging Verification</h4><p class="use-case-item__text">Ensure correct items, quantities, and documentation in each package.</p></div>
+        </div>
+        <div class="use-case-item reveal">
+          <div class="use-case-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 20h20"/><path d="M5 20V8l5 4V8l5 4V4h5v16"/></svg></div>
+          <div><h4 class="use-case-item__title">General Manufacturing</h4><p class="use-case-item__text">Any assembly process where human error can lead to quality issues.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center reveal"><span class="section-label">Benefits</span><h2 class="section-title text-white">Zero-Defect Manufacturing</h2></div>
+      <div class="benefits__grid stagger-children" style="margin-top:var(--space-8);">
+        <div class="benefit-item">
+          <div class="benefit-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="stat__number" style="font-size:var(--fs-h3);color:var(--color-accent);">Zero</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Assembly Errors</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Complete prevention of assembly mistakes</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="stat__number" data-count="90" data-suffix="%" style="font-size:var(--fs-h3);">0%</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Less Rework</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Dramatic reduction in rework costs</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div class="stat__number" data-count="100" data-suffix="%" style="font-size:var(--fs-h3);">0%</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Traceability</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Full record of every assembly step</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-item__icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+          <div class="stat__number" style="font-size:var(--fs-h3);color:var(--color-accent);">Top</div>
+          <h4 class="benefit-item__title" style="color:var(--color-white);">Quality Score</h4>
+          <p class="benefit-item__text" style="color:var(--color-text-light);">Meet and exceed quality standards</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner__content reveal" style="text-align:center;">
+        <h2 class="section-title">Eliminate Assembly Errors</h2>
+        <p class="section-subtitle" style="margin:0 auto var(--space-6);">Implement Poka-Yoke systems that prevent mistakes at the source.</p>
+        <a href="contact.html" class="btn btn--primary btn--lg">Get Started <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/components.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => initApp('solutions'));</script>
+  <script>
+  (function() {
+    var pipelineStates = {};
+    var pipelineCfg = {
+      pokayokePipeline: { sel: '.pk__card', color: 'rgba(247,148,29,0.3)', bright: '#F7941D' }
+    };
+    function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+    function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+    function getCoords(sectionId, index) {
+      var cfg = pipelineCfg[sectionId]; var section = document.getElementById(sectionId);
+      var cards = section.querySelectorAll(cfg.sel); var from = cards[index - 1]; var to = cards[index];
+      var sameRow = Math.abs(from.offsetTop - to.offsetTop) < 30; var x1, y1, x2, y2;
+      if (sameRow) { x1 = from.offsetLeft + from.offsetWidth + 6; y1 = from.offsetTop + from.offsetHeight / 2; x2 = to.offsetLeft - 6; y2 = to.offsetTop + to.offsetHeight / 2; }
+      else { x1 = from.offsetLeft + from.offsetWidth / 2; y1 = from.offsetTop + from.offsetHeight + 6; x2 = to.offsetLeft + to.offsetWidth / 2; y2 = to.offsetTop - 6; }
+      return { x1: x1, y1: y1, x2: x2, y2: y2, container: cards[0].parentElement };
+    }
+    function ensureSvg(sectionId) {
+      var cfg = pipelineCfg[sectionId]; var section = document.getElementById(sectionId);
+      var cards = section.querySelectorAll(cfg.sel); var container = cards[0].parentElement;
+      container.style.position = 'relative'; var svg = container.querySelector('.pipeline-connectors');
+      if (!svg) {
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'pipeline-connectors');
+        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible;';
+        var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        var filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+        filter.setAttribute('id', 'plGlow-' + sectionId); filter.setAttribute('x', '-100%'); filter.setAttribute('y', '-100%');
+        filter.setAttribute('width', '300%'); filter.setAttribute('height', '300%');
+        var blur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+        blur.setAttribute('stdDeviation', '4'); blur.setAttribute('result', 'b'); filter.appendChild(blur);
+        var merge = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
+        ['b', 'SourceGraphic'].forEach(function(inp) { var mn = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode'); mn.setAttribute('in', inp); merge.appendChild(mn); });
+        filter.appendChild(merge); defs.appendChild(filter); svg.appendChild(defs); container.appendChild(svg);
+      }
+      return svg;
+    }
+    function growLine(sectionId, index, cb) {
+      var cfg = pipelineCfg[sectionId]; var c = getCoords(sectionId, index); var svg = ensureSvg(sectionId);
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1); line.setAttribute('x2', c.x1); line.setAttribute('y2', c.y1);
+      line.setAttribute('stroke', cfg.color); line.setAttribute('stroke-width', '2'); line.setAttribute('stroke-dasharray', '6,6');
+      svg.appendChild(line); var dur = 280; var start = performance.now();
+      function tick(now) { var t = Math.min((now - start) / dur, 1); t = easeOut(t);
+        line.setAttribute('x2', c.x1 + (c.x2 - c.x1) * t); line.setAttribute('y2', c.y1 + (c.y2 - c.y1) * t);
+        if (t < 1) requestAnimationFrame(tick); else cb(); }
+      requestAnimationFrame(tick);
+    }
+    function sendPulse(sectionId, index, cb) {
+      var cfg = pipelineCfg[sectionId]; var c = getCoords(sectionId, index); var svg = ensureSvg(sectionId);
+      var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      var outer = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      outer.setAttribute('r', '6'); outer.setAttribute('fill', cfg.bright); outer.setAttribute('opacity', '0.45');
+      outer.setAttribute('filter', 'url(#plGlow-' + sectionId + ')'); g.appendChild(outer);
+      var inner = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      inner.setAttribute('r', '2.5'); inner.setAttribute('fill', '#fff'); inner.setAttribute('opacity', '0.95'); g.appendChild(inner);
+      g.setAttribute('transform', 'translate(' + c.x1 + ',' + c.y1 + ')'); svg.appendChild(g);
+      var dur = 550; var start = performance.now();
+      function tick(now) { var t = Math.min((now - start) / dur, 1); t = easeInOut(t);
+        var x = c.x1 + (c.x2 - c.x1) * t; var y = c.y1 + (c.y2 - c.y1) * t;
+        g.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+        if (t < 1) { requestAnimationFrame(tick); } else {
+          var fadeStart = performance.now();
+          function fadeOut(now2) { var ft = Math.min((now2 - fadeStart) / 220, 1); g.setAttribute('opacity', String(1 - ft));
+            if (ft < 1) requestAnimationFrame(fadeOut); else { g.remove(); cb(); } }
+          requestAnimationFrame(fadeOut); } }
+      requestAnimationFrame(tick);
+    }
+    function drawStatic(sectionId, activeIndex) {
+      var cfg = pipelineCfg[sectionId]; if (!cfg) return;
+      var section = document.getElementById(sectionId); if (!section) return;
+      section.querySelectorAll('.pipeline-connectors').forEach(function(el) { el.remove(); });
+      if (window.innerWidth > 768 || activeIndex < 1) return;
+      var cards = section.querySelectorAll(cfg.sel); if (cards.length < 2) return;
+      var svg = ensureSvg(sectionId); var limit = Math.min(activeIndex, cards.length - 1);
+      for (var i = 1; i <= limit; i++) { var c = getCoords(sectionId, i);
+        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1); line.setAttribute('x2', c.x2); line.setAttribute('y2', c.y2);
+        line.setAttribute('stroke', cfg.color); line.setAttribute('stroke-width', '2'); line.setAttribute('stroke-dasharray', '6,6');
+        svg.appendChild(line); }
+    }
+    function initPipeline(sectionId, cardSel, stepSel, progressSel) {
+      var section = document.getElementById(sectionId); if (!section) return;
+      var cards = section.querySelectorAll(cardSel); var steps = section.querySelectorAll(stepSel);
+      var progress = section.querySelector(progressSel); var total = cards.length; var started = false; var running = false;
+      function activateUpTo(index) {
+        cards.forEach(function(c, i) { c.classList.toggle('active', i <= index); });
+        steps.forEach(function(s, i) { s.classList.toggle('active', i <= index); });
+        if (progress) progress.style.width = (index / (total - 1)) * 100 + '%'; pipelineStates[sectionId] = index;
+      }
+      function runMobile() {
+        cards.forEach(function(c) { c.classList.remove('active'); }); steps.forEach(function(s) { s.classList.remove('active'); });
+        if (progress) progress.style.width = '0%'; pipelineStates[sectionId] = -1;
+        section.querySelectorAll('.pipeline-connectors').forEach(function(el) { el.remove(); });
+        var i = 0;
+        function next() { if (!running) return; if (i >= total) { setTimeout(function() { if (running) runMobile(); }, 5000); return; }
+          if (i === 0) { activateUpTo(0); i++; setTimeout(next, 500); }
+          else { var idx = i; growLine(sectionId, idx, function() { if (!running) return; activateUpTo(idx);
+            setTimeout(function() { if (!running) return; sendPulse(sectionId, idx, function() { i++; setTimeout(next, 80); }); }, 380); }); } }
+        setTimeout(next, 300);
+      }
+      function runDesktop() {
+        cards.forEach(function(c) { c.classList.remove('active'); }); steps.forEach(function(s) { s.classList.remove('active'); });
+        if (progress) progress.style.width = '0%'; pipelineStates[sectionId] = -1; var i = 0;
+        var iv = setInterval(function() { if (!running) { clearInterval(iv); return; } activateUpTo(i); i++;
+          if (i >= total) { clearInterval(iv); setTimeout(function() { if (running) runDesktop(); }, 5000); } }, 1200);
+      }
+      function run() { running = true; if (window.innerWidth <= 768) runMobile(); else runDesktop(); }
+      new IntersectionObserver(function(entries) { entries.forEach(function(entry) {
+        if (entry.isIntersecting && !started) { started = true; run(); } }); }, { threshold: 0.15 }).observe(section);
+    }
+    initPipeline('pokayokePipeline', '.pk__card', '.pk__step', '.pk__timeline-progress');
+    var _pRT; window.addEventListener('resize', function() { clearTimeout(_pRT); _pRT = setTimeout(function() {
+      Object.keys(pipelineStates).forEach(function(id) { if (pipelineStates[id] >= 0) drawStatic(id, pipelineStates[id]); }); }, 250); });
+  })();
+  </script>
+</body>
+</html>

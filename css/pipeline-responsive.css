@@ -1,0 +1,157 @@
+/* =================================================================
+   Pipeline Workflows — Mobile 2-Column Grid + Connected Layout
+   Overrides single-column stacking with v4c.ai‑inspired 2×2+1 grid,
+   step badges, and JS-drawn SVG dotted connectors between rows.
+   Loaded AFTER individual pipeline CSS files to override via cascade.
+   ================================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---- 2-Column Grid for ALL pipelines ---- */
+  .vp__stages,
+  .pk__stages,
+  .iot__stages,
+  .intg__stages,
+  .bc__stages {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px 28px;
+    position: relative;
+  }
+
+  /* ---- Cards: vertical layout with space for step badge ---- */
+  .vp__card,
+  .pk__card,
+  .iot__card,
+  .intg__card,
+  .bc__card {
+    flex-direction: column;
+    min-height: 180px;
+    gap: 0;
+    padding: var(--space-4) var(--space-4) var(--space-7);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  /* ---- 5th card: centered, spanning both columns ---- */
+  .vp__card:nth-child(5),
+  .pk__card:nth-child(5),
+  .iot__card:nth-child(5),
+  .intg__card:nth-child(5),
+  .bc__card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - var(--space-2));
+    justify-self: center;
+  }
+
+  /* ---- Step badges: pill shape, centered at card bottom ---- */
+  .vp__card::after,
+  .pk__card::after,
+  .iot__card::after,
+  .intg__card::after,
+  .bc__card::after {
+    top: auto;
+    left: 50%;
+    right: auto;
+    bottom: 8px;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 2px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 9px;
+  }
+
+  /* Accent-colored pill badges per pipeline */
+  .vp__card::after {
+    background: rgba(247,148,29,0.1);
+    border: 1px solid rgba(247,148,29,0.24);
+    color: var(--color-accent);
+  }
+  .pk__card::after {
+    background: rgba(247,148,29,0.08);
+    border: 1px solid rgba(247,148,29,0.2);
+    color: var(--color-accent-orange);
+  }
+  .iot__card::after {
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.2);
+    color: #10B981;
+  }
+  .intg__card::after {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    color: #3B82F6;
+  }
+  .bc__card::after {
+    background: rgba(245,158,11,0.08);
+    border: 1px solid rgba(245,158,11,0.2);
+    color: #F59E0B;
+  }
+
+  /* ---- Timelines: stay hidden (connectors drawn by JS) ---- */
+  .vp__timeline,
+  .pk__timeline,
+  .iot__timeline,
+  .intg__timeline,
+  .bc__timeline {
+    display: none;
+  }
+
+  /* ---- Active / animation states ---- */
+  .vp__card,
+  .pk__card,
+  .iot__card,
+  .intg__card,
+  .bc__card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  .vp__card.active,
+  .pk__card.active,
+  .iot__card.active,
+  .intg__card.active,
+  .bc__card.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* ---- SVG connector container (injected by JS) ---- */
+  .pipeline-connectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    overflow: visible;
+  }
+}
+
+/* ---- Very small screens ---- */
+@media (max-width: 480px) {
+  .vp__stages,
+  .pk__stages,
+  .iot__stages,
+  .intg__stages,
+  .bc__stages {
+    gap: 44px 20px;
+  }
+  .vp__card,
+  .pk__card,
+  .iot__card,
+  .intg__card,
+  .bc__card {
+    min-height: 160px;
+    padding: var(--space-3) var(--space-3) var(--space-6);
+  }
+}
+
+@media (max-width: 380px) {
+  .vp__stages,
+  .pk__stages,
+  .iot__stages,
+  .intg__stages,
+  .bc__stages {
+    gap: 36px 14px;
+  }
+}

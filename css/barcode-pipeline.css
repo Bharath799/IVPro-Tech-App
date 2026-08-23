@@ -1,0 +1,674 @@
+/* =====================================================
+   Barcode/RFID Pipeline – Scan & Track Workflow
+   5 stages: Tag → Scan → Decode → Track → Report
+   Amber/Gold accent theme (#F59E0B)
+   ===================================================== */
+
+/* --- Container --- */
+.bc {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary);
+  padding: var(--space-12) 0 var(--space-10);
+}
+
+.bc__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Stage Wrapper --- */
+.bc__stages {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-5);
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Timeline bar --- */
+.bc__timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+  z-index: 2;
+}
+
+.bc__timeline::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  z-index: 0;
+}
+
+.bc__timeline-progress {
+  position: absolute;
+  top: 20px;
+  left: 5%;
+  width: 0%;
+  max-width: 90%;
+  height: 2px;
+  background: linear-gradient(90deg, #F59E0B, #EF4444);
+  z-index: 1;
+  transition: width 1.8s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* --- Stage Card --- */
+.bc__card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1),
+              transform 0.7s cubic-bezier(.4,0,.2,1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+.bc__card.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  border-color: rgba(245,158,11,0.25);
+  box-shadow: 0 0 40px rgba(245,158,11,0.08), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.bc__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 100%, rgba(245,158,11,0.06), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.bc__card.active::before { opacity: 1; }
+
+/* Step label after card */
+.bc__card::after {
+  content: 'STEP ' attr(data-stage);
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-3);
+  font-size: 9px;
+  color: rgba(245,158,11,0.4);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* --- Label --- */
+.bc__label {
+  font-size: 10px;
+  color: #F59E0B;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: var(--space-4);
+  opacity: 0;
+  transition: opacity 0.4s ease 0.3s;
+}
+
+.bc__card.active .bc__label { opacity: 1; }
+
+/* ===== Stage 1: Tag / Label ===== */
+.bc__tag-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bc__tag-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-md);
+  font-size: 10px;
+  color: var(--color-text-light);
+  font-family: 'Courier New', monospace;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bc__card.active .bc__tag-item { opacity: 1; transform: translateY(0); }
+.bc__card.active .bc__tag-item:nth-child(1) { transition-delay: 0.1s; }
+.bc__card.active .bc__tag-item:nth-child(2) { transition-delay: 0.2s; }
+.bc__card.active .bc__tag-item:nth-child(3) { transition-delay: 0.3s; }
+
+.bc__tag-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bc__tag-icon--barcode {
+  background: rgba(245,158,11,0.12);
+  color: #F59E0B;
+}
+
+.bc__tag-icon--rfid {
+  background: rgba(139,92,246,0.12);
+  color: #8B5CF6;
+}
+
+.bc__tag-icon--qr {
+  background: rgba(247,148,29,0.12);
+  color: #F7941D;
+}
+
+.bc__tag-text {
+  flex: 1;
+}
+
+.bc__tag-text strong {
+  display: block;
+  font-size: 10px;
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.bc__tag-text span {
+  font-size: 9px;
+  color: var(--color-text-light);
+}
+
+.bc__tag-chip {
+  font-size: 8px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: rgba(245,158,11,0.1);
+  color: #F59E0B;
+  border: 1px solid rgba(245,158,11,0.2);
+}
+
+/* ===== Stage 2: Scan ===== */
+.bc__scanner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.bc__scan-window {
+  width: 100%;
+  height: 90px;
+  position: relative;
+  border: 2px solid rgba(245,158,11,0.3);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bc__scan-barcode {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  height: 50px;
+}
+
+.bc__scan-bar {
+  width: 3px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 1px;
+  transition: background 0.3s ease;
+}
+
+.bc__card.active .bc__scan-bar {
+  background: rgba(245,158,11,0.5);
+}
+
+.bc__scan-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #F59E0B, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bc__card.active .bc__scan-beam {
+  opacity: 1;
+  animation: bcScanBeam 1.5s ease-in-out infinite;
+}
+
+@keyframes bcScanBeam {
+  0%   { top: 0; }
+  50%  { top: calc(100% - 2px); }
+  100% { top: 0; }
+}
+
+.bc__scan-result {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  color: var(--color-text-light);
+  opacity: 0;
+  transition: opacity 0.4s ease 0.4s;
+}
+
+.bc__card.active .bc__scan-result { opacity: 1; }
+
+.bc__scan-ok {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10B981;
+  font-size: 10px;
+}
+
+/* ===== Stage 3: Decode & Match ===== */
+.bc__decode {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bc__decode-input {
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  color: #F59E0B;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.bc__card.active .bc__decode-input { opacity: 1; }
+
+.bc__decode-arrow {
+  text-align: center;
+  color: rgba(255,255,255,0.2);
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.2s;
+}
+
+.bc__card.active .bc__decode-arrow { opacity: 1; }
+
+.bc__decode-output {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  background: rgba(245,158,11,0.04);
+  border: 1px solid rgba(245,158,11,0.12);
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  transition: opacity 0.4s ease 0.3s;
+}
+
+.bc__card.active .bc__decode-output { opacity: 1; }
+
+.bc__decode-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  font-family: 'Courier New', monospace;
+}
+
+.bc__decode-key {
+  color: var(--color-text-light);
+}
+
+.bc__decode-val {
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.bc__decode-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #10B981;
+  margin-top: 2px;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.5s;
+}
+
+.bc__card.active .bc__decode-status { opacity: 1; }
+
+.bc__decode-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  animation: none;
+}
+
+.bc__card.active .bc__decode-dot {
+  animation: bcPulse 1.5s infinite;
+}
+
+/* ===== Stage 4: Live Tracking ===== */
+.bc__tracker {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bc__tracker-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-white);
+  font-family: 'Courier New', monospace;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bc__card.active .bc__tracker-header { opacity: 1; }
+
+.bc__tracker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.bc__tracker-cell {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: var(--color-text-light);
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.bc__card.active .bc__tracker-cell { opacity: 1; }
+.bc__card.active .bc__tracker-cell:nth-child(1) { transition-delay: 0.05s; }
+.bc__card.active .bc__tracker-cell:nth-child(2) { transition-delay: 0.1s; }
+.bc__card.active .bc__tracker-cell:nth-child(3) { transition-delay: 0.15s; }
+.bc__card.active .bc__tracker-cell:nth-child(4) { transition-delay: 0.2s; }
+.bc__card.active .bc__tracker-cell:nth-child(5) { transition-delay: 0.25s; }
+.bc__card.active .bc__tracker-cell:nth-child(6) { transition-delay: 0.3s; }
+.bc__card.active .bc__tracker-cell:nth-child(7) { transition-delay: 0.35s; }
+.bc__card.active .bc__tracker-cell:nth-child(8) { transition-delay: 0.4s; }
+
+.bc__tracker-cell--active {
+  background: rgba(245,158,11,0.1);
+  border-color: rgba(245,158,11,0.3);
+  color: #F59E0B;
+}
+
+.bc__tracker-cell--shipped {
+  background: rgba(16,185,129,0.08);
+  border-color: rgba(16,185,129,0.2);
+  color: #10B981;
+}
+
+.bc__tracker-legend {
+  display: flex;
+  gap: 10px;
+  font-size: 8px;
+  color: var(--color-text-light);
+  opacity: 0;
+  transition: opacity 0.3s ease 0.5s;
+}
+
+.bc__card.active .bc__tracker-legend { opacity: 1; }
+
+.bc__tracker-legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+/* ===== Stage 5: Report & Analytics ===== */
+.bc__report {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bc__report-kpis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.bc__report-kpi {
+  padding: 6px 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bc__card.active .bc__report-kpi { opacity: 1; transform: translateY(0); }
+.bc__card.active .bc__report-kpi:nth-child(1) { transition-delay: 0.1s; }
+.bc__card.active .bc__report-kpi:nth-child(2) { transition-delay: 0.15s; }
+.bc__card.active .bc__report-kpi:nth-child(3) { transition-delay: 0.2s; }
+.bc__card.active .bc__report-kpi:nth-child(4) { transition-delay: 0.25s; }
+
+.bc__report-kpi-num {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--color-white);
+}
+
+.bc__report-kpi-label {
+  font-size: 8px;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bc__report-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  color: var(--color-text-light);
+  opacity: 0;
+  transition: opacity 0.4s ease 0.35s;
+}
+
+.bc__card.active .bc__report-bar { opacity: 1; }
+
+.bc__report-bar-label { width: 55px; text-align: right; }
+
+.bc__report-bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bc__report-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.8s cubic-bezier(.4,0,.2,1) 0.4s;
+}
+
+.bc__card.active .bc__report-bar-fill {
+  width: var(--fill-w);
+}
+
+.bc__report-bar-pct {
+  width: 30px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--color-white);
+  font-family: 'Courier New', monospace;
+}
+
+.bc__report-export {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: var(--radius-sm);
+  font-size: 9px;
+  font-weight: 600;
+  color: #F59E0B;
+  font-family: 'Courier New', monospace;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.6s;
+}
+
+.bc__card.active .bc__report-export { opacity: 1; }
+
+.bc__report-export-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #F59E0B;
+  animation: none;
+}
+
+.bc__card.active .bc__report-export-dot {
+  animation: bcPulse 1.5s infinite;
+}
+
+@keyframes bcPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* --- Step (timeline dot + label) --- */
+.bc__step {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.bc__step-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary, #0A1628);
+  border: 2px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-3);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-light);
+  transition: all 0.5s cubic-bezier(.4,0,.2,1);
+}
+
+.bc__step.active .bc__step-dot {
+  background: #2b1d07;
+  border-color: #F59E0B;
+  color: #F59E0B;
+  box-shadow: 0 0 16px rgba(245,158,11,0.3);
+}
+
+.bc__step-title {
+  font-size: var(--fs-caption);
+  color: var(--color-text-light);
+  transition: color 0.4s ease;
+}
+
+.bc__step.active .bc__step-title {
+  color: #F59E0B;
+}
+
+/* --- Ambient --- */
+.bc__ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bc__ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.08;
+}
+
+.bc__ambient-orb--1 {
+  width: 400px; height: 400px;
+  background: #F59E0B;
+  top: -100px; right: -100px;
+}
+
+.bc__ambient-orb--2 {
+  width: 300px; height: 300px;
+  background: #EF4444;
+  bottom: -80px; left: -60px;
+  opacity: 0.05;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .bc__stages,
+  .bc__timeline {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-3);
+  }
+  .bc__card {
+    min-height: 180px;
+    padding: var(--space-3);
+  }
+}
+
+/* Mobile overrides handled by pipeline-responsive.css */

@@ -1,846 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>IVPRO Tech Solutions | Industrial Automation, AI & Machine Vision for OEM & Automotive</title>
-    <meta
-      name="description"
-      content="IVPRO Tech Solutions engineers PLC automation, AI machine vision, industrial software and IIoT platforms that transform manufacturing challenges into intelligent solutions for OEM and automotive industries."
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              navy: {
-                DEFAULT: "#0b1e3d",
-                dark: "#060f21",
-                light: "#13294f",
-              },
-              brand: "#f7941d",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="images/icon.png">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <style>
-      :root {
-        --footer-height: 64px;
-        --navy: #0b1e3d;
-        --navy-dark: #060f21;
-        --navy-light: #13294f;
-        --orange: #f7941d;
-      }
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        font-family: "Inter", sans-serif;
-        scroll-behavior: smooth;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        margin: 0;
-        background: #f7f9fc;
-      }
-      main {
-        flex: 1 0 auto;
-        padding-bottom: calc(var(--footer-height) + 40px);
-        box-sizing: border-box;
-      }
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: var(--orange);
-        border-radius: 4px;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IVPRO Technologies - Transforming Industries with AI, Vision & Automation. Smart solutions for modern manufacturing, logistics, and enterprise.">
+  <title>IVPRO Technologies | AI, Vision & Automation Solutions</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/vision-pipeline.css">
+  <link rel="stylesheet" href="css/pipeline-responsive.css">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
 
-      .floating-btn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.9);
-        border: 1px solid rgba(11, 30, 61, 0.06);
-        box-shadow: 0 10px 30px rgba(11, 30, 61, 0.08);
-        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      }
-      .glass-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 18px 40px rgba(11, 30, 61, 0.14);
-        border-color: rgba(247, 148, 29, 0.4);
-      }
-      .icon-badge {
-        width: 3rem;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        background: linear-gradient(135deg, var(--navy), var(--navy-light));
-        color: var(--orange);
-        flex-shrink: 0;
-      }
-
-      /* Hero background */
-      .hero-bg {
-        position: absolute;
-        inset: 0;
-        overflow: hidden;
-        z-index: 0;
-        pointer-events: none;
-        background: radial-gradient(ellipse at top left, #13294f 0%, #0b1e3d 45%, #060f21 100%);
-      }
-      .hero-bg .grid-overlay {
-        position: absolute;
-        inset: 0;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-        background-size: 42px 42px;
-        mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-      }
-      .glow {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(10px);
-        animation: float 18s ease-in-out infinite;
-      }
-      .glow.orange {
-        background: radial-gradient(circle, rgba(247, 148, 29, 0.45), transparent 70%);
-      }
-      .glow.blue {
-        background: radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent 70%);
-      }
-      .glow:nth-child(2) {
-        width: 340px;
-        height: 340px;
-        top: 6%;
-        left: 6%;
-        animation-delay: 0s;
-      }
-      .glow:nth-child(3) {
-        width: 460px;
-        height: 460px;
-        bottom: 10%;
-        right: 4%;
-        animation-delay: 4s;
-      }
-      .glow:nth-child(4) {
-        width: 240px;
-        height: 240px;
-        top: 30%;
-        right: 22%;
-        animation-delay: 8s;
-      }
-      @keyframes float {
-        0% {
-          transform: translateY(0) scale(1);
-          opacity: 0.6;
-        }
-        50% {
-          transform: translateY(-36px) scale(1.06);
-          opacity: 0.9;
-        }
-        100% {
-          transform: translateY(0) scale(1);
-          opacity: 0.6;
-        }
-      }
-
-      .parallax {
-        position: relative;
-        z-index: 10;
-        transform: translateY(0px);
-        transition: transform 0.2s ease-out;
-      }
-
-      footer {
-        min-height: var(--footer-height);
-      }
-
-      .tech-pill {
-        transition: all 0.2s ease;
-      }
-      .tech-pill:hover {
-        background: var(--navy);
-        color: #fff;
-        border-color: var(--navy);
-      }
-
-      .section-eyebrow {
-        letter-spacing: 0.14em;
-      }
-
-      @media (max-width: 640px) {
-        .glow:nth-child(2) {
-          left: -10%;
-          width: 220px;
-          height: 220px;
-          top: 5%;
-        }
-        .glow:nth-child(3) {
-          right: -10%;
-          width: 300px;
-          height: 300px;
-          bottom: 0;
-        }
-      }
-    </style>
-  </head>
-  <body class="text-gray-900">
-    <!-- Navbar -->
-    <nav class="bg-white/95 backdrop-blur shadow-md fixed w-full z-50">
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16"
-      >
-        <!-- Logo -->
-        <a href="#home"
-          ><img
-            src="images/Logo_png_best_fit.png"
-            class="h-9"
-            alt="IVPRO Tech Solutions Logo"
-        /></a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden lg:flex space-x-7 font-medium text-sm">
-          <a href="#about" class="hover:text-orange-500 transition">About</a>
-          <a href="#vision" class="hover:text-orange-500 transition">Vision &amp; Mission</a>
-          <a href="#services" class="hover:text-orange-500 transition">Services</a>
-          <a href="#technologies" class="hover:text-orange-500 transition">Technologies</a>
-          <a href="#solutions" class="hover:text-orange-500 transition">Solutions</a>
-          <a href="#whyus" class="hover:text-orange-500 transition">Why IVPRO</a>
-          <a
-            href="#contact"
-            class="bg-navy text-white px-4 py-2 rounded-full hover:bg-orange-500 transition"
-            >Contact</a
-          >
-        </div>
-
-        <!-- Mobile Hamburger -->
-        <button id="menu-btn" class="lg:hidden focus:outline-none">
-          <svg
-            class="w-7 h-7 text-navy"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Dropdown -->
-      <div
-        id="mobile-menu"
-        class="hidden lg:hidden bg-white border-t shadow-md"
-      >
-        <div class="flex flex-col space-y-3 px-6 py-4 font-medium">
-          <a href="#about" class="mobile-link hover:text-orange-500 transition">About</a>
-          <a href="#vision" class="mobile-link hover:text-orange-500 transition">Vision &amp; Mission</a>
-          <a href="#services" class="mobile-link hover:text-orange-500 transition">Services</a>
-          <a href="#technologies" class="mobile-link hover:text-orange-500 transition">Technologies</a>
-          <a href="#solutions" class="mobile-link hover:text-orange-500 transition">Solutions</a>
-          <a href="#whyus" class="mobile-link hover:text-orange-500 transition">Why IVPRO</a>
-          <a href="#contact" class="mobile-link hover:text-orange-500 transition">Contact</a>
-        </div>
-      </div>
-    </nav>
-
-    <main class="flex-grow pt-16">
-      <!-- Hero -->
-      <section
-        id="home"
-        class="relative min-h-screen flex items-center justify-center overflow-hidden text-white"
-      >
-        <div class="hero-bg" aria-hidden="true">
-          <div class="grid-overlay"></div>
-          <div class="glow orange"></div>
-          <div class="glow blue"></div>
-          <div class="glow orange"></div>
-        </div>
-        <div class="relative z-10 text-center px-6 max-w-5xl parallax" data-aos="fade-up">
-          <span
-            class="inline-block section-eyebrow text-orange-400 font-semibold text-xs sm:text-sm uppercase mb-5 border border-orange-400/40 rounded-full px-4 py-1.5"
-            >Industrial Automation &bull; AI &amp; Machine Vision &bull; Smart Manufacturing</span
-          >
-          <h1 class="text-4xl sm:text-6xl font-extrabold mb-6 leading-tight">
-            Intelligent Vision <span class="text-orange-400">Into Reality</span>
-            for OEM &amp; Automotive Manufacturing
+  <!-- ======== HERO SECTION ======== -->
+  <section class="hero" id="home">
+    <div class="hero__bg">
+      <div class="hero__bg-grid"></div>
+      <div class="hero__bg-glow hero__bg-glow--1"></div>
+      <div class="hero__bg-glow hero__bg-glow--2"></div>
+    </div>
+    <div class="container container--wide">
+      <div class="hero__content">
+        <div class="hero__text">
+          <div class="hero__badge">
+            Industrial Automation • AI &amp; Machine Vision • Smart Manufacturing
+          </div>
+          <h1 class="hero__title">
+            Intelligent Vision <span class="highlight">Into Reality</span> for OEM &amp; Automotive Manufacturing
           </h1>
-          <p class="text-lg sm:text-xl text-blue-100/90 mb-10 max-w-3xl mx-auto">
-            We help industries improve productivity, quality, and operational efficiency by
-            combining PLC automation, AI-powered machine vision, industrial software, and
-            IIoT platforms into practical, scalable solutions that deliver measurable business value.
+          <p class="hero__subtitle">
+            We help industries improve productivity, quality, and operational efficiency by combining PLC automation, AI-powered machine vision, industrial software, and IoT platforms into practical, scalable solutions that deliver measurable business value.
           </p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#solutions"
-              class="inline-block bg-gradient-to-r from-orange-500 to-orange-400 text-navy px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transform transition"
-              >Explore Our Solutions</a
-            >
-            <a
-              href="#contact"
-              class="inline-block border border-white/30 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transform transition"
-              >Talk to Our Engineers</a
-            >
+          <div class="hero__actions">
+            <a href="pages/solutions.html" class="btn btn--primary btn--lg">
+              Explore Solutions <span class="btn-arrow">&rarr;</span>
+            </a>
+            <a href="pages/contact.html" class="btn btn--secondary btn--lg">
+              Talk to Our Engineers
+            </a>
           </div>
-          <p class="mt-10 text-sm text-blue-200/80 tracking-wide">
-            Delivering engineering &amp; software solutions across
-            <span class="text-white font-semibold">Germany &middot; United Kingdom &middot; United States</span>
-            and leading OEM manufacturers
-          </p>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-12 items-center">
-          <div class="lg:col-span-3" data-aos="fade-up">
-            <span class="section-eyebrow text-orange-500 font-semibold text-sm uppercase">About Us</span>
-            <h2 class="text-4xl font-bold mt-2 mb-6 text-navy">
-              A Small Team Doing <span class="text-orange-500">Big Things</span>
-            </h2>
-            <p class="text-gray-700 mb-4 leading-relaxed">
-              IVPRO Tech Solutions was founded by a team of experienced engineers with expertise
-              spanning industrial automation, artificial intelligence, machine vision, enterprise
-              software, cloud technologies, and smart manufacturing solutions.
-            </p>
-            <p class="text-gray-700 mb-4 leading-relaxed">
-              Having delivered complex engineering and software solutions for global customers
-              across <span class="font-semibold text-navy">Germany, the United Kingdom, the United States</span>,
-              and leading OEM manufacturers, our founders recognized the growing need for intelligent,
-              integrated solutions within the manufacturing sector.
-            </p>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              At IVPRO, we bridge the gap between industrial automation and advanced software
-              technologies by combining <span class="font-semibold text-navy">PLC automation, machine vision,
-              artificial intelligence, Industrial IoT, cloud platforms</span>, and
-              <span class="font-semibold text-navy">enterprise applications</span> into practical, scalable
-              solutions that deliver measurable business value.
-            </p>
-            <div class="bg-navy/5 border-l-4 border-orange-500 rounded-r-lg p-5">
-              <p class="text-navy font-semibold">Our mission is simple:</p>
-              <p class="text-gray-700">Transform industrial challenges into intelligent solutions.</p>
+          <div class="hero__stats">
+            <div class="stat">
+              <div class="stat__number" data-count="99" data-suffix="%">0%</div>
+              <div class="stat__label">Inspection Accuracy</div>
             </div>
-          </div>
-          <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="150">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div class="glass-card rounded-xl p-5 flex items-start gap-4">
-                <div class="icon-badge">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-4.13a4 4 0 10-4-4 4 4 0 004 4zm6 0a4 4 0 10-4-4" /></svg>
-                </div>
-                <div>
-                  <p class="font-semibold text-navy">Customer Focus</p>
-                  <p class="text-sm text-gray-600">We build solutions that create real value for our customers.</p>
-                </div>
-              </div>
-              <div class="glass-card rounded-xl p-5 flex items-start gap-4">
-                <div class="icon-badge">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>
-                </div>
-                <div>
-                  <p class="font-semibold text-navy">Innovation</p>
-                  <p class="text-sm text-gray-600">We embrace new ideas and technologies to stay ahead.</p>
-                </div>
-              </div>
-              <div class="glass-card rounded-xl p-5 flex items-start gap-4">
-                <div class="icon-badge">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
-                </div>
-                <div>
-                  <p class="font-semibold text-navy">Integrity</p>
-                  <p class="text-sm text-gray-600">We operate with honesty, transparency, and strong ethics.</p>
-                </div>
-              </div>
-              <div class="glass-card rounded-xl p-5 flex items-start gap-4">
-                <div class="icon-badge">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.906m-8.606 2.907a9.337 9.337 0 004.121.952 9.38 9.38 0 002.625-.372M12 15a4.125 4.125 0 100-8.25A4.125 4.125 0 0012 15z" /></svg>
-                </div>
-                <div>
-                  <p class="font-semibold text-navy">Teamwork</p>
-                  <p class="text-sm text-gray-600">We collaborate, support, and grow together as one team.</p>
-                </div>
-              </div>
+            <div class="stat">
+              <div class="stat__number" data-count="10" data-suffix="+">0+</div>
+              <div class="stat__label">Projects Delivered</div>
+            </div>
+            <div class="stat">
+              <div class="stat__number" data-count="24" data-suffix="/7">0/7</div>
+              <div class="stat__label">Real-time Monitoring</div>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- Vision & Mission -->
-      <section id="vision" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-14" data-aos="fade-up">
-            <span class="section-eyebrow text-orange-500 font-semibold text-sm uppercase">What Drives Us</span>
-            <h2 class="text-4xl font-bold mt-2 text-navy">Our Vision &amp; Mission</h2>
-          </div>
-          <div class="grid lg:grid-cols-2 gap-8">
-            <div class="glass-card rounded-2xl p-8" data-aos="fade-up">
-              <div class="icon-badge mb-5">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+        <div class="hero__visual">
+          <div class="hero__visual-main hero__monitor">
+            <div class="hero__monitor-top">
+              <span class="hero__monitor-rec"></span>
+              <span class="hero__monitor-cam">CAM-01 · LIVE</span>
+              <span class="hero__monitor-fps">60 FPS</span>
+            </div>
+            <div class="hero__monitor-view">
+              <div class="hero__monitor-scan"></div>
+              <div class="hero__monitor-corner hero__monitor-corner--tl"></div>
+              <div class="hero__monitor-corner hero__monitor-corner--tr"></div>
+              <div class="hero__monitor-corner hero__monitor-corner--bl"></div>
+              <div class="hero__monitor-corner hero__monitor-corner--br"></div>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(247,148,29,0.24)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+              <div class="hero__monitor-box hero__monitor-box--pass" style="top:18%;left:10%;width:35%;height:38%;">
+                <span>&#10003; 99.2%</span>
               </div>
-              <h3 class="text-2xl font-bold text-navy mb-3">Our Vision</h3>
-              <p class="text-gray-700 leading-relaxed mb-5">
-                To become the most trusted technology and automation partner for OEMs and
-                manufacturing industries by delivering intelligent, reliable, and sustainable
-                engineering solutions that accelerate digital transformation and operational excellence.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Trust</span>
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Innovation</span>
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Reliability</span>
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Sustainability</span>
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Excellence</span>
+              <div class="hero__monitor-box hero__monitor-box--fail" style="top:48%;right:12%;width:28%;height:28%;">
+                <span>&#10005; DEFECT</span>
               </div>
             </div>
-            <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="150">
-              <div class="icon-badge mb-5">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.159.69.159 1.006 0z" /></svg>
-              </div>
-              <h3 class="text-2xl font-bold text-navy mb-3">Our Mission</h3>
-              <p class="text-gray-700 leading-relaxed mb-5">
-                To help industries improve productivity, quality, and operational efficiency
-                through innovative automation, AI, machine vision, industrial software, and
-                data-driven technologies while building long-term partnerships based on trust,
-                innovation, and engineering excellence.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Automation</span>
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">AI &amp; Machine Vision</span>
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Industrial Software</span>
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Data-Driven Insights</span>
-                <span class="tech-pill text-xs font-medium border border-navy/20 text-navy rounded-full px-3 py-1">Operational Excellence</span>
-              </div>
+            <div class="hero__monitor-bottom">
+              <span class="hero__monitor-status">&#9679; ANALYZING</span>
+              <span class="hero__monitor-latency">12ms</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Core Services -->
-      <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-14" data-aos="fade-up">
-            <span class="section-eyebrow text-orange-500 font-semibold text-sm uppercase">What We Do</span>
-            <h2 class="text-4xl font-bold mt-2 text-navy">Core Services</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto mt-4">
-              End-to-end engineering capabilities spanning automation hardware, AI software,
-              and enterprise systems &dash; built for OEM and automotive manufacturing floors.
-            </p>
+          <div class="hero__visual-float hero__visual-float--1">
+            <div class="hero__float-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="hero__float-label">Defect Detection</div>
+            <div class="hero__float-value">99.2% Accurate</div>
           </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.38.137.752.43.992l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.542-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a7.696 7.696 0 010-.255c.007-.38-.138-.752-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Industrial Automation</h3>
-              <p class="text-sm text-gray-600">PLC, HMI, and custom Poka-Yoke systems engineered for reliable production lines.</p>
+          <div class="hero__visual-float hero__visual-float--2">
+            <div class="hero__float-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
             </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Machine Vision &amp; AI Inspection</h3>
-              <p class="text-sm text-gray-600">Real-time defect, dimensional, and quality inspection powered by computer vision and AI.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.129V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Industrial Software &amp; Business CRM</h3>
-              <p class="text-sm text-gray-600">Custom enterprise applications and CRM platforms tailored to manufacturing workflows.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">ERP/MES Integration</h3>
-              <p class="text-sm text-gray-600">Seamless integration between shop floor systems and enterprise ERP/MES platforms.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75h.008v.008H12v-.008z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Industrial IoT &amp; Dashboards</h3>
-              <p class="text-sm text-gray-600">Connected sensors and real-time dashboards for live visibility across operations.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M15.75 3v1.5M8.25 19.5V21M15.75 19.5V21M3 8.25H1.5M3 12H1.5M3 15.75H1.5M22.5 8.25H21M22.5 12H21M22.5 15.75H21M6.375 20.25h11.25c1.035 0 1.875-.84 1.875-1.875V5.625c0-1.035-.84-1.875-1.875-1.875H6.375c-1.035 0-1.875.84-1.875 1.875v12.75c0 1.035.84 1.875 1.875 1.875z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">ECU Flashing, UDS &amp; CAN Diagnostics</h3>
-              <p class="text-sm text-gray-600">Reliable ECU programming, diagnostics, and validation for automotive control units.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.858 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Cloud &amp; Data Engineering</h3>
-              <p class="text-sm text-gray-600">Scalable cloud infrastructure and data pipelines built on Azure and AWS.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center bg-navy text-white" data-aos="fade-up" data-aos-delay="300">
-              <p class="text-3xl font-extrabold text-orange-400">7</p>
-              <p class="text-sm text-blue-100 mt-2">Integrated Core Service Areas &mdash; Automation to Cloud</p>
-            </div>
+            <div class="hero__float-label">Real-time Insights</div>
+            <div class="hero__float-value">Live Dashboard</div>
           </div>
-        </div>
-      </section>
-
-      <!-- Key Technologies -->
-      <section id="technologies" class="py-20 bg-navy text-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-          <div class="text-center mb-14" data-aos="fade-up">
-            <span class="section-eyebrow text-orange-400 font-semibold text-sm uppercase">Our Stack</span>
-            <h2 class="text-4xl font-bold mt-2">Key Technologies</h2>
-            <p class="text-blue-100/80 max-w-2xl mx-auto mt-4">
-              We work across industrial hardware and modern software stacks to deliver
-              solutions that are robust on the factory floor and scalable in the cloud.
-            </p>
-          </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up">
-              <h4 class="text-orange-400 font-semibold text-xs uppercase tracking-wider mb-4">Industrial Automation</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Siemens</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Mitsubishi Electric</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Omron</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Delta</span>
-              </div>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-              <h4 class="text-orange-400 font-semibold text-xs uppercase tracking-wider mb-4">Programming &amp; Development</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Python</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">.NET</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">C#</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">React</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Node.js</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Java</span>
-              </div>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-              <h4 class="text-orange-400 font-semibold text-xs uppercase tracking-wider mb-4">Machine Vision &amp; AI</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">OpenCV</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">YOLO</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">TensorFlow</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">PyTorch</span>
-              </div>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up">
-              <h4 class="text-orange-400 font-semibold text-xs uppercase tracking-wider mb-4">Databases</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">PostgreSQL</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">SQL Server</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">MongoDB</span>
-              </div>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-              <h4 class="text-orange-400 font-semibold text-xs uppercase tracking-wider mb-4">Cloud Platforms</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Azure</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">AWS</span>
-              </div>
-              <h4 class="text-orange-400 font-semibold text-xs uppercase tracking-wider mb-4 mt-5">Hardware Platforms</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Raspberry Pi</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Jetson</span>
-              </div>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-              <h4 class="text-orange-400 font-semibold text-xs uppercase tracking-wider mb-4">Industrial Communication</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">OPC UA</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">Modbus</span>
-                <span class="tech-pill text-sm border border-white/20 rounded-full px-3 py-1">CAN</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Representative Solutions -->
-      <section id="solutions" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-14" data-aos="fade-up">
-            <span class="section-eyebrow text-orange-500 font-semibold text-sm uppercase">Proven Delivery</span>
-            <h2 class="text-4xl font-bold mt-2 text-navy">Representative Solutions</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto mt-4">
-              Flagship systems we engineer for OEM and automotive manufacturing operations.
-            </p>
-          </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h9m-12 0h-1.5A2.25 2.25 0 013 16.5V9a2.25 2.25 0 012.25-2.25h3.75M13.5 18.75h-9m9 0h1.5a1.5 1.5 0 001.362-.868m-2.862.868V9a2.25 2.25 0 012.25-2.25h1.593c.516 0 .966.36 1.083.863l1.007 4.361c.02.086.031.174.031.263v3.263m-6.75 0h6.75" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Smart Dispatch Management</h3>
-              <p class="text-sm text-gray-600">Real-time tracking, intelligent dispatching, and performance optimization.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M15.75 3v1.5M8.25 19.5V21M15.75 19.5V21M3 8.25H1.5M3 12H1.5M3 15.75H1.5M22.5 8.25H21M22.5 12H21M22.5 15.75H21M6.375 20.25h11.25c1.035 0 1.875-.84 1.875-1.875V5.625c0-1.035-.84-1.875-1.875-1.875H6.375c-1.035 0-1.875.84-1.875 1.875v12.75c0 1.035.84 1.875 1.875 1.875z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">ECU Flashing</h3>
-              <p class="text-sm text-gray-600">Reliable ECU programming, diagnostics, and validation using UDS &amp; CAN.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">AI Paint Inspection</h3>
-              <p class="text-sm text-gray-600">AI-powered inspection for paint defects, color accuracy, and surface quality.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0-10.5h.008v.008H12V6.75zm-3.75.75h7.5a1.125 1.125 0 001.125-1.125v-.75A1.125 1.125 0 0015.75 4.5h-7.5A1.125 1.125 0 007.125 5.625v.75c0 .621.504 1.125 1.125 1.125z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Warehouse Management</h3>
-              <p class="text-sm text-gray-600">Inventory tracking, stock control, and warehouse operations automation.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Production Dashboard</h3>
-              <p class="text-sm text-gray-600">Real-time KPI monitoring, OEE analysis, and data visualization for decision-making.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Current Monitoring System</h3>
-              <p class="text-sm text-gray-600">Real-time current monitoring, alerts, and analytics for electrical systems.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.5-1.185A8.959 8.959 0 013 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Industrial AI Chatbot</h3>
-              <p class="text-sm text-gray-600">AI chatbot for instant support, troubleshooting, and knowledge management.</p>
-            </div>
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon-badge mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg>
-              </div>
-              <h3 class="text-lg font-bold text-navy mb-2">Big Data Pipelines</h3>
-              <p class="text-sm text-gray-600">Scalable data ingestion, processing, analytics, and reporting pipelines.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Why Choose Us -->
-      <section id="whyus" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-14" data-aos="fade-up">
-            <span class="section-eyebrow text-orange-500 font-semibold text-sm uppercase">The IVPRO Advantage</span>
-            <h2 class="text-4xl font-bold mt-2 text-navy">Why Choose IVPRO?</h2>
-          </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up">
-              <span class="icon-badge">01</span>
-              <div>
-                <h3 class="font-bold text-navy mb-1">OEM-Focused Engineering</h3>
-                <p class="text-sm text-gray-600">Deep understanding of OEM processes and manufacturing challenges.</p>
-              </div>
-            </div>
-            <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up" data-aos-delay="100">
-              <span class="icon-badge">02</span>
-              <div>
-                <h3 class="font-bold text-navy mb-1">Fast Response</h3>
-                <p class="text-sm text-gray-600">Quick turnaround time and agile support to keep your operations running.</p>
-              </div>
-            </div>
-            <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up" data-aos-delay="200">
-              <span class="icon-badge">03</span>
-              <div>
-                <h3 class="font-bold text-navy mb-1">Customized Solutions</h3>
-                <p class="text-sm text-gray-600">Tailored solutions designed to fit your unique business requirements.</p>
-              </div>
-            </div>
-            <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up">
-              <span class="icon-badge">04</span>
-              <div>
-                <h3 class="font-bold text-navy mb-1">AI + Automation Expertise</h3>
-                <p class="text-sm text-gray-600">Advanced AI, machine vision, and automation expertise that drives real impact.</p>
-              </div>
-            </div>
-            <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up" data-aos-delay="100">
-              <span class="icon-badge">05</span>
-              <div>
-                <h3 class="font-bold text-navy mb-1">Complete Engineering Support</h3>
-                <p class="text-sm text-gray-600">End-to-end engineering support from concept to commissioning and beyond.</p>
-              </div>
-            </div>
-            <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up" data-aos-delay="200">
-              <span class="icon-badge">06</span>
-              <div>
-                <h3 class="font-bold text-navy mb-1">Cost-Effective Implementations</h3>
-                <p class="text-sm text-gray-600">Optimized solutions that maximize value and deliver measurable ROI.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Stats -->
-      <section class="py-16 bg-gradient-to-r from-navy to-navy-light text-white text-center">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4 gap-8">
-          <div data-aos="fade-up">
-            <p class="text-4xl font-extrabold text-orange-400">7</p>
-            <p class="text-sm sm:text-base mt-2 text-blue-100">Core Service Areas</p>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="100">
-            <p class="text-4xl font-extrabold text-orange-400">24+</p>
-            <p class="text-sm sm:text-base mt-2 text-blue-100">Technologies &amp; Platforms</p>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="200">
-            <p class="text-4xl font-extrabold text-orange-400">8</p>
-            <p class="text-sm sm:text-base mt-2 text-blue-100">Flagship Solutions</p>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="300">
-            <p class="text-4xl font-extrabold text-orange-400">3</p>
-            <p class="text-sm sm:text-base mt-2 text-blue-100">Global Markets Served</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="bg-gray-50 text-gray-900 py-20">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="text-center mb-14" data-aos="fade-up">
-            <span class="section-eyebrow text-orange-500 font-semibold text-sm uppercase">Get In Touch</span>
-            <h2 class="text-4xl font-bold mt-2 text-navy">Let's Connect. Let's Build the Future Together.</h2>
-            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
-              Partner with us to build next-gen OEM and automotive automation, AI, and
-              industrial software solutions.
-            </p>
-          </div>
-
-          <div class="grid lg:grid-cols-2 gap-10 items-start">
-            <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
-              <h3 class="font-bold text-navy mb-4">Company Details</h3>
-              <ul class="space-y-3 text-sm text-gray-700">
-                <li class="flex items-center gap-3">
-                  <span class="icon-badge w-9 h-9"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg></span>
-                  Bangalore, Karnataka, India
-                </li>
-                <li class="flex items-center gap-3">
-                  <span class="icon-badge w-9 h-9"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg></span>
-                  <a href="mailto:info@ivprotech.com" class="hover:text-orange-500">info@ivprotech.com</a>
-                </li>
-                <li class="flex items-center gap-3">
-                  <span class="icon-badge w-9 h-9"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m-15.432 0A8.959 8.959 0 013 12c0-.778.099-1.533.284-2.253" /></svg></span>
-                  <a href="https://www.ivprotech.com" target="_blank" rel="noopener" class="hover:text-orange-500">www.ivprotech.com</a>
-                </li>
-                <li class="flex items-center gap-3">
-                  <span class="icon-badge w-9 h-9"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a1.5 1.5 0 001.5-1.5v-3.129a1.5 1.5 0 00-1.166-1.462l-4.256-1.052a1.5 1.5 0 00-1.514.44l-.984 1.203a11.25 11.25 0 01-5.865-5.865l1.203-.984a1.5 1.5 0 00.44-1.514L8.354 3.416A1.5 1.5 0 006.892 2.25H3.75a1.5 1.5 0 00-1.5 1.5v3z" /></svg></span>
-                  <a href="tel:+919113981365" class="hover:text-orange-500">+91 9113981365</a>
-                </li>
-              </ul>
-            </div>
-
-            <form class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="150">
-              <input
-                type="text"
-                placeholder="Your Name"
-                class="w-full p-3 mb-3 rounded-md border focus:ring-2 focus:ring-orange-400 focus:outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                class="w-full p-3 mb-3 rounded-md border focus:ring-2 focus:ring-orange-400 focus:outline-none"
-              />
-              <textarea
-                placeholder="Your Message"
-                rows="5"
-                class="w-full p-3 mb-3 rounded-md border focus:ring-2 focus:ring-orange-400 focus:outline-none"
-              ></textarea>
-              <button
-                type="submit"
-                class="bg-navy text-white px-6 py-2.5 rounded-full hover:bg-orange-500 transform hover:scale-105 transition"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Floating CTA -->
-    <a
-      href="#contact"
-      class="floating-btn bg-gradient-to-r from-orange-500 to-orange-400 text-navy px-5 py-3 rounded-full shadow-lg hover:scale-110 transform transition font-semibold"
-      >Request Consultation</a
-    >
-
-    <!-- Footer -->
-    <footer class="bg-navy-dark text-gray-300 py-8">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <img src="images/icon.png" class="h-8" alt="IVPRO icon" />
-          <div>
-            <p class="text-white font-semibold">IVPRO Tech Solutions</p>
-            <p class="text-xs text-gray-400">Intelligent Vision Into Reality</p>
-          </div>
-        </div>
-        <p class="text-xs text-gray-400 text-center">&copy; 2026 IVPRO Tech Solutions. All rights reserved.</p>
-        <div class="flex gap-4 text-sm">
-          <a href="#services" class="hover:text-orange-400 transition">Services</a>
-          <a href="#solutions" class="hover:text-orange-400 transition">Solutions</a>
-          <a href="#contact" class="hover:text-orange-400 transition">Contact</a>
         </div>
       </div>
-    </footer>
-    <script>
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
 
-      // Toggle mobile nav
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
+      <!-- Vision Pipeline — blended into hero -->
+      <div class="hero__pipeline" id="visionPipeline">
+        <p class="hero__pipeline-label">How Our AI Vision Works</p>
+        <div class="vp__stages">
+          <!-- Stage 1: Image Capture -->
+          <div class="vp__card" data-stage="1">
+            <div class="vp__viewfinder">
+              <div class="vp__scan-line"></div>
+              <div class="vp__viewfinder-crosshair"></div>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <span class="vp__capture-label">LIVE CAPTURE</span>
+          </div>
+          <!-- Stage 2: Defect Detection -->
+          <div class="vp__card" data-stage="2">
+            <div class="vp__defect-grid">
+              <div class="vp__defect-marker vp__defect-marker--fail" style="top:12px;left:14px;">&#10005;</div>
+              <div class="vp__defect-marker vp__defect-marker--pass" style="top:10px;right:16px;">&#10003;</div>
+              <div class="vp__defect-marker vp__defect-marker--fail" style="bottom:14px;left:40px;">&#10005;</div>
+              <div class="vp__defect-marker vp__defect-marker--pass" style="bottom:12px;right:14px;">&#10003;</div>
+            </div>
+            <span class="vp__capture-label">DEFECTS FOUND</span>
+          </div>
+          <!-- Stage 3: Analysis -->
+          <div class="vp__card" data-stage="3">
+            <div class="vp__analysis-bars">
+              <div class="vp__analysis-row"><span class="vp__analysis-label">Scratch</span><div class="vp__analysis-track"><div class="vp__analysis-fill" style="--fill-w:85%;background:var(--color-error);"></div></div><span class="vp__analysis-pct">85%</span></div>
+              <div class="vp__analysis-row"><span class="vp__analysis-label">Dent</span><div class="vp__analysis-track"><div class="vp__analysis-fill" style="--fill-w:62%;background:var(--color-warning);"></div></div><span class="vp__analysis-pct">62%</span></div>
+              <div class="vp__analysis-row"><span class="vp__analysis-label">Crack</span><div class="vp__analysis-track"><div class="vp__analysis-fill" style="--fill-w:93%;background:var(--color-accent);"></div></div><span class="vp__analysis-pct">93%</span></div>
+              <div class="vp__analysis-row"><span class="vp__analysis-label">Stain</span><div class="vp__analysis-track"><div class="vp__analysis-fill" style="--fill-w:41%;background:var(--color-success);"></div></div><span class="vp__analysis-pct">41%</span></div>
+            </div>
+            <span class="vp__capture-label">CLASSIFIED</span>
+          </div>
+          <!-- Stage 4: Dashboard -->
+          <div class="vp__card" data-stage="4">
+            <div class="vp__dashboard">
+              <div class="vp__dash-header"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Live Dashboard</div>
+              <div class="vp__dash-stats">
+                <div class="vp__dash-stat"><div class="vp__dash-stat-num" style="color:var(--color-success);">99.2%</div><div class="vp__dash-stat-label">Pass Rate</div></div>
+                <div class="vp__dash-stat"><div class="vp__dash-stat-num" style="color:var(--color-error);">0.8%</div><div class="vp__dash-stat-label">Defect Rate</div></div>
+                <div class="vp__dash-stat"><div class="vp__dash-stat-num">1,247</div><div class="vp__dash-stat-label">Inspected</div></div>
+                <div class="vp__dash-stat"><div class="vp__dash-stat-num" style="color:var(--color-accent);">12ms</div><div class="vp__dash-stat-label">Latency</div></div>
+              </div>
+              <svg class="vp__mini-chart" viewBox="0 0 150 32" fill="none"><path d="M0 28 Q15 26 25 22 T50 18 T75 10 T100 14 T125 6 T150 8" stroke="var(--color-accent)" stroke-width="2" fill="none"/><path d="M0 28 Q15 26 25 22 T50 18 T75 10 T100 14 T125 6 T150 8 V32 H0 Z" fill="url(#vpChartGradHome)" opacity="0.15"/><defs><linearGradient id="vpChartGradHome" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--color-accent)"/><stop offset="100%" stop-color="transparent"/></linearGradient></defs></svg>
+            </div>
+          </div>
+          <!-- Stage 5: Predictions -->
+          <div class="vp__card" data-stage="5">
+            <div class="vp__predictions">
+              <div class="vp__pred-card"><div class="vp__pred-icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="vp__pred-text"><strong>Trend Forecast</strong>Defect rate &#8595; 12% next week</div></div>
+              <div class="vp__pred-card"><div class="vp__pred-icon" style="background:rgba(247,148,29,0.1);color:var(--color-accent-orange);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="vp__pred-text"><strong>Early Warning</strong>Mold wear &mdash; replace in 3 days</div></div>
+              <div class="vp__pred-card"><div class="vp__pred-icon" style="background:rgba(16,185,129,0.1);color:var(--color-success);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="vp__pred-text"><strong>Quality Score</strong>98.7% &mdash; trending up</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Timeline -->
+        <div class="vp__timeline">
+          <div class="vp__timeline-progress"></div>
+          <div class="vp__step" data-stage="1"><div class="vp__step-dot">1</div><div class="vp__step-title">Image Capture</div></div>
+          <div class="vp__step" data-stage="2"><div class="vp__step-dot">2</div><div class="vp__step-title">Defect Detection</div></div>
+          <div class="vp__step" data-stage="3"><div class="vp__step-dot">3</div><div class="vp__step-title">Analysis &amp; Classification</div></div>
+          <div class="vp__step" data-stage="4"><div class="vp__step-dot">4</div><div class="vp__step-title">Dashboard &amp; Reports</div></div>
+          <div class="vp__step" data-stage="5"><div class="vp__step-dot">5</div><div class="vp__step-title">Predictive Insights</div></div>
+        </div>
+        <div style="text-align:center;margin-top:var(--space-6);">
+          <a href="pages/solution-vision.html" class="btn btn--primary">Explore Vision System <span class="btn-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      // Close mobile nav when clicking a link
-      document.querySelectorAll(".mobile-link").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
+  <!-- ======== EXPERTISE SECTION ======== -->
+  <section class="section expertise" id="expertise">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Our Core Expertise</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Combining cutting-edge technology with deep industry knowledge to deliver transformative solutions.</p>
+      </div>
+      <div class="expertise__grid stagger-children" style="margin-top: var(--space-9);">
+        <div class="card expertise__card">
+          <div class="expertise__visual">
+            <img src="assets/AI_Vision_System.png" alt="AI Vision Systems">
+          </div>
+          <h3 class="card__title">AI Vision Systems</h3>
+          <p class="card__text">Advanced computer vision for defect detection, object counting, OCR, and quality inspection.</p>
+        </div>
+        <div class="card expertise__card">
+          <div class="expertise__visual">
+            <img src="assets/IOT_System.png" alt="IoT and Industrial Automation">
+          </div>
+          <h3 class="card__title">IoT & Industrial Automation</h3>
+          <p class="card__text">Connect machines, sensors, and systems for real-time monitoring and intelligent automation.</p>
+        </div>
+        <div class="card expertise__card">
+          <div class="expertise__visual">
+            <img src="assets/Software_Engineering.png" alt="Software Development">
+          </div>
+          <h3 class="card__title">Software Development</h3>
+          <p class="card__text">Custom web, mobile, and enterprise applications built with modern technologies.</p>
+        </div>
+        <div class="card expertise__card">
+          <div class="expertise__visual">
+            <img src="assets/data_integration.png" alt="Data Integration">
+          </div>
+          <h3 class="card__title">Data Integration</h3>
+          <p class="card__text">Seamless data connectivity between PLCs, ERPs, and cloud dashboards for full visibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SOLUTIONS SECTION ======== -->
+  <section class="section section--dark solutions-preview" id="solutions">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label" style="color: var(--color-accent);">Our Solutions</span>
+        <h2 class="section-title text-white">Key Solutions for Modern Industry</h2>
+        <p class="section-subtitle" style="margin: 0 auto; color: rgba(255,255,255,0.65);">Purpose-built solutions that solve real industrial challenges with precision and intelligence.</p>
+      </div>
+      <div class="solutions-preview__grid stagger-children" style="margin-top: var(--space-9);">
+        <a href="pages/solution-vision.html" class="card card--dark solution-card solution-card--cyan">
+          <span class="solution-card__number">01</span>
+          <div class="solution-card__icon solution-card__icon--blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="6" width="12" height="10" rx="2"/>
+              <circle cx="10" cy="11" r="2.6"/>
+              <path d="M16 9.5l4-2.5v8l-4-2.5"/>
+              <path d="M7 20h6"/>
+              <path d="M10 16v4"/>
+              <path d="M2.5 4.5h3"/>
+              <path d="M18.5 4.5h3"/>
+              <path d="M2.5 17.5h3"/>
+              <path d="M18.5 17.5h3"/>
+            </svg>
+          </div>
+          <h3 class="solution-card__title">Vision Inspection</h3>
+          <p class="solution-card__text">AI-powered visual inspection for defect detection, object counting, and quality assurance in production lines.</p>
+          <span class="solution-card__link">Learn More <span class="btn-arrow">&rarr;</span></span>
+        </a>
+        <a href="pages/solution-automation.html" class="card card--dark solution-card solution-card--blue">
+          <span class="solution-card__number">02</span>
+          <div class="solution-card__icon solution-card__icon--blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="solution-card__title">Industrial Automation</h3>
+          <p class="solution-card__text">Process automation, machine communication, and efficiency improvement through intelligent systems.</p>
+          <span class="solution-card__link">Learn More <span class="btn-arrow">&rarr;</span></span>
+        </a>
+        <a href="pages/solution-iot.html" class="card card--dark solution-card solution-card--green">
+          <span class="solution-card__number">03</span>
+          <div class="solution-card__icon solution-card__icon--green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 2v5"/><path d="M8 2v5"/><circle cx="12" cy="14" r="2"/></svg>
+          </div>
+          <h3 class="solution-card__title">IoT Solutions</h3>
+          <p class="solution-card__text">Sensor-based monitoring, remote device control, and real-time alerts for complete operational visibility.</p>
+          <span class="solution-card__link">Learn More <span class="btn-arrow">&rarr;</span></span>
+        </a>
+        <a href="pages/solution-pokayoke.html" class="card card--dark solution-card solution-card--orange">
+          <span class="solution-card__number">04</span>
+          <div class="solution-card__icon solution-card__icon--orange">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h3 class="solution-card__title">Poka-Yoke Systems</h3>
+          <p class="solution-card__text">Error prevention and assembly validation systems that ensure mistake-proof manufacturing workflows.</p>
+          <span class="solution-card__link">Learn More <span class="btn-arrow">&rarr;</span></span>
+        </a>
+        <a href="pages/solution-barcode.html" class="card card--dark solution-card solution-card--amber">
+          <span class="solution-card__number">05</span>
+          <div class="solution-card__icon solution-card__icon--orange">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="7" x2="7" y2="17"/><line x1="10" y1="7" x2="10" y2="17"/><line x1="13" y1="7" x2="13" y2="11"/><line x1="16" y1="7" x2="16" y2="17"/></svg>
+          </div>
+          <h3 class="solution-card__title">Barcode &amp; RFID Tracking</h3>
+          <p class="solution-card__text">End-to-end product tracking, inventory management, and asset monitoring with barcode and RFID technology.</p>
+          <span class="solution-card__link">Learn More <span class="btn-arrow">&rarr;</span></span>
+        </a>
+        <div class="card card--glass solution-card solution-card--cta flex flex--center flex--col" style="text-align:center; cursor:default;">
+          <h3 class="solution-card__title text-white">Need a Custom Solution?</h3>
+          <p class="solution-card__text" style="color: rgba(255,255,255,0.7);">Let's discuss your unique requirements and build something extraordinary.</p>
+          <a href="pages/contact.html" class="btn btn--primary btn--sm" style="margin-top: var(--space-5);">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CASE STUDIES SECTION ======== -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Our Work</span>
+        <h2 class="section-title">Case Studies & Showcase</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">See how we've helped businesses transform their operations with intelligent technology.</p>
+      </div>
+      <div class="case-studies__grid stagger-children" style="margin-top: var(--space-9);">
+        <div class="card case-study-card">
+          <div class="case-study-card__visual">
+            <img src="assets/defect_detection_ai.png" alt="Defect Detection System in Production Line">
+          </div>
+          <div class="case-study-card__content">
+            <span class="badge badge--accent case-study-card__badge">AI Vision</span>
+            <h3 class="case-study-card__title">Defect Detection System in Production Line</h3>
+            <p class="case-study-card__text">Automated visual inspection system detecting scratches, dents, and surface defects with 99% accuracy.</p>
+          </div>
+        </div>
+        <div class="card case-study-card">
+          <div class="case-study-card__visual">
+            <img src="assets/Real_time_dashboard.png" alt="Real-time Dashboard for PLC Data">
+          </div>
+          <div class="case-study-card__content">
+            <span class="badge badge--orange case-study-card__badge">IoT Dashboard</span>
+            <h3 class="case-study-card__title">Real-time Dashboard for PLC Data</h3>
+            <p class="case-study-card__text">Live data visualization connecting PLC systems to cloud dashboards for instant operational insights.</p>
+          </div>
+        </div>
+        <div class="card case-study-card">
+          <div class="case-study-card__visual">
+            <img src="assets/RFID_Tracking.png" alt="RFID-Based Asset Tracking for Warehouse">
+          </div>
+          <div class="case-study-card__content">
+            <span class="badge badge--accent case-study-card__badge">RFID</span>
+            <h3 class="case-study-card__title">RFID-Based Asset Tracking for Warehouse</h3>
+            <p class="case-study-card__text">Automated RFID asset tracking across warehouse zones — real-time location, movement history, and instant inventory reconciliation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA BANNER ======== -->
+  <section class="section section--dark cta-banner">
+    <div class="cta-banner__bg"></div>
+    <div class="container">
+      <div class="cta-banner__content reveal">
+        <h2 class="cta-banner__title">Let's Build Your <span class="highlight">Smart Factory</span></h2>
+        <p class="cta-banner__text">Ready to transform your operations with AI, IoT, and automation? Let's start a conversation.</p>
+        <div class="flex flex--center flex--gap">
+          <a href="pages/contact.html" class="btn btn--primary btn--lg">Get Started <span class="btn-arrow">&rarr;</span></a>
+          <a href="pages/solutions.html" class="btn btn--secondary btn--lg">View Solutions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initApp('home');
+    });
+  </script>
+
+  <!-- Pipeline Animations -->
+  <script>
+  (function() {
+    /* ---- Config ---- */
+    var pipelineStates = {};
+    var pipelineCfg = {
+      visionPipeline:      { sel: '.vp__card',   color: 'rgba(247,148,29,0.32)',   bright: '#F7941D' }
+    };
+
+    /* ---- Easings ---- */
+    function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+    function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+    /* ---- Get connector coords using offsetTop/Left (unaffected by CSS transforms) ---- */
+    function getCoords(sectionId, index) {
+      var cfg = pipelineCfg[sectionId];
+      var section = document.getElementById(sectionId);
+      var cards = section.querySelectorAll(cfg.sel);
+      var from = cards[index - 1];
+      var to = cards[index];
+      var sameRow = Math.abs(from.offsetTop - to.offsetTop) < 30;
+      var x1, y1, x2, y2;
+      if (sameRow) {
+        x1 = from.offsetLeft + from.offsetWidth + 6;
+        y1 = from.offsetTop + from.offsetHeight / 2;
+        x2 = to.offsetLeft - 6;
+        y2 = to.offsetTop + to.offsetHeight / 2;
+      } else {
+        x1 = from.offsetLeft + from.offsetWidth / 2;
+        y1 = from.offsetTop + from.offsetHeight + 6;
+        x2 = to.offsetLeft + to.offsetWidth / 2;
+        y2 = to.offsetTop - 6;
+      }
+      return { x1: x1, y1: y1, x2: x2, y2: y2, container: cards[0].parentElement };
+    }
+
+    /* ---- Ensure persistent SVG overlay for a pipeline ---- */
+    function ensureSvg(sectionId) {
+      var cfg = pipelineCfg[sectionId];
+      var section = document.getElementById(sectionId);
+      var cards = section.querySelectorAll(cfg.sel);
+      var container = cards[0].parentElement;
+      container.style.position = 'relative';
+      var svg = container.querySelector('.pipeline-connectors');
+      if (!svg) {
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'pipeline-connectors');
+        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible;';
+        var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        var filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+        filter.setAttribute('id', 'plGlow-' + sectionId);
+        filter.setAttribute('x', '-100%'); filter.setAttribute('y', '-100%');
+        filter.setAttribute('width', '300%'); filter.setAttribute('height', '300%');
+        var blur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+        blur.setAttribute('stdDeviation', '4'); blur.setAttribute('result', 'b');
+        filter.appendChild(blur);
+        var merge = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
+        ['b', 'SourceGraphic'].forEach(function(inp) {
+          var mn = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
+          mn.setAttribute('in', inp); merge.appendChild(mn);
         });
-      });
-    </script>
-    <script>
-      AOS.init({ duration: 900, once: true });
-      // Parallax
-      window.addEventListener("scroll", function () {
-        const scrollPos = window.pageYOffset;
-        document.querySelectorAll(".parallax").forEach((el) => {
-          el.style.transform = `translateY(${scrollPos * 0.18}px)`;
+        filter.appendChild(merge);
+        defs.appendChild(filter);
+        svg.appendChild(defs);
+        container.appendChild(svg);
+      }
+      return svg;
+    }
+
+    /* ---- Phase 1: Animate dashed line growing from prev card to next ---- */
+    function growLine(sectionId, index, cb) {
+      var cfg = pipelineCfg[sectionId];
+      var c = getCoords(sectionId, index);
+      var svg = ensureSvg(sectionId);
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1);
+      line.setAttribute('x2', c.x1); line.setAttribute('y2', c.y1);
+      line.setAttribute('stroke', cfg.color);
+      line.setAttribute('stroke-width', '2');
+      line.setAttribute('stroke-dasharray', '6,6');
+      svg.appendChild(line);
+      var dur = 280;
+      var start = performance.now();
+      function tick(now) {
+        var t = Math.min((now - start) / dur, 1);
+        t = easeOut(t);
+        line.setAttribute('x2', c.x1 + (c.x2 - c.x1) * t);
+        line.setAttribute('y2', c.y1 + (c.y2 - c.y1) * t);
+        if (t < 1) requestAnimationFrame(tick);
+        else cb();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    /* ---- Phase 3: Smooth light pulse along connector (rAF-driven) ---- */
+    function sendPulse(sectionId, index, cb) {
+      var cfg = pipelineCfg[sectionId];
+      var c = getCoords(sectionId, index);
+      var svg = ensureSvg(sectionId);
+      var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      var outer = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      outer.setAttribute('r', '6'); outer.setAttribute('fill', cfg.bright);
+      outer.setAttribute('opacity', '0.45');
+      outer.setAttribute('filter', 'url(#plGlow-' + sectionId + ')');
+      g.appendChild(outer);
+      var inner = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      inner.setAttribute('r', '2.5'); inner.setAttribute('fill', '#fff');
+      inner.setAttribute('opacity', '0.95');
+      g.appendChild(inner);
+      g.setAttribute('transform', 'translate(' + c.x1 + ',' + c.y1 + ')');
+      svg.appendChild(g);
+      var dur = 550;
+      var start = performance.now();
+      function tick(now) {
+        var t = Math.min((now - start) / dur, 1);
+        t = easeInOut(t);
+        var x = c.x1 + (c.x2 - c.x1) * t;
+        var y = c.y1 + (c.y2 - c.y1) * t;
+        g.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+        if (t < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          var fadeStart = performance.now();
+          function fadeOut(now2) {
+            var ft = Math.min((now2 - fadeStart) / 220, 1);
+            g.setAttribute('opacity', String(1 - ft));
+            if (ft < 1) requestAnimationFrame(fadeOut);
+            else { g.remove(); cb(); }
+          }
+          requestAnimationFrame(fadeOut);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    /* ---- Draw all connectors statically (resize / non-animated redraw) ---- */
+    function drawStatic(sectionId, activeIndex) {
+      var cfg = pipelineCfg[sectionId];
+      if (!cfg) return;
+      var section = document.getElementById(sectionId);
+      if (!section) return;
+      section.querySelectorAll('.pipeline-connectors').forEach(function(el) { el.remove(); });
+      if (window.innerWidth > 768 || activeIndex < 1) return;
+      var cards = section.querySelectorAll(cfg.sel);
+      if (cards.length < 2) return;
+      var svg = ensureSvg(sectionId);
+      var limit = Math.min(activeIndex, cards.length - 1);
+      for (var i = 1; i <= limit; i++) {
+        var c = getCoords(sectionId, i);
+        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1);
+        line.setAttribute('x2', c.x2); line.setAttribute('y2', c.y2);
+        line.setAttribute('stroke', cfg.color);
+        line.setAttribute('stroke-width', '2');
+        line.setAttribute('stroke-dasharray', '6,6');
+        svg.appendChild(line);
+      }
+    }
+
+    /* ---- Pipeline step animation engine ---- */
+    function initPipeline(sectionId, cardSel, stepSel, progressSel) {
+      var section = document.getElementById(sectionId);
+      if (!section) return;
+      var cards    = section.querySelectorAll(cardSel);
+      var steps    = section.querySelectorAll(stepSel);
+      var progress = section.querySelector(progressSel);
+      var total    = cards.length;
+      var started  = false;
+      var running  = false;
+
+      function activateUpTo(index) {
+        cards.forEach(function(c, i) { c.classList.toggle('active', i <= index); });
+        steps.forEach(function(s, i) { s.classList.toggle('active', i <= index); });
+        if (progress) progress.style.width = (index / (total - 1)) * 100 + '%';
+        pipelineStates[sectionId] = index;
+      }
+
+      /* Mobile: sequenced — line draws → card appears → light pulse glides */
+      function runMobile() {
+        cards.forEach(function(c) { c.classList.remove('active'); });
+        steps.forEach(function(s) { s.classList.remove('active'); });
+        if (progress) progress.style.width = '0%';
+        pipelineStates[sectionId] = -1;
+        section.querySelectorAll('.pipeline-connectors').forEach(function(el) { el.remove(); });
+
+        var i = 0;
+        function next() {
+          if (!running) return;
+          if (i >= total) {
+            setTimeout(function() { if (running) runMobile(); }, 5000);
+            return;
+          }
+          if (i === 0) {
+            activateUpTo(0);
+            i++;
+            setTimeout(next, 500);
+          } else {
+            var idx = i;
+            // Phase 1: grow the dashed connector line
+            growLine(sectionId, idx, function() {
+              if (!running) return;
+              // Phase 2: show the destination card
+              activateUpTo(idx);
+              // Phase 3: after card CSS transition, send light pulse
+              setTimeout(function() {
+                if (!running) return;
+                sendPulse(sectionId, idx, function() {
+                  i++;
+                  setTimeout(next, 80);
+                });
+              }, 380);
+            });
+          }
+        }
+        setTimeout(next, 300);
+      }
+
+      /* Desktop: simple interval with timeline progress */
+      function runDesktop() {
+        cards.forEach(function(c) { c.classList.remove('active'); });
+        steps.forEach(function(s) { s.classList.remove('active'); });
+        if (progress) progress.style.width = '0%';
+        pipelineStates[sectionId] = -1;
+        var i = 0;
+        var iv = setInterval(function() {
+          if (!running) { clearInterval(iv); return; }
+          activateUpTo(i);
+          i++;
+          if (i >= total) {
+            clearInterval(iv);
+            setTimeout(function() { if (running) runDesktop(); }, 5000);
+          }
+        }, 1200);
+      }
+
+      function run() {
+        running = true;
+        if (window.innerWidth <= 768) runMobile();
+        else runDesktop();
+      }
+
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            run();
+          }
         });
-      });
-    </script>
-  </body>
+      }, { threshold: 0.15 }).observe(section);
+    }
+
+    // Initialize all pipelines
+    initPipeline('visionPipeline',      '.vp__card',   '.vp__step',   '.vp__timeline-progress');
+
+    // Resize: redraw connectors statically
+    var _pRT;
+    window.addEventListener('resize', function() {
+      clearTimeout(_pRT);
+      _pRT = setTimeout(function() {
+        Object.keys(pipelineStates).forEach(function(id) {
+          if (pipelineStates[id] >= 0) drawStatic(id, pipelineStates[id]);
+        });
+      }, 250);
+    });
+  })();
+  </script>
+</body>
 </html>
-
