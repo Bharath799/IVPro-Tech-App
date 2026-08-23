@@ -118,20 +118,7 @@ function renderNavigation(activePage = 'home') {
     document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
   });
 
-  // Mobile dropdown toggle
-  mainNav.querySelectorAll('.nav__item--dropdown > .nav__link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 1024) {
-        e.preventDefault();
-        const parent = link.parentElement;
-        // Close other open dropdowns
-        mainNav.querySelectorAll('.nav__item--dropdown.open').forEach(item => {
-          if (item !== parent) item.classList.remove('open');
-        });
-        parent.classList.toggle('open');
-      }
-    });
-  });
+  // Dropdowns are revealed with CSS hover/focus so top-level links still navigate normally.
 
   // Close mobile nav on link click
   mainNav.querySelectorAll('.nav__dropdown-link, .nav__cta').forEach(link => {
