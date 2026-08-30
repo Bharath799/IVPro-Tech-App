@@ -811,6 +811,13 @@
   gap: var(--space-5);
 }
 
+.contact-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .contact-form__title {
   font-size: var(--fs-h3);
   margin-bottom: var(--space-2);
@@ -864,6 +871,34 @@
 .contact-form__textarea {
   resize: vertical;
   min-height: 140px;
+}
+
+.contact-form__submit:disabled {
+  cursor: wait;
+  opacity: 0.78;
+}
+
+.contact-form__status {
+  display: none;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-1);
+}
+
+.contact-form__status.is-visible {
+  display: flex;
+}
+
+.contact-form__success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+}
+
+.contact-form__error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-error);
 }
 
 .form-group {

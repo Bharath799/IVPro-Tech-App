@@ -44,7 +44,10 @@
         <div class="contact-form-wrap reveal">
           <h2 style="font-size:var(--fs-h3);margin-bottom:var(--space-2);">Send Us a Message</h2>
           <p style="color:var(--color-text-secondary);margin-bottom:var(--space-6);">Fill out the form below and we'll get back to you within 24 hours.</p>
-          <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.contact-form__success').style.display='flex'; this.reset();">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/mnpqneeq" method="POST">
+            <input type="hidden" name="_subject" value="New website enquiry from IVPRO Tech Solutions">
+            <input type="hidden" name="_replyto" id="replyToEmail">
+            <input type="text" name="_gotcha" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="contact-form__row">
               <div class="contact-form__group">
                 <label class="contact-form__label" for="name">Full Name <span style="color:var(--color-error);">*</span></label>
@@ -58,7 +61,7 @@
             <div class="contact-form__row">
               <div class="contact-form__group">
                 <label class="contact-form__label" for="phone">Phone Number</label>
-                <input class="contact-form__input" type="tel" id="phone" name="phone" placeholder="+91 9113981365" autocomplete="tel">
+                <input class="contact-form__input" type="tel" id="phone" name="phone" placeholder="+__ ____ ____ ____" autocomplete="tel">
               </div>
               <div class="contact-form__group">
                 <label class="contact-form__label" for="subject">Subject</label>
@@ -77,10 +80,16 @@
               <label class="contact-form__label" for="message">Message <span style="color:var(--color-error);">*</span></label>
               <textarea class="contact-form__input contact-form__textarea" id="message" name="message" placeholder="Tell us about your project or question..." rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn btn--primary btn--lg" style="width:100%;">Send Message <span class="btn-arrow">&rarr;</span></button>
-            <div class="contact-form__success" style="display:none;align-items:center;gap:var(--space-3);padding:var(--space-4);background:rgba(16,185,129,0.1);border-radius:var(--radius-md);margin-top:var(--space-4);color:var(--color-success);">
+            <button type="submit" class="btn btn--primary btn--lg contact-form__submit" style="width:100%;">
+              <span class="contact-form__submit-text">Send Message</span> <span class="btn-arrow">&rarr;</span>
+            </button>
+            <div class="contact-form__status contact-form__success" role="status" aria-live="polite">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               <span>Thank you! Your message has been sent. We'll get back to you soon.</span>
+            </div>
+            <div class="contact-form__status contact-form__error" role="alert" aria-live="assertive">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Sorry, your message could not be sent. Please try again or email us directly at info@ivprotech.com.</span>
             </div>
           </form>
         </div>
@@ -121,6 +130,64 @@
   </section>
 
   <script src="../js/components.js"></script>
-  <script>document.addEventListener('DOMContentLoaded', () => initApp('contact'));</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initApp('contact');
+
+      const form = document.getElementById('contactForm');
+      const submitButton = form.querySelector('.contact-form__submit');
+      const submitText = form.querySelector('.contact-form__submit-text');
+      const successMessage = form.querySelector('.contact-form__success');
+      const errorMessage = form.querySelector('.contact-form__error');
+      const defaultSubmitText = submitText.textContent;
+
+      function setStatus(type) {
+        successMessage.classList.toggle('is-visible', type === 'success');
+        errorMessage.classList.toggle('is-visible', type === 'error');
+      }
+
+      function setLoading(isLoading) {
+        submitButton.disabled = isLoading;
+        submitText.textContent = isLoading ? 'Sending...' : defaultSubmitText;
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        setStatus(null);
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        if (form.action.includes('REPLACE_WITH_FORM_ID')) {
+          setStatus('error');
+          return;
+        }
+
+        setLoading(true);
+        form.querySelector('#replyToEmail').value = form.email.value;
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' }
+          });
+
+          if (!response.ok) {
+            throw new Error('Form submission failed');
+          }
+
+          form.reset();
+          setStatus('success');
+        } catch (error) {
+          setStatus('error');
+        } finally {
+          setLoading(false);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
